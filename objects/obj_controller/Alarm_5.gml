@@ -623,7 +623,7 @@ if (tech_points>=4) and (tech_aspirant==0){
                 scr_add_item(obj_ini.mobi[0,g1],1);
                 obj_ini.mobi[0,g1]="";
             }
-            scr_alert("green","recruitment",string(obj_ini.role[100,16])+" Aspirant "+string(obj_ini.name[0,g1])+" journeys to Mars.",0,0);
+            scr_alert("green","recruitment",string(obj_ini.role[100,16])+" Aspirant "+ string(obj_ini.name[0,g1])+" journeys to Mars.",0,0);
             with(obj_ini){
                 scr_company_order(marine_company);
                 scr_company_order(0);
@@ -631,7 +631,7 @@ if (tech_points>=4) and (tech_aspirant==0){
         }    
     } else{
         training_techmarine = 0;
-        scr_alert("red",string("recruitment","No marines with sufficient technology aptitude for {0} training",obj_ini.role[100,16]),0,0);
+        scr_alert("red","recruitment","No marines with sufficient technology aptitude for {0} training" + string(obj_ini.role[100,16]),0,0);
     }
 }
 recruit_count=0;
