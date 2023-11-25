@@ -1,4 +1,4 @@
-
+/*
 action="move";
 animation="";
 range=400;
@@ -59,7 +59,7 @@ repeat(21){i+=1;
     marine_wep2_ammo[i]=0;
     marine_wep2_reload[i]=0;
     marine_wep2_spec[i]=0;*/
-    marine_cqc[i]=0;
+/*    marine_cqc[i]=0;
     
     marine_ranged[i]=1;
     marine_melee[i]=1;
@@ -69,7 +69,7 @@ repeat(21){i+=1;
 // Bolter Ammo: 50
 // Bolter Reload: 10
 // once reload = 0 then it sets reload to negative something; each step is +=1, once it gets to -1 then ammo-=10 and reload=10
-
+/*
 i=-1;repeat(41){i+=1;
     weapon_group[i]="";
     weapon_num[i]=0;
@@ -106,6 +106,7 @@ i=0;repeat(10){i+=1;
     /*marine_wep2[i]="Chainsword";
     marine_wep2_ammo[i]=0;
     marine_wep2_reload[i]=999;*/
+	/*
 }
 
 
