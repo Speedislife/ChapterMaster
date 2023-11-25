@@ -1,33 +1,4 @@
-enum P_features {
-			Sororitas_Cathedral,
-			Necron_Tomb,
-			Artifact, 
-			STC_Fragment,
-			Ancient_Ruins,
-			Cave_Network,
-			Recruiting_World, 
-			Monastery,
-			Warlord6,
-			Warlord7,
-			Warlord10,
-			Special_Force,
-			World_Eaters,
-			Webway,
-			Secret_Base,
-			Starship,
-			Succession_War,
-			Mechanicus_Forge,
-			Reclamation_pools,
-			Capillary_Towers,
-			Daemonic_Incursion,
-			Victory_Shrine,
-			Arsenal,
-			Gene_Vault,
-	};
-	
-enum base_type{
-	Lair,
-}
+
 	// Function creates a new struct planet feature of a  specified type
 function new_planet_feature(feature_type, other_data={}) constructor{
 	f_type = feature_type;

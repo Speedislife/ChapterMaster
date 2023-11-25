@@ -4,8 +4,11 @@ if __b__
 {
 
 var xx,yy;
-xx=__view_get( e__VW.XView, 0 )+0;yy=__view_get( e__VW.YView, 0 )+0;
-if (instance_exists(obj_main_menu)){xx=0;yy=0;}
+xx=__view_get( E__VW.XVIEW, 0 ) + 0; yy = __view_get( E__VW.YVIEW, 0 )+0;
+if (instance_exists(obj_main_menu))
+	{
+	xx=0;yy=0;
+	}
 
 
 
@@ -31,7 +34,8 @@ if (instance_exists(obj_main_menu)){xx=0;yy=0;}
 }*/
 
 
-if (save_part+load_part>0){
+if (save_part+load_part>0)
+{
     draw_set_color(0);
     
     // 
@@ -66,9 +70,10 @@ if (save_part+load_part>0){
 
 
 
-if (menu=1) or (menu=2){// This is the other one
+if (menu = 1) or (menu=2)
+{// This is the other one
     draw_set_color(0);draw_set_alpha(0.75);
-    if (room_get_name(room)!="Main_Menu") then draw_rectangle(0,0,room_width,room_height,0);
+    if (room_get_name(room)!="Main_Menu") then draw_rectangle(0, 0, room_width, room_height, 0);
     if (room_get_name(room)="Main_Menu") then draw_rectangle(0,0,room_width,707,0);
     draw_set_alpha(1);
     
@@ -86,7 +91,7 @@ if (menu=1) or (menu=2){// This is the other one
     if (menu=2) then draw_sprite(spr_save_headers,0,xx+800,yy+60);
     draw_sprite(spr_save_footer,0,xx+0,yy+797);
     
-    var o,x2,y2,s;o=top;x2=__view_get( e__VW.XView, 0 )+32;y2=__view_get( e__VW.YView, 0 )+166;s=0;
+    var o,x2,y2,s;o=top;x2=__view_get( E__VW.XVIEW, 0 )+32;y2=__view_get( E__VW.YVIEW, 0 )+166;s=0;
     repeat(4){
         if ((save[o]>0) or ((first_open=o) and (menu=1)) or (global.load=o) or (save_number=o)) and (save_number=0){s=save[o];
             draw_set_font(fnt_40k_30b);
@@ -214,12 +219,13 @@ if (menu=1) or (menu=2){// This is the other one
                     
                     // show_message("loading 'save"+string(save[o])+".ini'");
                     
-                    if (instance_exists(obj_main_menu)){
-                        with(obj_main_menu){
-                            part_particles_clear(p_system);
-                            instance_destroy();
-                        }
-                    }
+                    if (instance_exists(obj_main_menu))
+						{
+	                        with(obj_main_menu){
+	                            part_particles_clear(p_system);
+	                            instance_destroy();
+	                        }
+	                    }
                     
                     with(obj_controller){instance_destroy();}
                     with(obj_creation){instance_destroy();}
@@ -272,14 +278,16 @@ if (menu=1) or (menu=2){// This is the other one
 
     
     
-if (instance_exists(obj_main_menu_buttons)){
-    if (obj_main_menu_buttons.fade>0){
-        draw_set_color(0);
-        draw_set_alpha(obj_main_menu_buttons.fade/40);
-        draw_rectangle(0,0,room_width,room_height,0);
-    }
-    draw_set_alpha(1);
-}
+if (instance_exists(obj_main_menu_buttons))
+	{
+	    if (obj_main_menu_buttons.fade>0)
+			{
+		        draw_set_color(0);
+		        draw_set_alpha(obj_main_menu_buttons.fade/40);
+		        draw_rectangle(0,0,room_width,room_height,0);
+		    }
+	    draw_set_alpha(1);
+	}
 
 }
 

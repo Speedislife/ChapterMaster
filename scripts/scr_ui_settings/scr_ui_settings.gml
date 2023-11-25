@@ -7,8 +7,8 @@ function scr_ui_settings() {
 	var che,cx,cy;
 	var x5=0,y5=0,x6=0;
 	var too_img=0;
-	xx=__view_get( e__VW.XView, 0 )+0;
-	yy=__view_get( e__VW.YView, 0 )+0;
+	xx=__view_get(E__VW.XVIEW, 0 )+0;
+	yy=__view_get(E__VW.YVIEW, 0 )+0;
 	
 	if (menu>=21) and (menu<=24) then draw_sprite(spr_settings_bg,0,xx,yy);
 	

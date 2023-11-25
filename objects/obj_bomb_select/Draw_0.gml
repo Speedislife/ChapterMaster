@@ -1,7 +1,7 @@
 // Sets the bombard target, its forces and draws the ships wich will bombard said target
 var xx, yy;
-xx=__view_get( e__VW.XView, 0 );
-yy=__view_get( e__VW.YView, 0 );
+xx=__view_get( E__VW.XVIEW, 0 );
+yy=__view_get( E__VW.YVIEW, 0 );
 
 // Draws the bombard option menu
 if (max_ships>0)and (instance_exists(obj_star_select)){

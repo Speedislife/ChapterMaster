@@ -3,8 +3,8 @@ if (yam<1) then exit;
 
 if (settings=1){
     var xx,yy;
-    xx=__view_get( e__VW.XView, 0 );
-    yy=__view_get( e__VW.YView, 0 );
+    xx=__view_get( E__VW.XVIEW, 0 );
+    yy=__view_get( E__VW.YVIEW, 0 );
     
     draw_set_color(0);
     draw_set_alpha(0.75);
@@ -141,8 +141,8 @@ if (settings=1){
 if (instance_exists(obj_saveload)) or (settings=1) then exit;
 
 var xx,yy;
-xx=__view_get( e__VW.XView, 0 );
-yy=__view_get( e__VW.YView, 0 );
+xx=__view_get( E__VW.XVIEW, 0 );
+yy=__view_get( E__VW.YVIEW, 0 );
 
 draw_set_color(0);
 draw_set_alpha(0.75);

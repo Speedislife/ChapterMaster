@@ -1,7 +1,7 @@
 
 var xx,yy,ii;
-xx=__view_get( e__VW.XView, 0 )+317;
-yy=__view_get( e__VW.YView, 0 )+144;
+xx=__view_get( E__VW.XVIEW, 0 )+317;
+yy=__view_get( E__VW.YVIEW, 0 )+144;
 ii=0;
 
 draw_set_alpha(fade_alpha);
@@ -22,7 +22,7 @@ draw_set_color(0);
 draw_set_font(fnt_40k_30b);
 draw_set_halign(fa_center);
 // draw_text(view_xview[0]+800,view_yview[0]+165,string(obj_controller.fest_type)+"#"+string(obj_controller.fest_display)+"] "+string(obj_controller.fest_display_tags));
-draw_text(__view_get( e__VW.XView, 0 )+800,__view_get( e__VW.YView, 0 )+165,string_hash_to_newline(string(obj_controller.fest_type)));
+draw_text(__view_get( E__VW.XVIEW, 0 )+800,__view_get( E__VW.YVIEW, 0 )+165,string_hash_to_newline(string(obj_controller.fest_type)));
 
 if (avatars>0){
     if( shader_is_compiled(sReplaceColor)){
@@ -72,12 +72,12 @@ if (exit_fade>=0){
     var ealpha;ealpha=exit_fade/30;
     draw_set_alpha(min(fade_alpha,ealpha));
     
-    if (exit_fade<30) then draw_sprite(spr_help_exit,0,__view_get( e__VW.XView, 0 )+1238,__view_get( e__VW.YView, 0 )+200);
+    if (exit_fade<30) then draw_sprite(spr_help_exit,0,__view_get( E__VW.XVIEW, 0 )+1238,__view_get( E__VW.YVIEW, 0 )+200);
     if (exit_fade>=30){
         draw_set_alpha(min(fade_alpha,1));
-        if (scr_hit(__view_get( e__VW.XView, 0 )+1238,__view_get( e__VW.YView, 0 )+200,__view_get( e__VW.XView, 0 )+1271,__view_get( e__VW.YView, 0 )+233)=false) then draw_sprite(spr_help_exit,0,__view_get( e__VW.XView, 0 )+1238,__view_get( e__VW.YView, 0 )+200);
-        if (scr_hit(__view_get( e__VW.XView, 0 )+1238,__view_get( e__VW.YView, 0 )+200,__view_get( e__VW.XView, 0 )+1271,__view_get( e__VW.YView, 0 )+233)=true){
-            draw_sprite(spr_help_exit,1,__view_get( e__VW.XView, 0 )+1238,__view_get( e__VW.YView, 0 )+200);
+        if (scr_hit(__view_get( E__VW.XVIEW, 0 )+1238,__view_get( E__VW.YVIEW, 0 )+200,__view_get( E__VW.XVIEW, 0 )+1271,__view_get( E__VW.YVIEW, 0 )+233)=false) then draw_sprite(spr_help_exit,0,__view_get( E__VW.XVIEW, 0 )+1238,__view_get( E__VW.YVIEW, 0 )+200);
+        if (scr_hit(__view_get( E__VW.XVIEW, 0 )+1238,__view_get( E__VW.YVIEW, 0 )+200,__view_get( E__VW.XVIEW, 0 )+1271,__view_get( E__VW.YVIEW, 0 )+233)=true){
+            draw_sprite(spr_help_exit,1,__view_get( E__VW.XVIEW, 0 )+1238,__view_get( E__VW.YVIEW, 0 )+200);
             if (obj_controller.mouse_left=1) and (closing=false){
                 closing=true;fading=-1;
             }

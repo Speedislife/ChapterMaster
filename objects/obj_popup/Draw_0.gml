@@ -3,8 +3,8 @@ if (hide=true) then exit;
 
 var romanNumerals=scr_roman_numerals();
 var xx,yy;
-xx=__view_get( e__VW.XView, 0 );
-yy=__view_get( e__VW.YView, 0 );
+xx=__view_get( E__VW.XVIEW, 0 );
+yy=__view_get( E__VW.YVIEW, 0 );
 
 if (instance_exists(obj_fleet)) then exit;
 
@@ -13,7 +13,7 @@ if (type=99){
     draw_set_halign(fa_center);
     draw_set_color(38144);
     
-    if (obj_controller.zoomed=0){draw_text_transformed(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+60,string_hash_to_newline("SELECT DESTINATION"),0.5,0.5,0);}
+    if (obj_controller.zoomed=0){draw_text_transformed(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+60,string_hash_to_newline("SELECT DESTINATION"),0.5,0.5,0);}
     if (obj_controller.zoomed=1){draw_text_transformed(room_width/2,60*3,string_hash_to_newline("SELECT DESTINATION"),1.5,1.5,0);}
     
     draw_set_halign(fa_left);
@@ -279,7 +279,7 @@ if ((zm=0) and (type<=4)) or (type=98){
 
 // ** Equip Artifact **
 if (type=8) and (instance_exists(obj_controller)){
-    var x2,y2;x2=__view_get( e__VW.XView, 0 )+951;y2=__view_get( e__VW.YView, 0 )+48;
+    var x2,y2;x2=__view_get( E__VW.XVIEW, 0 )+951;y2=__view_get( E__VW.YVIEW, 0 )+48;
     
     // draw_sprite(spr_popup_large,0,x2,y2);
     
@@ -363,7 +363,7 @@ if (type=8) and (instance_exists(obj_controller)){
     
     if (target_comp!=-1){
         var x2,y2,bb="";
-        x2=__view_get( e__VW.XView, 0 )+951;y2=__view_get( e__VW.YView, 0 )+48;
+        x2=__view_get( E__VW.XVIEW, 0 )+951;y2=__view_get( E__VW.YVIEW, 0 )+48;
     
         var top,sel,temp1,temp2,temp3,temp4,temp5;temp1="";temp2="";temp3="";temp4="";temp5="";
         top=obj_controller.man_current;sel=top;
@@ -456,8 +456,8 @@ if (type=8) and (instance_exists(obj_controller)){
         }
     }
     
-    x2=__view_get( e__VW.XView, 0 )+951;
-    y2=__view_get( e__VW.YView, 0 )+398;
+    x2=__view_get( E__VW.XVIEW, 0 )+951;
+    y2=__view_get( E__VW.YVIEW, 0 )+398;
     
     draw_set_alpha(1);
     draw_set_font(fnt_small);
@@ -497,8 +497,8 @@ if (type=8) and (instance_exists(obj_controller)){
 }
 
 var xx,yy;
-xx=__view_get( e__VW.XView, 0 );
-yy=__view_get( e__VW.YView, 0 );
+xx=__view_get( E__VW.XVIEW, 0 );
+yy=__view_get( E__VW.YVIEW, 0 );
 
 // Changing Equipment
 if (zm=0) and (type=6) and (instance_exists(obj_controller)){

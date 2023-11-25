@@ -12,8 +12,8 @@ if (instance_exists(obj_controller)){
 
 if (bad=0){
     var xx,yy,ent;
-    xx=__view_get( e__VW.XView, 0 )+0;
-    yy=__view_get( e__VW.YView, 0 )+0;
+    xx=__view_get(E__VW.XVIEW, 0 )+0;
+    yy=__view_get(E__VW.YVIEW, 0 )+0;
     
     draw_set_alpha(1);draw_set_color(0);draw_rectangle(xx,yy,xx+1600,yy+900,0);
     draw_set_alpha(0.5);draw_sprite(spr_rock_bg,0,xx,yy);draw_set_alpha(1);
@@ -64,8 +64,8 @@ if __b__
 
 
 var xx,yy;
-xx=__view_get( e__VW.XView, 0 );
-yy=__view_get( e__VW.YView, 0 );
+xx=__view_get(E__VW.XVIEW, 0 );
+yy=__view_get(E__VW.YVIEW, 0 );
 
 draw_set_color(0);
 draw_set_alpha(0.75);

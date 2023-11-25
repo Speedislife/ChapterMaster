@@ -5,7 +5,7 @@
 var bx,by,wid,hei,stop;
 wid=0;hei=0;bx=0;by=0;stop=0;bx=x;by=y;
 if (follow_control=true) and (instance_exists(obj_controller)){
-    xx+=__view_get( e__VW.XView, 0 );yy+=__view_get( e__VW.YView, 0 );
+    xx+=__view_get( E__VW.XVIEW, 0 );yy+=__view_get( E__VW.YVIEW, 0 );
 }
 
 highlighted=false;
@@ -15,8 +15,8 @@ if (button_id=1){
     if (mouse_y>=by) and (mouse_y<=by+hei){
         if (mouse_x>=bx) and (mouse_x<=bx+wid){
             if (mouse_x>=+bx+(134*scaling)){
-                var dif1,dif2;dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+(134*scaling));dif2=dif1*1.25;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
+                var dif1,dif2;dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+(134*scaling));dif2=dif1*1.25;
+                if (mouse_y<__view_get( E__VW.YVIEW, 0 )+by+dif2) then stop=1;
             }
             if (stop=0) then highlighted=true;
         }
@@ -36,11 +36,11 @@ if (button_id=1){
 }*/
 if (button_id=2){
     wid=142*scaling;hei=43*scaling;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+(134*scaling)){
-                var dif1,dif2;dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+(134*scaling));dif2=dif1*1.25;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
+    if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+by) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+by+hei){
+        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get( E__VW.XVIEW, 0 )+bx+wid){
+            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx+(134*scaling)){
+                var dif1,dif2;dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+(134*scaling));dif2=dif1*1.25;
+                if (mouse_y<__view_get( E__VW.YVIEW, 0 )+by+dif2) then stop=1;
             }
             if (stop=0) then highlighted=true;
         }
@@ -48,11 +48,11 @@ if (button_id=2){
 }
 if (button_id=3){
     wid=115*scaling;hei=43*scaling;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+(108*scaling)){
-                var dif1,dif2;dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+(108*scaling));dif2=dif1*2;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
+    if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+by) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+by+hei){
+        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get( E__VW.XVIEW, 0 )+bx+wid){
+            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx+(108*scaling)){
+                var dif1,dif2;dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+(108*scaling));dif2=dif1*2;
+                if (mouse_y<__view_get( E__VW.YVIEW, 0 )+by+dif2) then stop=1;
             }
             if (stop=0) then high="apoth";
         }
@@ -60,11 +60,11 @@ if (button_id=3){
 }
 if (button_id=4){
     wid=108*scaling;hei=42*scaling;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+(108*scaling)){
-                var dif1,dif2;dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+(108*scaling));dif2=dif1*2;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+hei-dif2) then stop=1;
+    if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+by) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+by+hei){
+        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get( E__VW.XVIEW, 0 )+bx+wid){
+            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx+(108*scaling)){
+                var dif1,dif2;dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+(108*scaling));dif2=dif1*2;
+                if (mouse_y<__view_get( E__VW.YVIEW, 0 )+by+hei-dif2) then stop=1;
             }
             if (stop=0) then highlighted=true;
         }

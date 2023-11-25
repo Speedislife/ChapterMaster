@@ -1,7 +1,7 @@
 function scr_ui_diplomacy() {
 	var xx,yy,show_stuff;
-	xx=__view_get( e__VW.XView, 0 )+0;
-	yy=__view_get( e__VW.YView, 0 )+0;
+	xx=__view_get(E__VW.XVIEW, 0 )+0;
+	yy=__view_get(E__VW.YVIEW, 0 )+0;
 	var show_stuff=false;var warning=0;
 
 	// This script draws all of the diplomacy stuff, up to and including trading.
@@ -426,7 +426,7 @@ function scr_ui_diplomacy() {
 	}
 
 
-	xx=__view_get( e__VW.XView, 0 );yy=__view_get( e__VW.YView, 0 );
+	xx=__view_get(E__VW.XVIEW, 0 );yy=__view_get(E__VW.YVIEW, 0 );
 
 
 	if (menu=20) and (diplomacy<-5) and (diplomacy>-6){
@@ -550,7 +550,7 @@ function scr_ui_diplomacy() {
 	    draw_set_font(fnt_40k_14);draw_set_alpha(1);
 	    draw_set_color(38144);draw_set_halign(fa_left);
 	    draw_text_ext(xx+336+16,yy+209,string_hash_to_newline(string(diplo_txt)),-1,536);
-	    xx=__view_get( e__VW.XView, 0 );yy=__view_get( e__VW.YView, 0 );draw_set_halign(fa_center);
+	    xx=__view_get(E__VW.XVIEW, 0 );yy=__view_get(E__VW.YVIEW, 0 );draw_set_halign(fa_center);
 	    draw_line(xx+429,yy+710,xx+800,yy+710);
     
 	    if (trading=0) and (diplo_option[1]="") and (diplo_option[2]="") and (diplo_option[3]="") and (diplo_option[4]=""){
@@ -786,16 +786,17 @@ function scr_ui_diplomacy() {
     
     
 	}
-	if (diplomacy==10.1){
-		//scr_dialogue(diplomacy_pathway);
-		basic_diplomacy_screen();
-	}
+	if (diplomacy==10.1)
+		{
+			//scr_dialogue(diplomacy_pathway);
+			basic_diplomacy_screen();
+		}
 
 }
 
 function basic_diplomacy_screen(){
-		var  yy=__view_get( e__VW.YView, 0 );
-		var  xx=__view_get( e__VW.XView, 0 );
+		var  yy=__view_get(E__VW.YVIEW, 0);
+		var  xx=__view_get(E__VW.XVIEW, 0);
 		 if (trading=0) and ((diplo_option[1]!="") or (diplo_option[2]!="") or (diplo_option[3]!="") or (diplo_option[4]!="")){
 	        if (force_goodbye=0){
 	            draw_set_halign(fa_center);
@@ -808,10 +809,10 @@ function basic_diplomacy_screen(){
             
 	            repeat(4){slot+=1;
 	                if (diplo_option[slot]!=""){
-						var left = xx+354;
-						var top = yy+694;
-						var right = xx+887;
-						var base = yy+717;
+						var left = xx + 354;
+						var top = yy + 694;
+						var right = xx + 887;
+						var base = yy + 717;
 						var opt;
 	                    draw_set_color(38144);draw_rectangle(left,top,right,base,0);
 	                    draw_set_color(0);
@@ -833,7 +834,7 @@ function basic_diplomacy_screen(){
 	                yy+=30;
 	            }
             
-	            yy=__view_get( e__VW.YView, 0 );
+	            yy=__view_get(E__VW.YVIEW, 0 );
 	        }
         
 	        if (force_goodbye=1){

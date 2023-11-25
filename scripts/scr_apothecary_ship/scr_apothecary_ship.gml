@@ -83,7 +83,7 @@ function scr_apothecary_ship() {
 			unit = obj_ini.TTRPG[co,d];
 			if (unit.name()==""){continue;}
 			location =  unit.marine_location();
-	        if (unit.hp()<0) or (location[0]!=location_types.ship) then continue;
+	        if (unit.hp()<0) or (location[0]!=LOCATION_TYPES.SHIP) then continue;
 			max_health = unit.max_health();
 	        var c;
             c=0;repeat(capital_number){c++;if (location[1]=capital_num[c]) then maybe=2;}

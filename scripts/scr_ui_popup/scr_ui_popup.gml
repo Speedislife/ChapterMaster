@@ -1,34 +1,43 @@
-function tooltip_draw(base_x, base_y, tooltip, extra_x=0, extra_y=0, defined_width=false, line_gap=0){
-	var xx=__view_get( e__VW.XView, 0 )+0;
-	var yy=__view_get( e__VW.YView, 0 )+0;
-	var width,height;
-	if (defined_width != false){
-		width =defined_width+extra_x;
-	} else{
-		width = string_width(string_hash_to_newline(tooltip)) + extra_x;
+function tooltip_draw(base_x, base_y, tooltip, extra_x = 0, extra_y = 0, defined_width = false, line_gap = 0)
+	{
+		var xx=__view_get(E__VW.XVIEW, 0) + 0;
+		var yy=__view_get(E__VW.YVIEW, 0) + 0;
+		var width,height;
+		if (defined_width != false)
+			{
+				width =defined_width+extra_x;
+			} 
+		else
+			{
+				width = string_width(string_hash_to_newline(tooltip)) + extra_x;
+			}
+		height = string_height(string_hash_to_newline(tooltip)) + extra_y;
+		draw_set_color(0);
+		draw_rectangle(base_x, base_y, width + base_x + 6, height + base_y + 6, 0);
+		draw_set_color(c_gray);
+		draw_rectangle(base_x, base_y, width + base_x + 6, height + base_y + 6, 1);
+		draw_set_alpha(0.5);
+		draw_rectangle(base_x + 1,base_y + 1,width + base_x + 5, height + base_y + 5, 1);
+	    draw_set_alpha(1);
+		
+	    if (defined_width == false)
+			{
+		    	draw_text(base_x+2.5,base_y+2.5,string_hash_to_newline(string(tooltip)));
+		    } 
+		else
+			{
+		    	draw_text_ext(base_x + 2.5, base_y + 2.5, string_hash_to_newline(string(tooltip)), line_gap, defined_width);
+		    }
 	}
-	height = string_height(string_hash_to_newline(tooltip))+extra_y;
-	draw_set_color(0);
-	draw_rectangle(base_x,base_y,width+base_x+6,height+base_y+6,0);
-	draw_set_color(c_gray);
-	draw_rectangle(base_x,base_y,width+base_x+6,height+base_y+6,1);
-	draw_set_alpha(0.5);
-	draw_rectangle(base_x+1,base_y+1,width+base_x+5,height+base_y+5,1);
-    draw_set_alpha(1);
-    if (defined_width == false){
-    	draw_text(base_x+2.5,base_y+2.5,string_hash_to_newline(string(tooltip)));
-    } else{
-    	draw_text_ext(base_x+2.5,base_y+2.5, string_hash_to_newline(string(tooltip)), line_gap, defined_width);
-    }
-}
 
 function scr_ui_popup() {
 
 	// 48,48      over like 256, down to 480-128
 
-	if (obj_controller.menu=60){
-		var xx,yy;
-	    xx=__view_get( e__VW.XView, 0 )+25;yy=__view_get( e__VW.YView, 0 )+165;
+	if (obj_controller.menu = 60)
+	{
+		var xx, yy;
+	    xx=__view_get(E__VW.XVIEW, 0) + 25; yy = __view_get(E__VW.YVIEW, 0) + 165;
     
 	    draw_sprite(spr_popup_large,1,xx,yy);
 	    // draw_set_color(0);draw_rectangle(xx+31,yy+29,xx+593,yy+402,0);
@@ -442,16 +451,16 @@ function scr_ui_popup() {
     
 	    if (fleet_minimized=0){
 	        draw_set_color(c_black);
-	        draw_rectangle(__view_get( e__VW.XView, 0 )+44,__view_get( e__VW.YView, 0 )+110,__view_get( e__VW.XView, 0 )+267,__view_get( e__VW.YView, 0 )+110+obj_fleet_select.void_hei,0);
+	        draw_rectangle(__view_get( E__VW.XVIEW, 0 )+44,__view_get( E__VW.YVIEW, 0 )+110,__view_get( E__VW.XVIEW, 0 )+267,__view_get( E__VW.YVIEW, 0 )+110+obj_fleet_select.void_hei,0);
 	        draw_set_color(c_gray);
-	        draw_rectangle(__view_get( e__VW.XView, 0 )+44,__view_get( e__VW.YView, 0 )+110,__view_get( e__VW.XView, 0 )+267,__view_get( e__VW.YView, 0 )+110+obj_fleet_select.void_hei,1);
+	        draw_rectangle(__view_get( E__VW.XVIEW, 0 )+44,__view_get( E__VW.YVIEW, 0 )+110,__view_get( E__VW.XVIEW, 0 )+267,__view_get( E__VW.YVIEW, 0 )+110+obj_fleet_select.void_hei,1);
 	    }
 	    if (fleet_minimized=1){
 	    	mnz=1;
 	        draw_set_color(c_black);
-	        draw_rectangle(__view_get( e__VW.XView, 0 )+44,__view_get( e__VW.YView, 0 )+110,__view_get( e__VW.XView, 0 )+267,__view_get( e__VW.YView, 0 )+137,0);
+	        draw_rectangle(__view_get( E__VW.XVIEW, 0 )+44,__view_get( E__VW.YVIEW, 0 )+110,__view_get( E__VW.XVIEW, 0 )+267,__view_get( E__VW.YVIEW, 0 )+137,0);
 	        draw_set_color(c_gray);
-	        draw_rectangle(__view_get( e__VW.XView, 0 )+44,__view_get( e__VW.YView, 0 )+110,__view_get( e__VW.XView, 0 )+267,__view_get( e__VW.YView, 0 )+137,1);
+	        draw_rectangle(__view_get( E__VW.XVIEW, 0 )+44,__view_get( E__VW.YVIEW, 0 )+110,__view_get( E__VW.XVIEW, 0 )+267,__view_get( E__VW.YVIEW, 0 )+137,1);
 	    }
 	    draw_set_font(fnt_40k_14);
     
@@ -479,17 +488,17 @@ function scr_ui_popup() {
 	        if (colu==1) then void_h=min(void_h+20,560);
         
 	        if (posi==1){
-	            if (mnz=0) then draw_text(__view_get( e__VW.XView, 0 )+x3,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline("=Capital Ships="));
+	            if (mnz=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+x3,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline("=Capital Ships="));
 	            y3+=20;
 	        }
 	        if (posi==ca+1) and (fr>0){
 	        	y3+=20;
-	        	if (mnz=0) then draw_text(__view_get( e__VW.XView, 0 )+x3,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline("=Frigates="));
+	        	if (mnz=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+x3,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline("=Frigates="));
 	        	y3+=20;
 	        }
 	        if (posi==ca+fr+1) and (es>0){
 	        	y3+=20;
-	        	if (mnz=0) then draw_text(__view_get( e__VW.XView, 0 )+x3,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline("=Escorts="));
+	        	if (mnz=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+x3,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline("=Escorts="));
 	        	y3+=20;
 	        }
         
@@ -509,7 +518,7 @@ function scr_ui_popup() {
 	            		if (string_width(string_hash_to_newline(nem))*scale>179) then scale-=0.05;
 	            	}
 	            }
-	            if (mouse_x>=__view_get( e__VW.XView, 0 )+x3) and (mouse_x<__view_get( e__VW.XView, 0 )+x3+209) and (mouse_y>=__view_get( e__VW.YView, 0 )+y3) and (mouse_y<=__view_get( e__VW.YView, 0 )+y3+18){
+	            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+x3) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+x3+209) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+y3) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+y3+18){
 	                if (string_width(string_hash_to_newline(nem))*scale>135){
 	                	for (i=0;i<9;i++){
 	                		if (string_width(string_hash_to_newline(nem))*scale>135) then scale-=0.05;
@@ -518,7 +527,7 @@ function scr_ui_popup() {
 	                shew=2;
 	            }
 	            if (mouse_check_button_pressed(mb_left)) and (obj_controller.cooldown<=0){
-	                if (mouse_x>=__view_get( e__VW.XView, 0 )+x3) and (mouse_x<__view_get( e__VW.XView, 0 )+x3+25) and (mouse_y>=__view_get( e__VW.YView, 0 )+y3) and (mouse_y<=__view_get( e__VW.YView, 0 )+y3+18){
+	                if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+x3) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+x3+25) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+y3) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+y3+18){
 	                    var onceh=0;
 	                    obj_controller.cooldown=8000;
 	                    if (obj_controller.fest_scheduled>0) and (obj_controller.fest_sid=robj.capital_num[shit]) then onceh=1;
@@ -536,12 +545,12 @@ function scr_ui_popup() {
 	            sal=robj.capital_sel[shit];
 	            if (sal==0) then sib="[ ]";
 	            if (sal==1) then sib="[x] ";
-	            if (mnz==0) then draw_text(__view_get( e__VW.XView, 0 )+x3+2,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline(sib));
-	            if (mnz==0) and (shew==2) then draw_text(__view_get( e__VW.XView, 0 )+x3+160,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline(" "+string(helth)+"%"));
+	            if (mnz==0) then draw_text(__view_get( E__VW.XVIEW, 0 )+x3+2,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline(sib));
+	            if (mnz==0) and (shew==2) then draw_text(__view_get( E__VW.XVIEW, 0 )+x3+160,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline(" "+string(helth)+"%"));
 	            if (helth<=60) and (helth>40) then draw_set_color(c_yellow);
 	            if (helth<=40) and (helth>20) then draw_set_color(c_orange);
 	            if (helth<=20) then draw_set_color(c_red);
-	            if (mnz=0) then draw_text_transformed(__view_get( e__VW.XView, 0 )+x3+30,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline(string(nem)),scale,1,0);
+	            if (mnz=0) then draw_text_transformed(__view_get( E__VW.XVIEW, 0 )+x3+30,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline(string(nem)),scale,1,0);
 	            draw_set_color(c_gray);
 	        }
 	        if (posi>ca) and (posi<=ca+fr){
@@ -550,7 +559,7 @@ function scr_ui_popup() {
 	            if (string_width(string_hash_to_newline(nem))*scale>179){
 	            	for (i=0;i<9;i++){if (string_width(string_hash_to_newline(nem))*scale>179) then scale-=0.05;}
 	            }
-	            if (mouse_x>=__view_get( e__VW.XView, 0 )+x3) and (mouse_x<__view_get( e__VW.XView, 0 )+x3+209) and (mouse_y>=__view_get( e__VW.YView, 0 )+y3) and (mouse_y<=__view_get( e__VW.YView, 0 )+y3+18){
+	            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+x3) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+x3+209) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+y3) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+y3+18){
 	                if (string_width(string_hash_to_newline(nem))*scale>135) { 
 	                	for (i=0;i<9;i++){
 	                		if (string_width(string_hash_to_newline(nem))*scale>135) then scale-=0.05;
@@ -559,8 +568,9 @@ function scr_ui_popup() {
 	                shew=2;
 	            }
 	            if (mouse_check_button_pressed(mb_left)) and (obj_controller.cooldown<=0){
-	                if (mouse_x>=__view_get( e__VW.XView, 0 )+x3) and (mouse_x<__view_get( e__VW.XView, 0 )+x3+25) and (mouse_y>=__view_get( e__VW.YView, 0 )+y3) and (mouse_y<=__view_get( e__VW.YView, 0 )+y3+18){
-	                    var onceh=0,obj_controller.cooldown=8000;
+	                if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+x3) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+x3+25) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+y3) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+y3+18){
+	                    var onceh = 0;
+						obj_controller.cooldown = 8000;
 	                    if (obj_controller.fest_scheduled>0) and (obj_controller.fest_sid=robj.frigate_num[shit]) then onceh=1;
 	                    if (robj.frigate_sel[shit]==1) and (onceh==0){
 	                        robj.frigate_sel[shit]=0;
@@ -576,12 +586,12 @@ function scr_ui_popup() {
 	            sal=robj.frigate_sel[shit];
 	            if (sal==0) then sib="[ ]";
 	            if (sal==1) then sib="[x] ";
-	            if (mnz==0) then draw_text(__view_get( e__VW.XView, 0 )+x3+2,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline(sib));
-	            if (mnz==0) and (shew=2) then draw_text(__view_get( e__VW.XView, 0 )+x3+160,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline(" "+string(helth)+"%"));
+	            if (mnz==0) then draw_text(__view_get( E__VW.XVIEW, 0 )+x3+2,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline(sib));
+	            if (mnz==0) and (shew=2) then draw_text(__view_get( E__VW.XVIEW, 0 )+x3+160,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline(" "+string(helth)+"%"));
 	            if (helth<=60) and (helth>40) then draw_set_color(c_yellow);
 	            if (helth<=40) and (helth>20) then draw_set_color(c_orange);
 	            if (helth<=20) then draw_set_color(c_red);
-	            if (mnz=0) then draw_text_transformed(__view_get( e__VW.XView, 0 )+x3+30,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline(string(nem)),scale,1,0);
+	            if (mnz=0) then draw_text_transformed(__view_get( E__VW.XVIEW, 0 )+x3+30,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline(string(nem)),scale,1,0);
 	            draw_set_color(c_gray);
 	        }
 	        if (posi>ca+fr) and (posi<=ca+fr+es){
@@ -590,13 +600,13 @@ function scr_ui_popup() {
 	            if (string_width(string_hash_to_newline(nem))*scale>179){
 	            	for (i=0;i<10;i++){if (string_width(string_hash_to_newline(nem))*scale>179) then scale-=0.05;}
 	            }
-	            if (mouse_x>=__view_get( e__VW.XView, 0 )+x3) and (mouse_x<__view_get( e__VW.XView, 0 )+x3+209) and (mouse_y>=__view_get( e__VW.YView, 0 )+y3) and (mouse_y<=__view_get( e__VW.YView, 0 )+y3+18){
+	            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+x3) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+x3+209) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+y3) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+y3+18){
 	                if (string_width(string_hash_to_newline(nem))*scale>135){for (i=0;i<10;i++){
 	                	if (string_width(string_hash_to_newline(nem))*scale>135) then scale-=0.05;}shew=2
 	                }
 	            }
 	            if (mouse_check_button_pressed(mb_left)) and (obj_controller.cooldown<=0){
-	                if (mouse_x>=__view_get( e__VW.XView, 0 )+x3) and (mouse_x<__view_get( e__VW.XView, 0 )+x3+25) and (mouse_y>=__view_get( e__VW.YView, 0 )+y3) and (mouse_y<=__view_get( e__VW.YView, 0 )+y3+18){
+	                if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+x3) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+x3+25) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+y3) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+y3+18){
 	                    var onceh;onceh=0;obj_controller.cooldown=8000;
 	                    if (obj_controller.fest_scheduled>0) and (obj_controller.fest_sid=robj.escort_num[shit]) then onceh=1;
 	                    if (robj.escort_sel[shit]=1) and (onceh=0){robj.escort_sel[shit]=0;onceh=1;}
@@ -607,12 +617,12 @@ function scr_ui_popup() {
 	            sal=robj.escort_sel[shit];
 	            if (sal=0) then sib="[ ]";
 	            if (sal=1) then sib="[x] ";
-	            if (mnz=0) then draw_text(__view_get( e__VW.XView, 0 )+x3+2,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline(sib));
-	            if (mnz==0) and (shew==2) then draw_text(__view_get( e__VW.XView, 0 )+x3+160,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline(" "+string(helth)+"%"));
+	            if (mnz=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+x3+2,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline(sib));
+	            if (mnz==0) and (shew==2) then draw_text(__view_get( E__VW.XVIEW, 0 )+x3+160,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline(" "+string(helth)+"%"));
 	            if (helth<=60) and (helth>40) then draw_set_color(c_yellow);
 	            if (helth<=40) and (helth>20) then draw_set_color(c_orange);
 	            if (helth<=20) then draw_set_color(c_red);
-	            if (mnz==0) then draw_text_transformed(__view_get( e__VW.XView, 0 )+x3+30,__view_get( e__VW.YView, 0 )+y3,string_hash_to_newline(string(nem)),scale,1,0);
+	            if (mnz==0) then draw_text_transformed(__view_get( E__VW.XVIEW, 0 )+x3+30,__view_get( E__VW.YVIEW, 0 )+y3,string_hash_to_newline(string(nem)),scale,1,0);
 	            draw_set_color(c_gray);
 	        }
 	    }
@@ -623,29 +633,29 @@ function scr_ui_popup() {
 	    obj_fleet_select.void_hei=void_h;
     
 	    draw_set_halign(fa_center);
-	    draw_text(__view_get( e__VW.XView, 0 )+46+(obj_fleet_select.void_wid/2),__view_get( e__VW.YView, 0 )+115,string_hash_to_newline(string(global.chapter_name)+" Fleet"));
+	    draw_text(__view_get( E__VW.XVIEW, 0 )+46+(obj_fleet_select.void_wid/2),__view_get( E__VW.YVIEW, 0 )+115,string_hash_to_newline(string(global.chapter_name)+" Fleet"));
 	    draw_set_halign(fa_left);
     
 	    draw_set_color(c_gray);
-	    draw_rectangle(__view_get( e__VW.XView, 0 )+18+obj_fleet_select.void_wid,__view_get( e__VW.YView, 0 )+116,__view_get( e__VW.XView, 0 )+36+obj_fleet_select.void_wid,__view_get( e__VW.YView, 0 )+134,0);
+	    draw_rectangle(__view_get( E__VW.XVIEW, 0 )+18+obj_fleet_select.void_wid,__view_get( E__VW.YVIEW, 0 )+116,__view_get( E__VW.XVIEW, 0 )+36+obj_fleet_select.void_wid,__view_get( E__VW.YVIEW, 0 )+134,0);
     
     
     
     
 	    draw_set_color(c_black);
-	    if (mnz=0) then draw_text(__view_get( e__VW.XView, 0 )+25+obj_fleet_select.void_wid,__view_get( e__VW.YView, 0 )+117,string_hash_to_newline("-"));
-	    if (mnz=1) then draw_text(__view_get( e__VW.XView, 0 )+23+obj_fleet_select.void_wid,__view_get( e__VW.YView, 0 )+116,string_hash_to_newline("+"));
+	    if (mnz=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+25+obj_fleet_select.void_wid,__view_get( E__VW.YVIEW, 0 )+117,string_hash_to_newline("-"));
+	    if (mnz=1) then draw_text(__view_get( E__VW.XVIEW, 0 )+23+obj_fleet_select.void_wid,__view_get( E__VW.YVIEW, 0 )+116,string_hash_to_newline("+"));
     
 	    draw_set_color(c_gray);
-	    draw_line(__view_get( e__VW.XView, 0 )+44,__view_get( e__VW.YView, 0 )+137,__view_get( e__VW.XView, 0 )+44+obj_fleet_select.void_wid,__view_get( e__VW.YView, 0 )+137);
+	    draw_line(__view_get( E__VW.XVIEW, 0 )+44,__view_get( E__VW.YVIEW, 0 )+137,__view_get( E__VW.XVIEW, 0 )+44+obj_fleet_select.void_wid,__view_get( E__VW.YVIEW, 0 )+137);
     
-	    if (fleet_all=0) then draw_text(__view_get( e__VW.XView, 0 )+50,__view_get( e__VW.YView, 0 )+117,string_hash_to_newline("[ ]"));
-	    if (fleet_all=1) then draw_text(__view_get( e__VW.XView, 0 )+50,__view_get( e__VW.YView, 0 )+116,string_hash_to_newline("[x]"));
+	    if (fleet_all=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+50,__view_get( E__VW.YVIEW, 0 )+117,string_hash_to_newline("[ ]"));
+	    if (fleet_all=1) then draw_text(__view_get( E__VW.XVIEW, 0 )+50,__view_get( E__VW.YVIEW, 0 )+116,string_hash_to_newline("[x]"));
     
 	    if (mouse_check_button_pressed(mb_left)) and (obj_controller.cooldown<=0){
-	        if (mouse_x>=__view_get( e__VW.XView, 0 )+50) and (mouse_x<__view_get( e__VW.XView, 0 )+x3+70) 
-	        and (mouse_y>=__view_get( e__VW.YView, 0 )+117) 
-	        and (mouse_y<=__view_get( e__VW.YView, 0 )+y3+137){
+	        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+50) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+x3+70) 
+	        and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+117) 
+	        and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+y3+137){
 	            if (obj_controller.cooldown<=0) and (fleet_all==0){
 	                obj_controller.cooldown=8000;
 	                fleet_all=1;
@@ -674,8 +684,8 @@ function scr_ui_popup() {
 	    // draw_set_color(c_red);
 	    // draw_rectangle(view_xview[0]+obj_fleet_select.void_x,view_yview[0]+obj_fleet_select.void_y,view_xview[0]+obj_fleet_select.void_x+obj_fleet_select.void_wid,view_yview[0]+obj_fleet_select.void_y+obj_fleet_select.void_hei,1);
 	}
-	var xx=__view_get( e__VW.XView, 0 )+0;
-	var yy=__view_get( e__VW.YView, 0 )+0;
+	var xx=__view_get(E__VW.XVIEW, 0) + 0;
+	var yy=__view_get(E__VW.YVIEW, 0) + 0;
 	if (zoomed == 0){
 
 		if (scr_hit(xx+5,yy+10,xx+137,yy+38)){
@@ -820,7 +830,7 @@ function scr_ui_popup() {
 	exit;
 
 
-	if (mouse_x>=__view_get( e__VW.XView, 0 )+113) and (mouse_y>=__view_get( e__VW.YView, 0 )+4) and (mouse_x<__view_get( e__VW.XView, 0 )+185) and (mouse_y<__view_get( e__VW.YView, 0 )+19) and (zoomed=0){
+	if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+113) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+4) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+185) and (mouse_y<__view_get( E__VW.YVIEW, 0 )+19) and (zoomed=0){
 	    var blurp,blurp2,lines,i;blurp="";blurp2="";lines=0;i=0;draw_set_halign(fa_left);
     
 	    repeat(20){
@@ -836,13 +846,13 @@ function scr_ui_popup() {
 	        if (string_count("Irreverance",blurp)>0) then wi+=51;
         
 	        draw_set_color(c_black);
-	        draw_rectangle(__view_get( e__VW.XView, 0 )+113,__view_get( e__VW.YView, 0 )+24,__view_get( e__VW.XView, 0 )+wi,__view_get( e__VW.YView, 0 )+30+(lines*10),0);
+	        draw_rectangle(__view_get( E__VW.XVIEW, 0 )+113,__view_get( E__VW.YVIEW, 0 )+24,__view_get( E__VW.XVIEW, 0 )+wi,__view_get( E__VW.YVIEW, 0 )+30+(lines*10),0);
 	        draw_set_color(38144);
-	        draw_rectangle(__view_get( e__VW.XView, 0 )+113,__view_get( e__VW.YView, 0 )+24,__view_get( e__VW.XView, 0 )+wi,__view_get( e__VW.YView, 0 )+30+(lines*10),1);
+	        draw_rectangle(__view_get( E__VW.XVIEW, 0 )+113,__view_get( E__VW.YVIEW, 0 )+24,__view_get( E__VW.XVIEW, 0 )+wi,__view_get( E__VW.YVIEW, 0 )+30+(lines*10),1);
         
 	        draw_set_font(fnt_info);
-	        draw_text_transformed(__view_get( e__VW.XView, 0 )+24+93,__view_get( e__VW.YView, 0 )+26,string_hash_to_newline(string(blurp)),0.7,0.7,0);
-	        draw_text_transformed(__view_get( e__VW.XView, 0 )+24.5+93,__view_get( e__VW.YView, 0 )+26,string_hash_to_newline(string(blurp2)),0.7,0.7,0);
+	        draw_text_transformed(__view_get( E__VW.XVIEW, 0 )+24+93,__view_get( E__VW.YVIEW, 0 )+26,string_hash_to_newline(string(blurp)),0.7,0.7,0);
+	        draw_text_transformed(__view_get( E__VW.XVIEW, 0 )+24.5+93,__view_get( E__VW.YVIEW, 0 )+26,string_hash_to_newline(string(blurp2)),0.7,0.7,0);
 	    }
 	}
 

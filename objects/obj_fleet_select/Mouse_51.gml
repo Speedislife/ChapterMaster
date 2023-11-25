@@ -13,11 +13,11 @@ if (owner=1) and (instance_nearest(x,y,obj_p_fleet).action=""){
 
     if (instance_exists(obj_fleet_select)){
         var free,z;free=1;z=obj_fleet_select;
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+z.void_x) and (mouse_y>=__view_get( e__VW.YView, 0 )+z.void_y) 
-        and (mouse_x<__view_get( e__VW.XView, 0 )+z.void_x+z.void_wid) and (mouse_y<__view_get( e__VW.YView, 0 )+z.void_y+z.void_hei) and (obj_controller.fleet_minimized=0) then free=0;
+        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+z.void_x) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+z.void_y) 
+        and (mouse_x<__view_get( E__VW.XVIEW, 0 )+z.void_x+z.void_wid) and (mouse_y<__view_get( E__VW.YVIEW, 0 )+z.void_y+z.void_hei) and (obj_controller.fleet_minimized=0) then free=0;
         
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+z.void_x) and (mouse_y>=__view_get( e__VW.YView, 0 )+z.void_y) 
-        and (mouse_x<__view_get( e__VW.XView, 0 )+z.void_x+z.void_wid) and (mouse_y<__view_get( e__VW.YView, 0 )+137) and (obj_controller.fleet_minimized=1) then free=0;
+        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+z.void_x) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+z.void_y) 
+        and (mouse_x<__view_get( E__VW.XVIEW, 0 )+z.void_x+z.void_wid) and (mouse_y<__view_get( E__VW.YVIEW, 0 )+137) and (obj_controller.fleet_minimized=1) then free=0;
         if (free=0) then exit;
     }
 

@@ -24,13 +24,7 @@ global.body_parts = ["left_leg", "right_leg", "torso", "right_arm", "left_arm", 
 global.body_parts_display = ["Left Leg", "Right Leg", "Torso", "Right Arm", "Left Arm", "Left Eye", "Right eye", "Throat", "Jaw"];
 global.religions={"imperial_cult":{"name":"Imperial Cult"}, "cult_mechanicus":{"name":"Cult Mechanicus"}};
 global.power_armour=["MK7 Aquila","MK6 Corvus","MK5 Heresy","MK3 Iron Armour","MK4 Maximus","Power Armour"];
-enum location_types {
-	planet,
-	ship,
-	space_hulk,
-	ancient_ruins,
-	warp
-}
+
 
 global.phy_levels =["Rho","Pi","Omicron","Xi","Nu","Mu","Lambda","Kappa","Iota","Theta","Eta","Zeta","Epsilon","Delta","Gamma","Beta","Alpha","Alpha Plus","Beta","Gamma Plus"]
 global.trait_list = {
@@ -878,13 +872,13 @@ function TTRPG_stats(faction, comp, mar, class = "marine") constructor{
 			var location_type = obj_ini.wid[company,marine_number];
 			if ( location_type > 0){ //if marine is on planet
 				location_id = location_type; //planet_number marine is on
-				location_type = location_types.planet; //state marine is on planet
+				location_type = LOCATION_TYPES.PLANET; //state marine is on planet
 				if (obj_ini.loc[company,marine_number] == "home"){
 					obj_ini.loc[company,marine_number] = obj_ini.home_name
 				}
 				location_name = obj_ini.loc[company,marine_number]; //system marine is in
 			} else {
-				location_type =  location_types.ship; //marine is on ship
+				location_type =  LOCATION_TYPES.SHIP; //marine is on ship
 				location_id = obj_ini.lid[company,marine_number]; //ship array position
 				location_name = obj_ini.ship_location[location_id]; //location of ship
 			}
@@ -912,7 +906,7 @@ function TTRPG_stats(faction, comp, mar, class = "marine") constructor{
 			 var ship_location= obj_ini.ship_location[ship];
 			 if (ship_location == "home" ){ship_location = obj_ini.home_name;}
 			
-			 if (current_location[0] == location_types.planet){//if marine is on a planet
+			 if (current_location[0] == LOCATION_TYPES.PLANET){//if marine is on a planet
 				  if (current_location[2] == "home" ){system = obj_ini.home_name;}
 				 //check if ship is in the same location as marine and has enough space;
 				 if (ship_location == system) and ((obj_ini.ship_carrying[ship] + size) <= obj_ini.ship_capacity[ship]){
@@ -920,7 +914,7 @@ function TTRPG_stats(faction, comp, mar, class = "marine") constructor{
 					 obj_ini.lid[company,marine_number] = ship; //id of ship marine is now loaded on
 					 obj_ini.ship_carrying[ship] += size; //update ship capacity
 				 }
-			 } else if (current_location[0] == location_types.ship){ //with this addition marines can now be moved between ships freely as long as they are in the same system
+			 } else if (current_location[0] == LOCATION_TYPES.SHIP){ //with this addition marines can now be moved between ships freely as long as they are in the same system
 				 var off_loading_ship = current_location[1];
 				 if ( (obj_ini.ship_location[ship] == obj_ini.ship_location[off_loading_ship]) and ((obj_ini.ship_carrying[ship] + size) <= obj_ini.ship_capacity[ship])){
 					 obj_ini.ship_carrying[off_loading_ship] -= size; // remove from previous ship capacity
@@ -1020,7 +1014,7 @@ function TTRPG_stats(faction, comp, mar, class = "marine") constructor{
 				else if (old_guard>=91 and old_guard<=96){
 					update_armour("MK3 Iron Armour",false,false);
 					update_age(age - gauss(600, 100));
-					add_trait(choose("ancient","old_guard"),false,false);
+					add_trait(choose("ancient","old_guard"));
 					add_exp(choose(10, 30, 50));
 				} // 6% 
 				else if (old_guard>=80 and old_guard<=90){

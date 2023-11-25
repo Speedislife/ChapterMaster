@@ -13,10 +13,10 @@
     if (start=0){
         if (obj_controller.zoomed=0){
             draw_set_alpha(0.75);draw_set_color(38144);
-            draw_rectangle(__view_get( e__VW.XView, 0 )+192,__view_get( e__VW.YView, 0 )+40,__view_get( e__VW.XView, 0 )+448,__view_get( e__VW.YView, 0 )+72,0);
+            draw_rectangle(__view_get( E__VW.XVIEW, 0 )+192,__view_get( E__VW.YVIEW, 0 )+40,__view_get( E__VW.XVIEW, 0 )+448,__view_get( E__VW.YVIEW, 0 )+72,0);
             draw_set_alpha(1);draw_set_color(0);
-            draw_rectangle(__view_get( e__VW.XView, 0 )+192,__view_get( e__VW.YView, 0 )+40,__view_get( e__VW.XView, 0 )+448,__view_get( e__VW.YView, 0 )+72,1);
-            draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+48,string_hash_to_newline("Press [Enter] to Begin"));
+            draw_rectangle(__view_get( E__VW.XVIEW, 0 )+192,__view_get( E__VW.YVIEW, 0 )+40,__view_get( E__VW.XVIEW, 0 )+448,__view_get( E__VW.YVIEW, 0 )+72,1);
+            draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+48,string_hash_to_newline("Press [Enter] to Begin"));
         }
         if (obj_controller.zoomed=1){
             draw_set_alpha(0.75);draw_set_color(38144);
@@ -29,7 +29,7 @@
     }
     
     if (room_speed!=90){
-        if (start=5) and (obj_controller.zoomed=0) then draw_sprite(spr_fast_forward,0,__view_get( e__VW.XView, 0 )+12,__view_get( e__VW.YView, 0 )+436);
+        if (start=5) and (obj_controller.zoomed=0) then draw_sprite(spr_fast_forward,0,__view_get( E__VW.XVIEW, 0 )+12,__view_get( E__VW.YVIEW, 0 )+436);
         if (start=5) and (obj_controller.zoomed=1) then draw_sprite_ext(spr_fast_forward,0,24,872,2,2,0,c_white,1);
     }
 
@@ -37,9 +37,9 @@
     
     if (obj_controller.zoomed=0){
         draw_set_alpha(0.75);draw_set_color(38144);
-        draw_rectangle(__view_get( e__VW.XView, 0 )+0,__view_get( e__VW.YView, 0 )+0,__view_get( e__VW.XView, 0 )+168,__view_get( e__VW.YView, 0 )+52,0);
+        draw_rectangle(__view_get( E__VW.XVIEW, 0 )+0,__view_get( E__VW.YVIEW, 0 )+0,__view_get( E__VW.XVIEW, 0 )+168,__view_get( E__VW.YVIEW, 0 )+52,0);
         draw_set_alpha(1);draw_set_color(0);
-        draw_rectangle(__view_get( e__VW.XView, 0 )+0,__view_get( e__VW.YView, 0 )+0,__view_get( e__VW.XView, 0 )+168,__view_get( e__VW.YView, 0 )+52,1);
+        draw_rectangle(__view_get( E__VW.XVIEW, 0 )+0,__view_get( E__VW.YVIEW, 0 )+0,__view_get( E__VW.XVIEW, 0 )+168,__view_get( E__VW.YVIEW, 0 )+52,1);
     }
 
     if (obj_controller.zoomed=1){
@@ -49,9 +49,9 @@
         draw_rectangle(0,1,336,104,1);
     }
     
-    if (capital>0) and (obj_controller.zoomed=0) then draw_text(__view_get( e__VW.XView, 0 )+2,__view_get( e__VW.YView, 0 )+2,string_hash_to_newline("Battleships: "+string(capital)));
-    if (frigate>0) and (obj_controller.zoomed=0) then draw_text(__view_get( e__VW.XView, 0 )+2,__view_get( e__VW.YView, 0 )+18,string_hash_to_newline("Cruisers: "+string(frigate)));
-    if (escort>0) and (obj_controller.zoomed=0) then draw_text(__view_get( e__VW.XView, 0 )+2,__view_get( e__VW.YView, 0 )+34,string_hash_to_newline("Escorts: "+string(escort)));
+    if (capital>0) and (obj_controller.zoomed=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+2,__view_get( E__VW.YVIEW, 0 )+2,string_hash_to_newline("Battleships: "+string(capital)));
+    if (frigate>0) and (obj_controller.zoomed=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+2,__view_get( E__VW.YVIEW, 0 )+18,string_hash_to_newline("Cruisers: "+string(frigate)));
+    if (escort>0) and (obj_controller.zoomed=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+2,__view_get( E__VW.YVIEW, 0 )+34,string_hash_to_newline("Escorts: "+string(escort)));
     
     if (obj_controller.zoomed=1){
         if (capital>0) then draw_text_transformed(4,4,string_hash_to_newline("Battleships: "+string(capital)),2,2,0);
@@ -116,7 +116,7 @@ if (start=7){
 
     
     draw_set_alpha(0.75);draw_set_color(38144);
-    draw_rectangle(__view_get( e__VW.XView, 0 )+192-24,__view_get( e__VW.YView, 0 )+128-96,__view_get( e__VW.XView, 0 )+448+24,__view_get( e__VW.YView, 0 )+272-96,0);
+    draw_rectangle(__view_get( E__VW.XVIEW, 0 )+192-24,__view_get( E__VW.YVIEW, 0 )+128-96,__view_get( E__VW.XVIEW, 0 )+448+24,__view_get( E__VW.YVIEW, 0 )+272-96,0);
     
     draw_set_alpha(1);draw_set_color(0);draw_set_halign(fa_center);draw_set_font(fnt_menu);
     
@@ -124,27 +124,27 @@ if (start=7){
     var wounded, vlost, vdamaged, dlost;
     
     if (losses>=0.95){
-        draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+130-96,string_hash_to_newline("Major Victory"));
-        draw_text(__view_get( e__VW.XView, 0 )+320.5,__view_get( e__VW.YView, 0 )+130.5-96,string_hash_to_newline("Major Victory"));
+        draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+130-96,string_hash_to_newline("Major Victory"));
+        draw_text(__view_get( E__VW.XVIEW, 0 )+320.5,__view_get( E__VW.YVIEW, 0 )+130.5-96,string_hash_to_newline("Major Victory"));
         // draw_sprite(spr_postbattle_space,0,view_xview[0]+115,view_yview[0]+216);
-        scr_image("postspace",0,__view_get( e__VW.XView, 0 )+115,__view_get( e__VW.YView, 0 )+216,409,247);
+        scr_image("postspace",0,__view_get( E__VW.XVIEW, 0 )+115,__view_get( E__VW.YVIEW, 0 )+216,409,247);
     }
     if (losses>=0.75) and (losses<0.95){
-        draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+130-96,string_hash_to_newline("Victory"));
-        draw_text(__view_get( e__VW.XView, 0 )+320.5,__view_get( e__VW.YView, 0 )+130.5-96,string_hash_to_newline("Victory"));
+        draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+130-96,string_hash_to_newline("Victory"));
+        draw_text(__view_get( E__VW.XVIEW, 0 )+320.5,__view_get( E__VW.YVIEW, 0 )+130.5-96,string_hash_to_newline("Victory"));
         // draw_sprite(spr_postbattle_space,1,view_xview[0]+115,view_yview[0]+216);
-        scr_image("postspace",1,__view_get( e__VW.XView, 0 )+115,__view_get( e__VW.YView, 0 )+216,409,247);
+        scr_image("postspace",1,__view_get( E__VW.XVIEW, 0 )+115,__view_get( E__VW.YVIEW, 0 )+216,409,247);
     }
     if (losses<0.75) and (losses>0.01){
-        draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+130-96,string_hash_to_newline("Minor Victory"));
-        draw_text(__view_get( e__VW.XView, 0 )+320.5,__view_get( e__VW.YView, 0 )+130.5-96,string_hash_to_newline("Minor Victory"));
-        scr_image("postspace",1,__view_get( e__VW.XView, 0 )+115,__view_get( e__VW.YView, 0 )+216,409,247);
+        draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+130-96,string_hash_to_newline("Minor Victory"));
+        draw_text(__view_get( E__VW.XVIEW, 0 )+320.5,__view_get( E__VW.YVIEW, 0 )+130.5-96,string_hash_to_newline("Minor Victory"));
+        scr_image("postspace",1,__view_get( E__VW.XVIEW, 0 )+115,__view_get( E__VW.YVIEW, 0 )+216,409,247);
         // draw_sprite(spr_postbattle_space,1,view_xview[0]+115,view_yview[0]+216);
     }
     if (losses<=0.01){
-        draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+130-96,string_hash_to_newline("Defeat"));
-        draw_text(__view_get( e__VW.XView, 0 )+320.5,__view_get( e__VW.YView, 0 )+130.5-96,string_hash_to_newline("Defeat"));
-        scr_image("postspace",2,__view_get( e__VW.XView, 0 )+115,__view_get( e__VW.YView, 0 )+216,409,247);
+        draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+130-96,string_hash_to_newline("Defeat"));
+        draw_text(__view_get( E__VW.XVIEW, 0 )+320.5,__view_get( E__VW.YVIEW, 0 )+130.5-96,string_hash_to_newline("Defeat"));
+        scr_image("postspace",2,__view_get( E__VW.XVIEW, 0 )+115,__view_get( E__VW.YVIEW, 0 )+216,409,247);
         // draw_sprite(spr_postbattle_space,2,view_xview[0]+115,view_yview[0]+216);
         
         
@@ -152,17 +152,17 @@ if (start=7){
     }
     
     
-    if (capital_max!=0) then draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+160-96,string_hash_to_newline("Battleships Lost: "+string(max(0,capital_lost))+" ("+string(min(100,((max(0,capital_lost)/max(0,capital_max))*100)))+"%)"));
-    if (frigate_max!=0) then draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+176-96,string_hash_to_newline("Cruisers Lost: "+string(max(0,frigate_lost))+" ("+string(min(100,((max(0,frigate_lost)/max(0,frigate_max))*100)))+"%)"));
-    if (escort_max!=0) then draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+192-96,string_hash_to_newline("Escorts Lost: "+string(max(0,escort_lost))+" ("+string(min(100,((min(max(0,escort_lost,escort_max))/max(0,escort_max))*100)))+"%)"));
+    if (capital_max!=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+160-96,string_hash_to_newline("Battleships Lost: "+string(max(0,capital_lost))+" ("+string(min(100,((max(0,capital_lost)/max(0,capital_max))*100)))+"%)"));
+    if (frigate_max!=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+176-96,string_hash_to_newline("Cruisers Lost: "+string(max(0,frigate_lost))+" ("+string(min(100,((max(0,frigate_lost)/max(0,frigate_max))*100)))+"%)"));
+    if (escort_max!=0) then draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+192-96,string_hash_to_newline("Escorts Lost: "+string(max(0,escort_lost))+" ("+string(min(100,((min(max(0,escort_lost,escort_max))/max(0,escort_max))*100)))+"%)"));
     if (ships_max!=0) and (capital_lost+frigate_lost+escort_lost>0){
-        if ((capital_lost+frigate_lost+escort_lost)<(capital_max+frigate_max+escort_max)) then draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+208-96,string_hash_to_newline("Ships Damaged: "+string(max(0,ships_damaged-(capital_lost+frigate_lost+escort_lost)))+" ("+string(max(0,min(100,((ships_damaged-(capital_lost+frigate_lost+escort_lost))/(ships_max-(capital_lost+frigate_lost+escort_lost))))*100))+"%)"));
-        if ((capital_lost+frigate_lost+escort_lost)=(capital_max+frigate_max+escort_max)) then draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+208-96,string_hash_to_newline("Ships Damaged: 0 (0%)"));
+        if ((capital_lost+frigate_lost+escort_lost)<(capital_max+frigate_max+escort_max)) then draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+208-96,string_hash_to_newline("Ships Damaged: "+string(max(0,ships_damaged-(capital_lost+frigate_lost+escort_lost)))+" ("+string(max(0,min(100,((ships_damaged-(capital_lost+frigate_lost+escort_lost))/(ships_max-(capital_lost+frigate_lost+escort_lost))))*100))+"%)"));
+        if ((capital_lost+frigate_lost+escort_lost)=(capital_max+frigate_max+escort_max)) then draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+208-96,string_hash_to_newline("Ships Damaged: 0 (0%)"));
     }
-    draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+224-96,string_hash_to_newline("Marines Lost: "+string(max(0,fallen))));
+    draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+224-96,string_hash_to_newline("Marines Lost: "+string(max(0,fallen))));
     
     draw_set_halign(fa_center);
-    draw_text(__view_get( e__VW.XView, 0 )+320,__view_get( e__VW.YView, 0 )+256-3-96,string_hash_to_newline("[ Continue ]"));
+    draw_text(__view_get( E__VW.XVIEW, 0 )+320,__view_get( E__VW.YVIEW, 0 )+256-3-96,string_hash_to_newline("[ Continue ]"));
     
     
 

@@ -38,27 +38,27 @@ draw_set_halign(fa_left);
 
 if (owner=1) and (instance_nearest(x,y,obj_p_fleet).action=""){
     var free,z;free=1;z=obj_fleet_select;
-    if (mouse_x>=__view_get( e__VW.XView, 0 )+z.void_x) and (mouse_y>=__view_get( e__VW.YView, 0 )+z.void_y) 
-    and (mouse_x<__view_get( e__VW.XView, 0 )+z.void_x+z.void_wid) and (mouse_y<__view_get( e__VW.YView, 0 )+z.void_y+z.void_hei) and (obj_controller.fleet_minimized=0) then free=0;
+    if (mouse_x>=__view_get(E__VW.XVIEW, 0) + z.void_x) and (mouse_y>=__view_get(E__VW.YVIEW, 0) + z.void_y) 
+    and (mouse_x<__view_get(E__VW.XVIEW, 0) + z.void_x + z.void_wid) and (mouse_y<__view_get(E__VW.YVIEW, 0) + z.void_y + z.void_hei) and (obj_controller.fleet_minimized = 0) then free = 0;
     
-    if (mouse_x>=__view_get( e__VW.XView, 0 )+z.void_x) and (mouse_y>=__view_get( e__VW.YView, 0 )+z.void_y) 
-    and (mouse_x<__view_get( e__VW.XView, 0 )+z.void_x+z.void_wid) and (mouse_y<__view_get( e__VW.YView, 0 )+137) and (obj_controller.fleet_minimized=1) then free=0;
+    if (mouse_x>=__view_get(E__VW.XVIEW, 0) + z.void_x) and (mouse_y>=__view_get(E__VW.YVIEW, 0 ) + z.void_y) 
+    and (mouse_x<__view_get(E__VW.XVIEW, 0) + z.void_x+z.void_wid) and (mouse_y<__view_get(E__VW.YVIEW, 0) + 137) and (obj_controller.fleet_minimized = 1) then free = 0;
     
     if (free=1){
         var sys, sys_dist, mine, connected;
-        sys_dist=9999;connected=0;
+        sys_dist = 9999; connected = 0;
         
         with(obj_star){if (p_type[1]="Craftworld") and (obj_controller.known[6]=0) then instance_deactivate_object(id);}
         sys=instance_nearest(mouse_x,mouse_y,obj_star);
         sys_dist=point_distance(mouse_x,mouse_y,sys.x,sys.y);
         act_dist=point_distance(x,y,sys.x,sys.y);
         
-        mine=instance_nearest(x,y,obj_star);
-        if (mine.buddy=sys) then connected=1;
-        if (sys.buddy=mine) then connected=1;
+        mine = instance_nearest(x,y,obj_star);
+        if (mine.buddy = sys) then connected = 1;
+        if (sys.buddy = mine) then connected = 1;
         
-        var web1,web2,web;
-        web1=0;web2=0;web=0;
+        var web1, web2, web;
+        web1 = 0; web2 = 0; web = 0;
         
         if (sys_dist<32){
             if (planet_feature_bool(mine.p_feature[1], P_features.Webway)==1) then web1=1;

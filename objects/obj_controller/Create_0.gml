@@ -766,7 +766,7 @@ for(var q=0; q<6; q++){
 diplo_alpha=0;
 // ** Sets combat to not true **
 combat=0;
-random_event_next = EVENT.none;
+random_event_next = EVENT.NONE;
 useful_info="";
 
 // ** Sets the reason for loss of loyalty **

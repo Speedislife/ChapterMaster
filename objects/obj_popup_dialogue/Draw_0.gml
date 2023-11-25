@@ -1,7 +1,7 @@
 
 // Relative spot
-xx=__view_get( e__VW.XView, 0 )+x;
-yy=__view_get( e__VW.YView, 0 )+y;
+xx=__view_get( E__VW.XVIEW, 0 )+x;
+yy=__view_get( E__VW.YVIEW, 0 )+y;
 
 draw_sprite(spr_popup_dialogue,0,xx,yy);
 

@@ -17,7 +17,7 @@ if (dragging=true) and (instance_exists(mah_target)){
 }
 
 if (dragging=true) and (instance_exists(mah_target)){
-    if (x>=mah_target.x-5) and (x<=mah_target.x+42) and (mouse_y>=__view_get( e__VW.YView, 0 )+222) and (mouse_y<=__view_get( e__VW.YView, 0 )+688){
+    if (x>=mah_target.x-5) and (x<=mah_target.x+42) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+222) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+688){
         var himcol,te;himcol=mah_target.col_parent;te=0;
         te=4800+himcol;nexti=false;
         
@@ -53,7 +53,7 @@ if (dragging=true) and (instance_exists(mah_target)){
         }
     }
     if (instance_exists(mah_target)){
-        if (x<mah_target.x-5) or (x>mah_target.x+42) or (mouse_y<__view_get( e__VW.YView, 0 )+222) or (mouse_y>__view_get( e__VW.YView, 0 )+688){
+        if (x<mah_target.x-5) or (x>mah_target.x+42) or (mouse_y<__view_get( E__VW.YVIEW, 0 )+222) or (mouse_y>__view_get( E__VW.YVIEW, 0 )+688){
             dragging=false;x=old_x;y=old_y;obj_controller.cooldown=20;obj_cursor.dragging=0;obj_cursor.image_index=0;
             if (obj_controller.master_volume>0) and (obj_controller.effect_volume>0){audio_play_sound(snd_error,-80,0);audio_sound_gain(snd_error,1*obj_controller.master_volume*obj_controller.effect_volume,0);}
         }

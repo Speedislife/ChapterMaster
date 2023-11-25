@@ -1,8 +1,8 @@
 
 if (obj_controller.cooldown<=0){
     var x2,y2,wid,hei;
-    x2=__view_get( e__VW.XView, 0 )+x1;
-    y2=__view_get( e__VW.YView, 0 )+y1;
+    x2=__view_get(E__VW.XVIEW, 0 )+x1;
+    y2=__view_get(E__VW.YVIEW, 0 )+y1;
     
     if (header=3){wid=177;hei=200;}
     if (header=2){wid=175;hei=200;}

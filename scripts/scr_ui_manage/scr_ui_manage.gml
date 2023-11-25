@@ -21,7 +21,7 @@ function scr_ui_manage() {
 	// This is the draw script for showing the main management screen or individual company screens
 
 	if (menu==1) and (managing>0){
-	    var xx=__view_get( e__VW.XView, 0 )+0, yy=__view_get( e__VW.YView, 0 )+0, bb="", img=0;
+	    var xx=__view_get( E__VW.XVIEW, 0 )+0, yy=__view_get( E__VW.YVIEW, 0 )+0, bb="", img=0;
 
 	    // Draw BG
 	    draw_set_alpha(1);
@@ -885,11 +885,11 @@ function scr_ui_manage() {
 	            // temp1=string(managing)+"."+string(ide[sel]);
             
 	            temp2=string(ma_loc[sel]);
-	            if (unit_location[0]==location_types.planet){
+	            if (unit_location[0]==LOCATION_TYPES.PLANET){
 					temp2 = unit_location[2];
 					//get roman numeral for system planet
 					temp2 += romanNumerals[unit_location[1]-1];
-	            } else if(unit_location[0]==location_types.ship){
+	            } else if(unit_location[0]==LOCATION_TYPES.SHIP){
 					temp2 = obj_ini.ship[unit_location[1]]
 				}
 	            if (fest_planet==0) and (fest_sid>0) and (fest_repeats>0) and (ma_lid[sel]==fest_sid){
@@ -1289,7 +1289,7 @@ function scr_ui_manage() {
 	    }
 
 	    draw_set_color(c_black);
-	    xx=__view_get( e__VW.XView, 0 )+0;yy=__view_get( e__VW.YView, 0 )+0;
+	    xx=__view_get( E__VW.XVIEW, 0 )+0;yy=__view_get( E__VW.YVIEW, 0 )+0;
 	    draw_rectangle(xx+974,yy+165,xx+1005,yy+822,0);
 	    draw_set_color(c_gray);
 	    draw_rectangle(xx+974,yy+165,xx+1005,yy+822,1);
@@ -1933,8 +1933,8 @@ function scr_ui_manage() {
 	if (menu=30) and (managing>0){// Load to ships
 	    var xx, yy, bb, img;
 	    bb="";img=0;
-	    xx=__view_get( e__VW.XView, 0 )+0;
-	    yy=__view_get( e__VW.YView, 0 )+0;
+	    xx=__view_get( E__VW.XVIEW, 0 )+0;
+	    yy=__view_get( E__VW.YVIEW, 0 )+0;
 
 	    // BG
 	    draw_set_alpha(1);
@@ -2013,7 +2013,7 @@ function scr_ui_manage() {
 	    draw_set_font(fnt_40k_14b);
 	    draw_text_transformed(xx+320,yy+402,string_hash_to_newline("Click a Ship to Load Selection (Req. "+string(man_size)+" Space)"),1,1,0);
     
-	    xx=__view_get( e__VW.XView, 0 )+0;yy=__view_get( e__VW.YView, 0 )+0;
+	    xx=__view_get( E__VW.XVIEW, 0 )+0;yy=__view_get( E__VW.YVIEW, 0 )+0;
     
 	    // draw_text_transformed(xx+488,yy+426,"Selection Size: "+string(man_size),0.4,0.4,0);
 	    scr_scrollbar(974,172,1005,790,34,ship_max,ship_current);

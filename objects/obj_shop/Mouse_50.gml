@@ -1,8 +1,8 @@
 
 
 var i,xx,yy,x2,y2,cost,multiple;i=0;
-xx=__view_get( e__VW.XView, 0 )+0;
-yy=__view_get( e__VW.YView, 0 )+0;
+xx=__view_get( E__VW.XVIEW, 0 )+0;
+yy=__view_get( E__VW.YVIEW, 0 )+0;
 
 x2=962;
 y2=107;

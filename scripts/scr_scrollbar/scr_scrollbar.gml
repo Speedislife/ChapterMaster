@@ -26,8 +26,8 @@ function scr_scrollbar(argument0, argument1, argument2, argument3, argument4, ar
 	xx=0;yy=0;x1=0;x2=0;y1=0;y2=0;temp1=0;temp2=0;
 	siz1=0;siz2=0;siz3=0;
 
-	xx=__view_get( e__VW.XView, 0 )+0;
-	yy=__view_get( e__VW.YView, 0 )+0;
+	xx=__view_get( E__VW.XVIEW, 0 )+0;
+	yy=__view_get( E__VW.YVIEW, 0 )+0;
 
 	siz1=argument3-argument1;// know the size of the total scroll area
 	siz2=(argument4/argument5)*siz1;// know the relative size of the bar

@@ -111,8 +111,8 @@ if (obj_controller.popup<3) and (loading=0){
 
 if (loading=1){
     var xx, yy, temp1, dist;
-    xx=__view_get( e__VW.XView, 0 )+0;
-    yy=__view_get( e__VW.YView, 0 )+0;
+    xx=__view_get( E__VW.XVIEW, 0 )+0;
+    yy=__view_get( E__VW.YVIEW, 0 )+0;
     dist=999;
     
     obj_controller.selecting_planet=0;

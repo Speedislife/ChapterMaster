@@ -5,8 +5,8 @@ function __view_set_internal(argument0, argument1, argument2) {
 
 	switch(__prop)
 	{
-	case e__VW.XView: var __cam = view_get_camera(__index); camera_set_view_pos(__cam, __val, camera_get_view_y(__cam)); break;
-	case e__VW.YView: var __cam = view_get_camera(__index); camera_set_view_pos(__cam, camera_get_view_x(__cam), __val); break;
+	case E__VW.XVIEW: var __cam = view_get_camera(__index); camera_set_view_pos(__cam, __val, camera_get_view_y(__cam)); break;
+	case E__VW.YVIEW: var __cam = view_get_camera(__index); camera_set_view_pos(__cam, camera_get_view_x(__cam), __val); break;
 	case e__VW.WView: var __cam = view_get_camera(__index); camera_set_view_size(__cam, __val, camera_get_view_height(__cam)); break;
 	case e__VW.HView: var __cam = view_get_camera(__index); camera_set_view_size(__cam, camera_get_view_width(__cam), __val); break;
 	case e__VW.Angle: var __cam = view_get_camera(__index); camera_set_view_angle(__cam, __val); break;

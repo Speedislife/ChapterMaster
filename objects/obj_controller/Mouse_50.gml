@@ -1,35 +1,41 @@
 // This script handles left click interactions throught the main menus of the game
 var xx, yy;
-xx=__view_get( e__VW.XView, 0 );
-yy=__view_get( e__VW.YView, 0 );
+xx=__view_get(E__VW.XVIEW, 0);
+yy=__view_get(E__VW.YVIEW, 0);
 
-if (trading>0) and (force_goodbye!=0) then trading=0;
+if (trading > 0) and (force_goodbye != 0) then trading = 0;
 
 // ** Gene seed countdown and production **
-if (menu==11) and (cooldown<=0){
-    if (gene_seed>0) and (obj_ini.zygote==0) and (mouse_x>=xx+407) and (mouse_y>=yy+788) and (mouse_x<xx+529) and (mouse_y<yy+811){
-        var i=0,g=0;
-        for(i=1; i<=120; i++){
-            if (g==0){
-                if (obj_ini.slave_batch_eta[i]==120) then g=i;
-            }
-        }
-        if (g=0){
-            for(i=1; i<=120; i++){
-                if (g=0){if (obj_ini.slave_batch_num[i]=0) then g=i;}
-            }
-        }
+if (menu==11) and (cooldown<=0)
+{
+    if (gene_seed>0) and (obj_ini.zygote==0) and (mouse_x>=xx+407) and (mouse_y>=yy+788) and (mouse_x<xx+529) and (mouse_y<yy+811)
+		{
+	        var i = 0, g = 0;
+	        for(i = 1; i <= 120; i++)
+				{
+		            if (g == 0)
+						{
+			                if (obj_ini.slave_batch_eta[i] == 120) then g = i;
+			            }
+		        }
+	        if (g = 0)
+				{
+		            for(i = 1; i <= 120; i++)
+						{
+			                if (g = 0){if (obj_ini.slave_batch_num[i] = 0) then g = i;}
+			            }
+		        }
 
-        var carpal=1;
-        if (obj_ini.slave_batch_num[g]>=10) and (obj_ini.slave_batch_num[g]<50) then carpal=2;
-        if (obj_ini.slave_batch_num[g]>=50) then carpal=5;if (obj_ini.slave_batch_num[g]>=150) then carpal=10;
-        if (obj_controller.gene_seed<carpal) then carpal=obj_controller.gene_seed;
+	        var carpal=1;
+	        if (obj_ini.slave_batch_num[g]>=10) and (obj_ini.slave_batch_num[g]<50) then carpal=2;
+	        if (obj_ini.slave_batch_num[g]>=50) then carpal=5;if (obj_ini.slave_batch_num[g]>=150) then carpal=10;
+	        if (obj_controller.gene_seed<carpal) then carpal=obj_controller.gene_seed;
 
-        obj_controller.gene_seed-=carpal;
-        obj_ini.slave_batch_num[g]+=carpal;
-        obj_ini.slave_batch_eta[g]=120;
-        cooldown=10;
-    }
+	        obj_controller.gene_seed-=carpal;
+	        obj_ini.slave_batch_num[g]+=carpal;
+	        obj_ini.slave_batch_eta[g]=120;
+	        cooldown=10;
+	    }
     if (obj_ini.slave_batch_num[1]>0) and (mouse_x>=xx+659) and (mouse_y>=yy+788) and (mouse_x<xx+838) and (mouse_y<yy+811){
         for(var i=1; i<=120; i++){
             gene_seed+=obj_ini.slave_batch_num[i];
@@ -44,7 +50,7 @@ if (menu==12) and (cooldown<=0) and (penitorium>0){
     var behav=0,r_eta=0,re=0;
     for(var qp=1; qp<=min(36,penitorium); qp++){
         if (qp<=penitorium) and (mouse_y>=yy+100+((qp-1)*20)) and (mouse_y<yy+100+(qp*20)){
-            if (mouse_x>=xx+1433) and (mouse_x<xx+1497){
+            if (mouse_x >= xx+1433) and (mouse_x<xx+1497){
                 cooldown=20;
                 var c=penit_co[qp],e=penit_id[qp];
                 if (obj_ini.race[c,e]=1){
@@ -852,7 +858,7 @@ if (menu==20) and (diplomacy>0) or ((diplomacy<-5) and (diplomacy>-6)) and (cool
                 trade_disp[2]=-10;
                 trade_disp[3]=10;
                 trade_disp[4]=-15;
-                if (random_event_next != EVENT.none) and ((string_count("WL10|",useful_info)>0) or (turn<chaos_turn)) and ((string_count("WL7|",useful_info)>0) or (known[7]<1)) and  (string_count("WG|",useful_info)>1) and (string_count("CM|",useful_info)>0) then trade_disp[4]=1000;
+                if (random_event_next != EVENT.NONE) and ((string_count("WL10|",useful_info)>0) or (turn<chaos_turn)) and ((string_count("WL7|",useful_info)>0) or (known[7]<1)) and  (string_count("WG|",useful_info)>1) and (string_count("CM|",useful_info)>0) then trade_disp[4]=1000;
             }
             // Ork trade goods
             if (diplomacy==7){
@@ -868,7 +874,7 @@ if (menu==20) and (diplomacy>0) or ((diplomacy<-5) and (diplomacy>-6)) and (cool
         if (force_goodbye==0) and (cooldown<=0){
 
             var diplo_pressed=0;
-            yy=__view_get( e__VW.YView, 0 )+0;
+            yy=__view_get( E__VW.YVIEW, 0 )+0;
 
             var opts=0;
             for(var dp=1; dp<=4; dp++){if (diplo_option[dp]!="") then opts+=1;}
@@ -883,7 +889,7 @@ if (menu==20) and (diplomacy>0) or ((diplomacy<-5) and (diplomacy>-6)) and (cool
                 }
                 yy+=30;
             }
-            yy=__view_get( e__VW.YView, 0 );
+            yy=__view_get( E__VW.YVIEW, 0 );
 
             if (diplo_pressed>0) and (diplo_goto[diplo_pressed]!="") and (cooldown<=0){
                 click2=1;
@@ -1519,7 +1525,7 @@ if (action_if_number(obj_saveload, 0, 0) &&
 
     if (zoomed==0) and (cooldown<=0) and (menu>=500) and (menu<=510){
 
-        if (mouse_y>=__view_get( e__VW.YView, 0 )+27){
+        if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+27){
             cooldown=8000;
             if (menu>=500) and (temp[menu-434]=""){
                 menu=0;
@@ -1529,12 +1535,12 @@ if (action_if_number(obj_saveload, 0, 0) &&
         }
     }
 
-    if (menu>=500) then exit;
+    if (menu >= 500) then exit;
 
-    var zoomeh=0,diyst=999,onceh=0;
-    xx=__view_get( e__VW.XView, 0 );
-    yy=__view_get( e__VW.YView, 0 );
-    zoomeh=zoomed;
+    var zoomeh = 0, diyst = 999, onceh = 0;
+    xx = __view_get(E__VW.XVIEW, 0);
+    yy = __view_get(E__VW.YVIEW, 0);
+    zoomeh = zoomed;
 
     if (menu==0) then hide_banner=0;// 136 ;
 
@@ -1571,8 +1577,8 @@ if (action_if_number(obj_saveload, 0, 0) &&
     // Fleet panel minimize
     if (zoomed==0) and (cooldown<=0) and (diplomacy==0){
         if (popup==1) or (popup==2){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+18+obj_fleet_select.void_wid) and (mouse_y>=__view_get( e__VW.YView, 0 )+116)
-            and (mouse_x<__view_get( e__VW.XView, 0 )+36+obj_fleet_select.void_wid) and (mouse_y<__view_get( e__VW.YView, 0 )+134) and (cooldown<=0){
+            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+18+obj_fleet_select.void_wid) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+116)
+            and (mouse_x<__view_get( E__VW.XVIEW, 0 )+36+obj_fleet_select.void_wid) and (mouse_y<__view_get( E__VW.YVIEW, 0 )+134) and (cooldown<=0){
                 if (fleet_minimized==0) and (cooldown<=0){
                     fleet_minimized=1;
                     cooldown=8000;
@@ -2235,9 +2241,9 @@ if (action_if_number(obj_saveload, 0, 0) &&
             "Company Champion",
             "Champion"
         ]                        
-        var eventing=false, bb="";
-        xx=__view_get( e__VW.XView, 0 )+0;
-        yy=__view_get( e__VW.YView, 0 )+0;
+        var eventing = false, bb = "";
+        xx = __view_get(E__VW.XVIEW, 0) + 0;
+        yy = __view_get(E__VW.YVIEW, 0) + 0;
         var top=man_current,sel,temp1="",temp2="",temp3="",temp4="",temp5="", squad_sel=0;
         var stop=0;
 
@@ -2274,7 +2280,7 @@ if (action_if_number(obj_saveload, 0, 0) &&
         }
         // This is the 'select all of type' buttons
         sel=1;
-        yy=__view_get( e__VW.YView, 0 )+77;
+        yy=__view_get( E__VW.YVIEW, 0 )+77;
         if (sel_all!=""){
             // repeat(min(man_max,man_see)){
             var selection =false;
@@ -2436,7 +2442,7 @@ if (action_if_number(obj_saveload, 0, 0) &&
             sel_all="";
         }
         sel=top;
-        yy=__view_get( e__VW.YView, 0 )+77;
+        yy=__view_get( E__VW.YVIEW, 0 )+77;
         for(var i=0; i<min(man_max,man_see); i++){
             while (man[sel]=="hide") and (sel<500){sel++;}
             eventing=false;
@@ -2538,7 +2544,7 @@ if (action_if_number(obj_saveload, 0, 0) &&
         // End selecting
 
         xx=xx+0;
-        yy=__view_get( e__VW.YView, 0 )+0;
+        yy=__view_get( E__VW.YVIEW, 0 )+0;
 
         if (mouse_x>=xx+1018) and (mouse_y>yy+805) and (mouse_x<xx+1018+141) and (mouse_y<yy+831){
             // Load to ship

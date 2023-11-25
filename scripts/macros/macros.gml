@@ -1,65 +1,136 @@
-function macros() {
-#macro GM_build_date 41914.3660453472
-#macro GM_version "1.0.0.4"
-
-
-	enum luck {
-		bad = -1,
-		neutral = 0,
-		good = 1
-	}
-	
-	enum GOD_MISSION{
-		artifact
-	}
-
-	enum INQUISITION_MISSION {
-		purge,
-		inquisitor,
-		spyrer,
-		artifact,
-		tomb_world,
-		tyranid_organism,
-		ethereal
-
-	}
-	enum MECHANICUS_MISSION {
-		bionics,
-		land_raider,
-		mars_voyage,
-		necron_study
-	}
-	enum EVENT 
+function macros() 
 	{
-		//good
-		space_hulk,
-		promotion,
-		strange_building,
-		sororitas,
-		rogue_trader,
-		inquisition_mission,
-		inquisition_planet,
-		mechanicus_mission,
+		#macro GM_build_date 41914.3660453472
+		#macro GM_version "1.0.0.4"
 
-		//neutral
-		strange_behavior,
-		fleet_delay,
-		harlequins,
-		succession_war,
-		random_fun,
+	// initilisation of views
 
-		//bad
-		warp_storms,
-		enemy_forces,
-		crusade,
-		enemy,
-		mutation,
-		ship_lost,
-		chaos_invasion,
-		necron_awaken,
-		fallen,
+	enum E__VW
+		{
+			XVIEW,
+			YVIEW,
+			WVIEW,
+			HVIEW,
+			ANGLE,
+			HBORDER,
+			VBORDER,
+			HSPEED,
+			VSPEED,
+			OBJECT,
+			VISIBLE,
+			XPORT,
+			YPORT,
+			WPORT,
+			HPORT,
+			CAMERA,
+			SURFACEID,
+		};
 
+//Gameplay enums
 
-		none
+enum P_FEATURES 
+	{
+		SORORITAS_CATHEDRAL,
+		NECRON_TOMB,
+		ARTIFACT, 
+		STC_FRAGMENT,
+		ANCIENT_RUINS,
+		CAVE_NETWORK,
+		RECRUITING_WORLD, 
+		MONASTERY,
+		WARLORD6,
+		WARLORD7,
+		WARLORD10,
+		SPECIAL_FORCE,
+		WORLD_EATERS,
+		WEBWAY,
+		SECRET_BASE,
+		STARSHIP,
+		SUCCESSION_WAR,
+		MECHANICUS_FORGE,
+		RECLAMATION_POOLS,
+		CAPILLARY_TOWERS,
+		DAEMONIC_INCURSION,
+		VICTORY_SHRINE,
+		ARSENAL,
+		GENE_VAULT,
+	};
+	
+enum BASE_TYPE
+	{
+		LAIR,
 	}
-}
+
+	enum LOCATION_TYPES 
+		{
+			PLANET,
+			SHIP,
+			SPACE_HULK,
+			ANCIENT_RUINS,
+			WARP
+		}
+
+	enum LUCK 
+		{
+			BAD = -1,
+			NEUTRAL = 0,
+			GOOD = 1
+		}
+	
+	enum GOD_MISSION
+		{
+			ARTIFACT
+		};
+
+	enum INQUISITION_MISSION 
+		{
+			PURGE,
+			INQUISITOR,
+			SPYRER,
+			ARTIFACT,
+			TOMB_WORLD,
+			TYRANID_ORGANISM,
+			ETHEREAL
+		}
+		
+	enum MECHANICUS_MISSION 
+		{
+			BIONICS,
+			LAND_RAIDER,
+			MARS_VOYAGE,
+			NECRON_STUDY
+		}
+			
+	enum EVENT 
+		{
+			//good
+			SPACE_HULK,
+			PROMOTION,
+			STRANGE_BUILDING,
+			SORORITAS,
+			ROGUE_TRADER,
+			INQUISITION_MISSION,
+			INQUISITION_PLANET,
+			MECHANICUS_MISSION,
+
+			//neutral
+			STRANGE_BEHAVIOR,
+			FLEET_DELAY,
+			HARLEQUINS,
+			SUCCESSION_WAR,
+			RANDOM_FUN,
+
+			//bad
+			WARP_STORMS,
+			ENEMY_FORCES,
+			CRUSADE,
+			ENEMY,
+			MUTATION,
+			SHIP_LOST,
+			CHAOS_INVASION,
+			NECRON_AWAKEN,
+			FALLEN,
+
+			NONE
+		}
+	}

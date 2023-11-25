@@ -29,7 +29,7 @@ image_speed=0;
 
 if (dragging=true){
     x=mouse_x+rel_mousex;y=mouse_y+rel_mousey;obj_cursor.image_index=3;
-    col_target=instance_nearest(x,__view_get( e__VW.YView, 0 )+224,obj_temp8);
+    col_target=instance_nearest(x,__view_get( E__VW.YVIEW, 0 )+224,obj_temp8);
     nearest_col=instance_nearest(col_target.x,col_target.y,obj_formation_bar);
     nobar=false;if (point_distance(col_target.x,col_target.y,nearest_col.x,nearest_col.y)>2) then nobar=true;
 }

@@ -3,8 +3,8 @@ yam+=1;
 if (cooldown>0) and (cooldown<=5000) then cooldown-=1;
 
 var xx,yy;
-xx=__view_get( e__VW.XView, 0 )+0;
-yy=__view_get( e__VW.YView, 0 )+0;
+xx=__view_get( E__VW.XVIEW, 0 )+0;
+yy=__view_get( E__VW.YVIEW, 0 )+0;
 
 if (effect=11) and (!instance_exists(obj_saveload)){var sav,butt;
     with(obj_new_button){x-=2000;y-=2000;}

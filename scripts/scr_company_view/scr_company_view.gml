@@ -58,7 +58,7 @@ function scr_company_view(company) {
 	        if (unit.name()!=""){
 				unit_loc = unit.marine_location() ;
 	            // if (obj_ini.god[company,v]>=10) then bad=1;
-				if (unit_loc[0] == location_types.ship){
+				if (unit_loc[0] == LOCATION_TYPES.SHIP){
 				   	if (obj_ini.ship_location[unit_loc[1]]="Lost") then bad=1;
 				}	            
 	            if (bad==1){
@@ -84,7 +84,7 @@ function scr_company_view(company) {
 	                ma_bio[v]=obj_ini.bio[company,v];
 	                ma_mobi[v]=obj_ini.mobi[company,v];
 					display_unit[v] = unit;
-					if (unit_loc[0]==location_types.ship){
+					if (unit_loc[0]==LOCATION_TYPES.SHIP){
 						var unit_ship=unit_loc[1];
 						if (unit_loc[2]=="Lost")then ma_loc[v]="Lost";
 					}					
@@ -125,7 +125,7 @@ function scr_company_view(company) {
 	         			
 	         				//if units are on different ships but the ships are in the same location group them together
 	         				//else split units up in selection area
-		         			if (squad_loc[0]==location_types.ship){
+		         			if (squad_loc[0]==LOCATION_TYPES.SHIP){
 		                    	if (unit_loc[0]==squad_loc[0]) and (unit_loc[2]==squad_loc[2]){
 		                    		n=0;
 		                    	}else n=1;
@@ -153,7 +153,7 @@ function scr_company_view(company) {
     						//if units are in a squad
 	                   	} else{
 	                   		///if units are on different ships but the ships are in the same location group them together
-	                   		if (squad_type == unit.squad) and (unit_loc[0]==squad_loc[0]) and (unit_loc[2]==squad_loc[2]) and ((squad_loc[0] == location_types.ship) or (unit_loc[1]==squad_loc[1]) ){
+	                   		if (squad_type == unit.squad) and (unit_loc[0]==squad_loc[0]) and (unit_loc[2]==squad_loc[2]) and ((squad_loc[0] == LOCATION_TYPES.SHIP) or (unit_loc[1]==squad_loc[1]) ){
 	                   			squad_members+=1;
 	                   			squad[v]=squads;
 	                   		} else {

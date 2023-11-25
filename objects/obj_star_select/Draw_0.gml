@@ -18,7 +18,7 @@ draw_set_halign(fa_center);
 draw_set_color(0);
 
 var xx, yy, temp1,improve;temp1=0;improve=0;
-xx=__view_get( e__VW.XView, 0 )+0;yy=__view_get( e__VW.YView, 0 )+0;
+xx=__view_get(E__VW.XVIEW, 0 )+0;yy=__view_get(E__VW.YVIEW, 0 )+0;
 if (loading=1){xx=xx;yy=yy;}
 
 
@@ -396,15 +396,15 @@ if (target!=0){
 
 if (debug=1){
     var xx,yy,pp;
-    xx=__view_get( e__VW.XView, 0 )+0;
-    yy=__view_get( e__VW.YView, 0 )+0;
+    xx=__view_get( E__VW.XVIEW, 0 )+0;
+    yy=__view_get( E__VW.YVIEW, 0 )+0;
     
     if (scr_hit(xx+274,yy+426,xx+337,yy+451)=true) and (obj_controller.cooldown<=0) and (obj_controller.mouse_left=1){
         debug=0;obj_controller.cooldown=8000;exit;
     }
     
-    xx=__view_get( e__VW.XView, 0 )+27;
-    yy=__view_get( e__VW.YView, 0 )+165;
+    xx=__view_get( E__VW.XVIEW, 0 )+27;
+    yy=__view_get( E__VW.YVIEW, 0 )+165;
     pp=obj_controller.selecting_planet;
     
     draw_set_color(c_black);draw_rectangle(xx+9,yy+9,xx+310,yy+260,0);

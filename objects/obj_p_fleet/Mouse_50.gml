@@ -18,8 +18,8 @@ m_dist=point_distance(x,y,mouse_x,mouse_y);
 if (scr_void_click()=false) then exit;
 
 
-if ((obj_controller.zoomed=0) and (mouse_y<__view_get( e__VW.YView, 0 )+60)) or (obj_controller.menu!=0) then exi=1;
-if ((obj_controller.zoomed=0) and (mouse_y>__view_get( e__VW.YView, 0 )+836)) or (obj_controller.menu!=0) then exi=1;
+if ((obj_controller.zoomed=0) and (mouse_y<__view_get(E__VW.YVIEW, 0 ) + 60)) or (obj_controller.menu !=0) then exi = 1;
+if ((obj_controller.zoomed=0) and (mouse_y>__view_get(E__VW.YVIEW, 0 ) + 836)) or (obj_controller.menu !=0) then exi = 1;
 
 /*if (obj_controller.popup=1) or (obj_controller.popup=2) or (obj_controller.popup=3){
     if (obj_controller.fleet_minimized=0) and (mouse_x>view_xview[0]+32) and (mouse_y>view_yview[0]+48) and (mouse_x<view_xview[0]+298) and (mouse_y<view_yview[0]+416){

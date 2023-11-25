@@ -98,8 +98,8 @@ if (did==1){
             ed.p_type[2]=obj_ini.home_type;
             ed.planet[2]=1;
             if (obj_ini.home_name!="random") then ed.name=obj_ini.home_name;
-            array_push(ed.p_feature[1], new new_planet_feature(P_features.Recruiting_World));//recruiting world
-            array_push(ed.p_feature[2], new new_planet_feature(P_features.Monastery));ed.p_owner[2]=1;ed.p_first[2]=1; //monestary
+            array_push(ed.p_feature[1], new new_planet_feature(P_FEATURES.RECRUITING_WORLD));//recruiting world
+            array_push(ed.p_feature[2], new new_planet_feature(P_FEATURES.MONASTERY));ed.p_owner[2]=1;ed.p_first[2]=1; //monestary
             if (homeworld_rule!=1) then ed.dispo[2]=-5000;
             
             if (obj_ini.home_type=="Shrine") then known[5]=1;
@@ -125,7 +125,7 @@ if (did==1){
             ed.p_type[2]=obj_ini.home_type;
             ed.planet[2]=1;
             if (obj_ini.home_name!="random") then ed.name=obj_ini.home_name;
-            array_push(ed.p_feature[2], new new_planet_feature(P_features.Monastery), new new_planet_feature(P_features.Recruiting_World))
+            array_push(ed.p_feature[2], new new_planet_feature(P_FEATURES.MONASTERY), new new_planet_feature(P_FEATURES.RECRUITING_WORLD))
 			ed.p_owner[2]=1;
             ed.p_first[2]=1;
             if (homeworld_rule!=1) then ed.dispo[2]=-5000;
@@ -155,7 +155,7 @@ if (did==1){
             ed.p_type[2]=obj_ini.home_type;
             ed.planet[2]=1;
             if (obj_ini.home_name!="random") then ed.name=obj_ini.home_name;
-            array_push(ed.p_feature[1],new new_planet_feature(P_features.Recruiting_World))
+            array_push(ed.p_feature[1],new new_planet_feature(P_FEATURES.RECRUITING_WORLD))
             if (ed.p_type[1]=="random") then ed.p_type[1]=choose("Feral","Temperate","Desert","Ice");
             if (ed.p_type[2]=="random") then ed.p_type[2]=choose("Feral","Temperate","Desert","Ice");
             if (global.chapter_name!="Lamenters") then obj_controller.recruiting_worlds+=string(ed.name)+" I|";
@@ -165,7 +165,7 @@ if (did==1){
             ed.p_type[2]=obj_ini.home_type;
             ed.planet[2]=1;
             if (obj_ini.home_name!="random") then ed.name=obj_ini.home_name;
-            array_push(ed.p_feature[2],new new_planet_feature(P_features.Recruiting_World))
+            array_push(ed.p_feature[2],new new_planet_feature(P_FEATURES.RECRUITING_WORLD))
             if (ed.p_type[1]=="random") then ed.p_type[1]=choose("Feral","Temperate","Desert","Ice");
             if (ed.p_type[2]=="random") then ed.p_type[2]=choose("Feral","Temperate","Desert","Ice");
             if (global.chapter_name!="Lamenters") then obj_controller.recruiting_worlds+=string(ed.name)+" II|";
@@ -173,10 +173,10 @@ if (did==1){
     }
     with(ed){
         for(var f=1; f<=4; f++){
-			if (array_length( search_planet_features(p_feature[f], P_features.Monastery)) >0)and (array_length( search_planet_features(p_feature[f], P_features.Recruiting_World)) >0){
+			if (array_length( search_planet_features(p_feature[f], P_FEATURES.MONASTERY)) >0)and (array_length( search_planet_features(p_feature[f], P_FEATURES.RECRUITING_WORLD)) >0){
                 if (p_owner[f]==1) then p_owner[f]=2;
             }
-			if (array_length( search_planet_features(p_feature[f], P_features.Monastery)) >0){
+			if (array_length( search_planet_features(p_feature[f], P_FEATURES.MONASTERY)) >0){
                 if (p_owner[f]!=1) then p_owner[f]=1;
                 owner=1;
             }

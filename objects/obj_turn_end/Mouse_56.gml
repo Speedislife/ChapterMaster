@@ -17,8 +17,8 @@ if (obj_controller.complex_event=true) or (instance_exists(obj_temp_meeting)) th
 
 
 var xxx,yyy;
-xxx=__view_get( e__VW.XView, 0 )+535;
-yyy=__view_get( e__VW.YView, 0 )+200;
+xxx=__view_get( E__VW.XVIEW, 0 )+535;
+yyy=__view_get( E__VW.YVIEW, 0 )+200;
 
 if (cooldown<=0) and (battle_world[current_battle]=-50) and (combating=0){
     if (mouse_x>=xxx+132) and (mouse_y>=yyy+354) and (mouse_x<xxx+259) and (mouse_y<yyy+389){// Run like hell, space

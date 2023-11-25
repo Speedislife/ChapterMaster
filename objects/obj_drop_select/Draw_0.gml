@@ -11,8 +11,8 @@ if __b__
 
 
 var xx, yy;
-xx=__view_get( e__VW.XView, 0 );
-yy=__view_get( e__VW.YView, 0 );
+xx=__view_get( E__VW.XVIEW, 0 );
+yy=__view_get( E__VW.YVIEW, 0 );
 
 
 draw_sprite(spr_popup_large,1,xx+534,yy+201);
@@ -524,8 +524,8 @@ if __b__
 {
 
 var xx, yy;
-xx=__view_get( e__VW.XView, 0 );
-yy=__view_get( e__VW.YView, 0 );
+xx=__view_get( E__VW.XVIEW, 0 );
+yy=__view_get( E__VW.YVIEW, 0 );
 
 
 if (menu=0) and (purge=1){
@@ -617,7 +617,7 @@ if (menu=0) and (purge>=2){
     
     
     var x2,y2;
-    x2=__view_get( e__VW.XView, 0 )+535;y2=__view_get( e__VW.YView, 0 )+200;
+    x2=__view_get( E__VW.XVIEW, 0 )+535;y2=__view_get( E__VW.YVIEW, 0 )+200;
     draw_set_halign(fa_left);draw_set_color(c_gray);
     if (purge=2) then draw_text_transformed(x2+14,y2+12,string_hash_to_newline("Bombard Purging "+string(p_target.name)+" "+scr_roman(obj_controller.selecting_planet)),0.6,0.6,0);
     if (purge=3) then draw_text_transformed(x2+14,y2+12,string_hash_to_newline("Fire Cleansing "+string(p_target.name)+" "+scr_roman(obj_controller.selecting_planet)),0.6,0.6,0);

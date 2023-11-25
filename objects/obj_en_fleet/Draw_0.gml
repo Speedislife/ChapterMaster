@@ -35,13 +35,13 @@ if (obj_controller.zoomed=1){
 // if (obj_controller.selected!=0) and (selected=1) then within=1;
 
 if (obj_controller.selecting_planet>0){
-    if (mouse_x>=__view_get( e__VW.XView, 0 )+529) and (mouse_y>=__view_get( e__VW.YView, 0 )+234) and (mouse_x<__view_get( e__VW.XView, 0 )+611) and (mouse_y<__view_get( e__VW.YView, 0 )+249){
+    if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+529) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+234) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+611) and (mouse_y<__view_get( E__VW.YVIEW, 0 )+249){
         if (instance_exists(obj_star_select)){if (obj_star_select.button1!="") then within=0;}
     }
-    if (mouse_x>=__view_get( e__VW.XView, 0 )+529) and (mouse_y>=__view_get( e__VW.YView, 0 )+234+16) and (mouse_x<__view_get( e__VW.XView, 0 )+611) and (mouse_y<__view_get( e__VW.YView, 0 )+249+16){
+    if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+529) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+234+16) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+611) and (mouse_y<__view_get( E__VW.YVIEW, 0 )+249+16){
         if (instance_exists(obj_star_select)){if (obj_star_select.button2!="") then within=0;}
     }
-    if (mouse_x>=__view_get( e__VW.XView, 0 )+529) and (mouse_y>=__view_get( e__VW.YView, 0 )+234+32) and (mouse_x<__view_get( e__VW.XView, 0 )+611) and (mouse_y<__view_get( e__VW.YView, 0 )+249+32){
+    if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+529) and (mouse_y>=__view_get( E__VW.YVIEW, 0 )+234+32) and (mouse_x<__view_get( E__VW.XVIEW, 0 )+611) and (mouse_y<__view_get( E__VW.YVIEW, 0 )+249+32){
         if (instance_exists(obj_star_select)){if (obj_star_select.button3!="") then within=0;}
     }
 }

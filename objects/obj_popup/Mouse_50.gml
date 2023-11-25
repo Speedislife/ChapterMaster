@@ -37,7 +37,7 @@ if (option1="") and (type<5){
 }
 
 if (type>4) and (type!=9) and (cooldown<=0){
-    var xx,yy;xx=__view_get( e__VW.XView, 0 );yy=__view_get( e__VW.YView, 0 );
+    var xx,yy;xx=__view_get( E__VW.XVIEW, 0 );yy=__view_get( E__VW.YVIEW, 0 );
 
     if (mouse_x>=xx+1006) and (mouse_y>=yy+499) and (mouse_x<=xx+1116) and (mouse_y<yy+519){
         obj_controller.cooldown=10;
@@ -49,7 +49,7 @@ if (type>4) and (type!=9) and (cooldown<=0){
 
 if (type=5.1) and (cooldown<=0){
     var xx,yy,before,before2;
-    xx=__view_get( e__VW.XView, 0 );yy=__view_get( e__VW.YView, 0 );
+    xx=__view_get( E__VW.XVIEW, 0 );yy=__view_get( E__VW.YVIEW, 0 );
     before=target_comp;
     before2=target_role;
 
@@ -74,7 +74,7 @@ if (type=5.1) and (cooldown<=0){
 
 if (type=5) and (cooldown<=0){
     var xx,yy,before,before2;
-    xx=__view_get( e__VW.XView, 0 );yy=__view_get( e__VW.YView, 0 );
+    xx=__view_get( E__VW.XVIEW, 0 );yy=__view_get( E__VW.YVIEW, 0 );
     before=target_comp;
     before2=target_role;
 
@@ -360,8 +360,8 @@ if (type=5) and (cooldown<=0){
 /* */
 
 var xx,yy,change_tab;
-xx=__view_get( e__VW.XView, 0 );
-yy=__view_get( e__VW.YView, 0 );
+xx=__view_get( E__VW.XVIEW, 0 );
+yy=__view_get( E__VW.YVIEW, 0 );
 change_tab=0;
 
 
@@ -509,8 +509,8 @@ if (mouse_x>=xx+1465) and (mouse_y>=yy+499) and (mouse_x<xx+1576) and (mouse_y<y
 /* */
 
 var xx,yy,change_tab,do_not_change;
-xx=__view_get( e__VW.XView, 0 );
-yy=__view_get( e__VW.YView, 0 );
+xx=__view_get( E__VW.XVIEW, 0 );
+yy=__view_get( E__VW.YVIEW, 0 );
 change_tab=0;
 do_not_change=false;
 
@@ -1432,7 +1432,7 @@ if ((type=9) or (type=9.1)) and (mouse_x>=xx+240+420) and (mouse_x<xx+387+420){
 
 
 
-xx=__view_get( e__VW.XView, 0 )+951;yy=__view_get( e__VW.YView, 0 )+398;
+xx=__view_get( E__VW.XVIEW, 0 )+951;yy=__view_get( E__VW.YVIEW, 0 )+398;
 if (mouse_x>=xx+121) and (mouse_y>=yy+393) and (mouse_x<xx+231) and (mouse_y<yy+414){
     if (type=8) and (cooldown<=0){
         obj_controller.cooldown=8000;
@@ -1578,7 +1578,7 @@ if (mouse_x>=xx+408) and (mouse_y>=yy+393) and (mouse_x<xx+518) and (mouse_y<yy+
 
 if (type=8) and (cooldown<=0){
     var xx,yy,before;
-    xx=__view_get( e__VW.XView, 0 )+951;yy=__view_get( e__VW.YView, 0 )+48;
+    xx=__view_get( E__VW.XVIEW, 0 )+951;yy=__view_get( E__VW.YVIEW, 0 )+48;
     before=target_comp;
 
     if (mouse_y>=yy+71) and (mouse_y<yy+87){
@@ -1617,7 +1617,7 @@ if (type=8) and (cooldown<=0){
 
 
     if (cooldown<=0) and (target_comp!=-1){
-        var xx,yy,bb;bb="";x2=__view_get( e__VW.XView, 0 )+951;y2=__view_get( e__VW.YView, 0 )+398;
+        var xx,yy,bb;bb="";x2=__view_get( E__VW.XVIEW, 0 )+951;y2=__view_get( E__VW.YVIEW, 0 )+398;
         var top,sel,temp1,temp2,temp3,temp4,temp5;temp1="";temp2="";temp3="";temp4="";temp5="";
         top=obj_controller.man_current;var stop;stop=0;sel=top;
 

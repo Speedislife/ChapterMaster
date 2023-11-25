@@ -3,8 +3,8 @@ function scr_ui_formation_bars() {
         nbar: 0,
         abar: 0,
         te: 4700,
-        x9: __view_get(e__VW.XView, 0) + 49,
-        y9: __view_get(e__VW.YView, 0) + 224
+        x9: __view_get(E__VW.XVIEW, 0) + 49,
+        y9: __view_get(E__VW.YVIEW, 0) + 224
     };
 
     var _formatting = formating;
@@ -99,7 +99,7 @@ function scr_ui_formation_bars() {
             }
         }
 
-        ui_formations_data.y9 = __view_get(e__VW.YView, 0) + 224;
+        ui_formations_data.y9 = __view_get(E__VW.YVIEW, 0) + 224;
         ui_formations_data.x9 += 50;
     }
 }

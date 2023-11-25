@@ -1,10 +1,10 @@
 
 var xx,yy,x2,y2;
 var romanNumerals=scr_roman_numerals();
-xx=__view_get( e__VW.XView, 0 )+0;
-yy=__view_get( e__VW.YView, 0 )+0;
+xx=__view_get(E__VW.XVIEW, 0) + 0;
+yy=__view_get(E__VW.YVIEW, 0) + 0;
 
-x2=962;y2=107;
+x2 = 962; y2 = 107;
 
 draw_set_font(fnt_40k_14);
 draw_set_color(c_gray);
@@ -36,7 +36,7 @@ if (shop="warships"){
         var apa;apa=construction_started/30;draw_set_alpha(apa);
         draw_set_color(c_yellow);
         draw_set_halign(fa_center);
-        draw_text_transformed(__view_get( e__VW.XView, 0 )+420,yy+370,string_hash_to_newline("CONSTRUCTION STARTED!#ETA: "+string(eta)+" months"),1.5,1.5,0);
+        draw_text_transformed(__view_get( E__VW.XVIEW, 0 )+420,yy+370,string_hash_to_newline("CONSTRUCTION STARTED!#ETA: "+string(eta)+" months"),1.5,1.5,0);
         draw_set_halign(fa_left);
         draw_set_color(38144);
         draw_set_alpha(1);

@@ -19,7 +19,7 @@ ini_close();
 
 // create the buttons
 var butt,xx,yy;
-xx=__view_get( e__VW.XView, 0 );yy=__view_get( e__VW.YView, 0 );
+xx=__view_get( E__VW.XVIEW, 0 );yy=__view_get( E__VW.YVIEW, 0 );
 
 if (room_get_name(room)!="Main_Menu"){
     butt=instance_create(xx+821,yy+256,obj_new_button);butt.sprite_index=spr_ui_but_1;

@@ -131,27 +131,45 @@ if (!instance_exists(obj_ingame_menu)){
     }
 }
 // Nope // Cleans up menu
-if (menu!=60) and (instance_exists(obj_temp_build)){
-    if (obj_temp_build.isnew==1) then menu=60;
-    with(obj_shop){instance_destroy();}
-    with(obj_managment_panel){instance_destroy();}
-    with(obj_drop_select){instance_destroy();}
-    with(obj_star_select){instance_destroy();}
-    with(obj_fleet_select){instance_destroy();}
-}
+if (menu!=60) and (instance_exists(obj_temp_build))
+	{
+	    if (obj_temp_build.isnew==1) then menu=60;
+		    with(obj_shop)
+				{
+					instance_destroy();
+				}
+		    with(obj_managment_panel)
+				{
+					instance_destroy();
+				}
+		    with(obj_drop_select)
+				{
+					instance_destroy();
+				}
+		    with(obj_star_select)
+				{
+					instance_destroy();
+				}
+			with(obj_fleet_select)
+				{
+					instance_destroy();
+				}
+	}
 // Return to star selection
-if (menu==0) and (instance_exists(obj_temp_build)){
-    obj_controller.selecting_planet=obj_temp_build.planet;
-    // Pass variables to obj_controller.temp[t]=""; here
-    instance_create(obj_temp_build.x,obj_temp_build.y,obj_star_select);
-    obj_star_select.loading_name=obj_controller.selected.name;
-    popup=3;
-    with(obj_temp_build){instance_destroy();}
-}
+if (menu==0) and (instance_exists(obj_temp_build))
+	{
+	    obj_controller.selecting_planet=obj_temp_build.planet;
+	    // Pass variables to obj_controller.temp[t]=""; here
+	    instance_create(obj_temp_build.x,obj_temp_build.y,obj_star_select);
+	    obj_star_select.loading_name=obj_controller.selected.name;
+	    popup=3;
+	    with(obj_temp_build){instance_destroy();}
+	}
 // REMOVE
-if (menu!=60) and (instance_exists(obj_temp_build)){
-    with(obj_temp_build){instance_destroy();}
-}
+if (menu!=60) and (instance_exists(obj_temp_build))
+	{
+	    with(obj_temp_build){instance_destroy();}
+	}
 
 if (text_selected!="") and (text_selected!="none") then text_bar+=1;
 if (text_bar>60) then text_bar=1;
@@ -162,10 +180,10 @@ if (obj_controller.disposition[4]>20) and (obj_controller.loyalty>33) and (deman
 if ((menu==0) and (formating==0)) or (instance_exists(obj_fleet)){
     var spd=12,keyb="";
     if ((!instance_exists(obj_ingame_menu)) and (!instance_exists(obj_ncombat))) or (instance_exists(obj_fleet)){
-        if ((keyboard_check(vk_left)) or (mouse_x<=__view_get( e__VW.XView, 0 )+2) or (keyboard_check(ord("A")))) and (x>800) then x-=spd;
-        if ((keyboard_check(vk_right)) or (mouse_x>=__view_get( e__VW.XView, 0 )+1598) or (keyboard_check(ord("D")))) and (x<(room_width-800)) then x+=spd;
-        if ((keyboard_check(vk_up)) or (mouse_y<=__view_get( e__VW.YView, 0 )+2) or (keyboard_check(ord("W")))) and (y>450) then y-=spd;
-        if ((keyboard_check(vk_down)) or (mouse_y>=__view_get( e__VW.YView, 0 )+898) or (keyboard_check(ord("S")))) and (y<(room_height-450)) then y+=spd;
+        if ((keyboard_check(vk_left)) or (mouse_x<=__view_get( E__VW.XVIEW, 0 )+2) or (keyboard_check(ord("A")))) and (x>800) then x-=spd;
+        if ((keyboard_check(vk_right)) or (mouse_x>=__view_get( E__VW.XVIEW, 0 )+1598) or (keyboard_check(ord("D")))) and (x<(room_width-800)) then x+=spd;
+        if ((keyboard_check(vk_up)) or (mouse_y<=__view_get( E__VW.YVIEW, 0 )+2) or (keyboard_check(ord("W")))) and (y>450) then y-=spd;
+        if ((keyboard_check(vk_down)) or (mouse_y>=__view_get( E__VW.YVIEW, 0 )+898) or (keyboard_check(ord("S")))) and (y<(room_height-450)) then y+=spd;
     }
 }
 
@@ -174,13 +192,14 @@ if (y<450) then y=450;
 if (x>(room_width-800)) then x=room_width-800;
 if (y>(room_height-450)) then y=room_height-450;
 // For testing purposes
-if (is_test_map=true) then with(obj_en_fleet){
-    if (owner=2){
-        capital_number=0;
-        frigate_number=1;
-        escort_number=2;
-    }
-}
+	if (is_test_map=true) then with(obj_en_fleet)
+		{
+		    if (owner=2){
+		        capital_number=0;
+		        frigate_number=1;
+		        escort_number=2;
+		    }
+		}
 // Menu selection screens
 var freq=150;
 if (l_options>0) then l_options+=1;
@@ -254,77 +273,93 @@ var high="";
 var stop = 0;
 if (new_buttons_hide==0) and (y_slide<=0) and (!instance_exists(obj_ingame_menu)){
     var but=4,bx=1374,by=8,wid=108,hei=42;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+108){
-                var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+108);
-                dif2=dif1*2;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+hei-dif2) then stop=1;
-            }
-            if (stop==0) then high="options";
-        }
+    if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+by) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+by+hei)
+	{
+        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get( E__VW.XVIEW, 0 )+bx+wid)
+			{
+	            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx+108){
+	                var dif1,dif2;
+	                dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+108);
+	                dif2=dif1*2;
+	                if (mouse_y<__view_get( E__VW.YVIEW, 0 )+by+hei-dif2) then stop=1;
+	            }
+	            if (stop==0) then high="options";
+	        }
     }
     but=4;
     bx=1484;
     by=8;
     wid=108;
     hei=42;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+108){
+    if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+by) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+by+hei)
+	{
+        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get( E__VW.XVIEW, 0 )+bx+wid)
+		{
+            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx+108)
+			{
                 var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+108);
+                dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+108);
                 dif2=dif1*2;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+hei-dif2) then stop=1;
+                if (mouse_y<__view_get( E__VW.YVIEW, 0 )+by+hei-dif2) then stop=1;
             }
             if (stop==0) then high="menu";
         }
     }
+	
     but=1;
     bx=34;
     by=838;
     wid=142;
     hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+134){
-                var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+134);
-                dif2=dif1*1.25;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
-            }
-            if (stop==0) then high="manage";
-        }
-    }
+    
+	if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+by) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+by+hei)
+		{
+	        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get( E__VW.XVIEW, 0 ) + bx + wid)
+				{
+		            if (mouse_x >=__view_get( E__VW.XVIEW, 0 ) + bx + 134)
+						{
+			                var dif1, dif2;
+			                dif1 = mouse_x-(__view_get( E__VW.XVIEW, 0 ) + bx + 134);
+			                dif2 = dif1 * 1.25;
+			                if (mouse_y<__view_get( E__VW.YVIEW, 0 ) + by + dif2) then stop = 1;
+			            }
+		            if (stop==0) then high="manage";
+		        }
+	    }
     but=1;
     bx=179;
     by=838;
     wid=142;
     hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+134){
-                var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+134);
-                dif2=dif1*1.25;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
-            }
-            if (stop==0) then high="settings";
-        }
-    }
+    if (mouse_y>=__view_get( E__VW.YVIEW, 0 ) + by) and (mouse_y <= __view_get(E__VW.YVIEW, 0 ) + by + hei)
+		{
+	        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get(E__VW.XVIEW, 0 )+bx+wid)
+				{
+		            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx+134)
+						{
+			                var dif1,dif2;
+			                dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+134);
+			                dif2=dif1*1.25;
+			                if (mouse_y<__view_get( E__VW.YVIEW, 0 )+by+dif2) then stop=1;
+			            }
+		            if (stop==0) then high="settings";
+		        }
+	    }
     but=1;
     bx=1130;
     by=838;
     wid=142;
     hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+134){
+    if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+by) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+by+hei)
+	{
+        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get( E__VW.XVIEW, 0 )+bx+wid)
+		{
+            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx+134)
+			{
                 var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+134);
+                dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+134);
                 dif2=dif1*1.25;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
+                if (mouse_y<__view_get( E__VW.YVIEW, 0 ) + by + dif2) then stop=1;
             }
             if (stop==0) then high="diplomacy";
         }
@@ -334,13 +369,13 @@ if (new_buttons_hide==0) and (y_slide<=0) and (!instance_exists(obj_ingame_menu)
     by=838;
     wid=142;
     hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+134){
+    if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+by) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+by+hei){
+        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get( E__VW.XVIEW, 0 )+bx+wid){
+            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx+134){
                 var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+134);
+                dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+134);
                 dif2=dif1*1.25;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
+                if (mouse_y<__view_get( E__VW.YVIEW, 0 )+by+dif2) then stop=1;
             }
             if (stop==0) then high="log";
         }
@@ -350,13 +385,17 @@ if (new_buttons_hide==0) and (y_slide<=0) and (!instance_exists(obj_ingame_menu)
     by=838;
     wid=142;
     hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+134){
+	
+    if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+by) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+by+hei)
+	{
+        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get( E__VW.XVIEW, 0 )+bx+wid)
+		{
+            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx+134)
+			{
                 var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+134);
+                dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+134);
                 dif2=dif1*1.25;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
+                if (mouse_y<__view_get( E__VW.YVIEW, 0 )+by+dif2) then stop=1;
             }
             if (stop==0) then high="turn";
         }
@@ -366,98 +405,127 @@ if (new_buttons_hide==0) and (y_slide<=0) and (!instance_exists(obj_ingame_menu)
     by=838;
     wid=115;
     hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+108){
-                var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+108);
-                dif2=dif1*2;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
-            }
-            if (stop==0) then high="apoth";
-        }
-    }
+	
+    if (mouse_y>=__view_get( E__VW.YVIEW, 0 )+by) and (mouse_y<=__view_get( E__VW.YVIEW, 0 )+by+hei)
+		{
+	        if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx) and (mouse_x<=__view_get( E__VW.XVIEW, 0 )+bx+wid)
+			{
+	            if (mouse_x>=__view_get( E__VW.XVIEW, 0 )+bx+108)
+					{
+		                var dif1,dif2;
+		                dif1=mouse_x-(__view_get( E__VW.XVIEW, 0 )+bx+108);
+		                dif2=dif1*2;
+		                if (mouse_y<__view_get( E__VW.YVIEW, 0 ) + by + dif2) then stop = 1;
+		            }
+	            if (stop==0) then high="apoth";
+	        }
+	    }
+		
     but=3;
     bx=473;
     by=838;
     wid=115;
     hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+108){
-                var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+108);
-                dif2=dif1*2;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
-            }
-            if (stop==0) then high="reclusium";
-        }
-    }
-    but=3;
-    bx=590;
-    by=838;
-    wid=115;
-    hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+108){
-                var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+108);
-                dif2=dif1*2;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
-            }
-            if (stop==0) then high="librarium";
-        }
-    }
-    but=3;
-    bx=706;
-    by=838;
-    wid=115;
-    hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+108){
-                var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+108);
-                dif2=dif1*2;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
-            }
-            if (stop==0) then high="armoury";
-        }
-    }
-    but=3;
-    bx=822;
-    by=838;
-    wid=115;
-    hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+108){
-                var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+108);
-                dif2=dif1*2;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
-            }
-            if (stop==0) then high="recruitment";
-        }
-    }
-    but=3;
-    bx=938;
-    by=838;
-    wid=115;
-    hei=43;
-    if (mouse_y>=__view_get( e__VW.YView, 0 )+by) and (mouse_y<=__view_get( e__VW.YView, 0 )+by+hei){
-        if (mouse_x>=__view_get( e__VW.XView, 0 )+bx) and (mouse_x<=__view_get( e__VW.XView, 0 )+bx+wid){
-            if (mouse_x>=__view_get( e__VW.XView, 0 )+bx+108){
-                var dif1,dif2;
-                dif1=mouse_x-(__view_get( e__VW.XView, 0 )+bx+108);
-                dif2=dif1*2;
-                if (mouse_y<__view_get( e__VW.YView, 0 )+by+dif2) then stop=1;
-            }
-            if (stop==0) then high="fleet";
-        }
-    }    
-    new_button_highlight=high;
+	
+    if (mouse_y>=__view_get(E__VW.YVIEW, 0) + by) and (mouse_y <= __view_get(E__VW.YVIEW, 0) + by + hei)
+		{
+	        if (mouse_x>=__view_get(E__VW.XVIEW, 0) + bx) and (mouse_x<=__view_get(E__VW.XVIEW, 0) + bx + wid)
+				{
+		            if (mouse_x>=__view_get(E__VW.XVIEW, 0) + bx + 108)
+						{
+			                var dif1, dif2;
+			                dif1 = mouse_x - (__view_get(E__VW.XVIEW, 0) + bx + 108);
+			                dif2 = dif1 * 2;
+			                if (mouse_y < __view_get(E__VW.YVIEW, 0) + by + dif2) then stop = 1;
+			            }
+		            if (stop == 0) then high = "reclusium";
+		        }
+	    }
+		
+    but = 3;
+    bx = 590;
+    by = 838;
+    wid = 115;
+    hei = 43;
+    
+	if (mouse_y >= __view_get(E__VW.YVIEW, 0 ) + by) and (mouse_y <= __view_get(E__VW.YVIEW, 0 ) + by + hei)
+		{
+	        if (mouse_x >=__view_get(E__VW.XVIEW, 0) + bx) and (mouse_x <= __view_get(E__VW.XVIEW, 0) + bx + wid)
+				{
+		            if (mouse_x>=__view_get(E__VW.XVIEW, 0)+ bx + 108)
+						{
+			                var dif1, dif2;
+			                dif1 = mouse_x - (__view_get(E__VW.XVIEW,0 ) + bx + 108);
+			                dif2 = dif1*2;
+			                if (mouse_y<__view_get(E__VW.YVIEW, 0) + by + dif2) then stop = 1;
+			            }
+		            if (stop == 0) then high = "librarium";
+		        }
+		  }
+	
+    but = 3;
+    bx = 706;
+    by = 838;
+    wid = 115;
+    hei = 43;
+	
+    if (mouse_y >= __view_get(E__VW.YVIEW, 0) + by) and (mouse_y<= __view_get(E__VW.YVIEW, 0 ) + by + hei)
+		{
+	        if (mouse_x >= __view_get(E__VW.XVIEW, 0 ) + bx) and (mouse_x <=__view_get(E__VW.XVIEW, 0 ) + bx + wid)
+				{
+		            if (mouse_x >= __view_get(E__VW.XVIEW, 0) + bx + 108)
+						{
+			                var dif1, dif2;
+			                dif1 = mouse_x - (__view_get(E__VW.XVIEW, 0) + bx + 108);
+			                dif2 = dif1 * 2;
+			                if (mouse_y <__view_get(E__VW.YVIEW, 0) + by + dif2) then stop = 1;
+			            }
+		            if (stop==0) then high="armoury";
+		        }
+	    }
+		
+    but = 3;
+    bx = 822;
+    by = 838;
+    wid = 115;
+    hei = 43;
+	
+    if (mouse_y >= __view_get(E__VW.YVIEW, 0 ) + by) and (mouse_y <= __view_get(E__VW.YVIEW, 0) + by + hei)
+		{
+	        if (mouse_x >= __view_get(E__VW.XVIEW, 0 ) + bx) and (mouse_x <= __view_get(E__VW.XVIEW, 0) + bx + wid)
+				{
+		            if (mouse_x >= __view_get(E__VW.XVIEW, 0) + bx + 108)
+						{
+			                var dif1, dif2;
+			                dif1 = mouse_x-(__view_get(E__VW.XVIEW, 0) + bx + 108);
+			                dif2 = dif1*2;
+			                if (mouse_y<__view_get(E__VW.YVIEW, 0) + by + dif2) then stop = 1;
+			            }
+		            if (stop == 0) then high = "recruitment";
+		        }
+	    }
+		
+    but = 3;
+    bx = 938;
+    by = 838;
+    wid = 115;
+    hei = 43;
+	
+    if (mouse_y>=__view_get(E__VW.YVIEW, 0) + by) and (mouse_y<=__view_get(E__VW.YVIEW, 0) + by + hei)
+		{
+	        if (mouse_x>=__view_get(E__VW.XVIEW, 0) + bx) and (mouse_x<=__view_get(E__VW.XVIEW, 0) + bx + wid)
+				{
+		            if (mouse_x>=__view_get(E__VW.XVIEW, 0) + bx + 108)
+						{
+			                var dif1, dif2;
+			                dif1 = mouse_x-(__view_get(E__VW.XVIEW, 0)+ bx + 108);
+			                dif2 = dif1*2;
+			                if (mouse_y < __view_get( E__VW.YVIEW, 0) + by + dif2) then stop = 1;
+			            }
+		            if (stop == 0) then high="fleet";
+		        }
+	    }    
+    new_button_highlight = high;
 }
 // Which menu is highlighted
 if (high=="options") and (h_options<0.5) and (new_buttons_hide==0) and (y_slide<=0) then h_options+=0.02;
@@ -507,8 +575,8 @@ if (instance_exists(obj_ingame_menu)) or (instance_exists(obj_saveload)) then ex
 if (menu==1) and (managing>0){
     var c=0,fx="";
     var xx, yy, bb="";
-    xx=__view_get( e__VW.XView, 0 )+0;
-    yy=__view_get( e__VW.YView, 0 )+0;
+    xx=__view_get( E__VW.XVIEW, 0 )+0;
+    yy=__view_get( E__VW.YVIEW, 0 )+0;
 
     if (managing<=10) then c=managing;
     if (managing>20) then c=managing-10;
