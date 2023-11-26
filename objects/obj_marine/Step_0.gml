@@ -1,4 +1,4 @@
-/*
+
 if (instance_number(obj_ork)>30) then blind_fire=1;
 else blind_fire=0;
 
@@ -161,7 +161,7 @@ if (action="fire"){
     projectile_range[i]=0;
     
     */
-/*    
+    
     
     speed=0;
     
