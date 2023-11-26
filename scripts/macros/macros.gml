@@ -3,7 +3,7 @@ function macros()
 		#macro GM_build_date 41914.3660453472
 		#macro GM_version "1.0.0.4"
 
-	// initilisation of views
+	// initilisation of views 
 
 	enum E__VW
 		{
@@ -24,8 +24,72 @@ function macros()
 			HPORT,
 			CAMERA,
 			SURFACEID,
-		};
+		}
 
+	enum E__YYM //not used
+		{
+			POINTB,
+			LINEB,
+			TRIB,
+			POINTUVB,
+			LINEUVB,
+			TRIUVB,
+			POINTVB,
+			LINEVB,
+			TRIVB,
+			TEXTURE,
+			COLOUR,
+			NUMVERTS,
+			PRIMKIND,
+			NUMPOINTCOLS,
+			NUMLINECOLS,
+			NUMTRICOLS,
+			POINTCOLS,
+			LINECOLS,
+			TRICOLS,
+
+			// these are used when building model primitives
+			V1X,
+			V1Y,
+			V1Z,
+			V1NX,
+			V1NY,
+			V1NZ,
+			V1C,
+			V1U,
+			V1V,
+
+			V2X,
+			V2Y,
+			V2Z,
+			V2NX,
+			V2NY,
+			V2NZ,
+			V2C,
+			V2U,
+			V2V,
+		}
+
+	enum E__YYMKIND//not used
+		{
+			PRIMITIVE_BEGIN,
+			PRIMITIVE_END,
+			VERTEX,
+			VERTEX_COLOR,
+			VERTEX_TEX,
+			VERTEX_TEX_COLOR,
+			VERTEX_N,
+			VERTEX_N_COLOR,
+			VERTEX_N_TEX,
+			VERTEX_N_TEX_COLOR,
+			SHAPE_BLOCK,
+			SHAPE_CYLINDER,
+			SHAPE_CONE,
+			SHAPE_ELLIPSOID,
+			SHAPE_WALL,
+			SHAPE_FLOOR,
+		}
+		
 //Gameplay enums
 
 enum P_FEATURES 

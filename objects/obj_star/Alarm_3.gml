@@ -18,8 +18,8 @@ obj_controller.selecting_planet=0;
 
 if (obj_controller.zoomed==1){
     obj_controller.zoomed=0;
-    __view_set( e__VW.Visible, 0, true );
-    __view_set( e__VW.Visible, 1, false );
+    __view_set(E__VW.VISIBLE, 0, true);
+    __view_set(E__VW.VISIBLE, 1, false);
     obj_cursor.image_xscale=1;
     obj_cursor.image_yscale=1;
 }
