@@ -177,7 +177,7 @@ switch (name) {
         planets = 3;
         p_type[1] = "Feudal";
         planet[1] = 1;
-        array_push(p_feature[1], new new_planet_feature(P_features.Necron_Tomb));
+        array_push(p_feature[1], new new_planet_feature(P_FEATURES.NECRON_TOMB));
         p_type[2] = "Dead";
         planet[2] = 1;
         p_type[3] = "Dead";

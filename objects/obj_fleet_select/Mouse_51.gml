@@ -47,8 +47,8 @@ if (owner=1) and (instance_nearest(x,y,obj_p_fleet).action=""){
     
     if (sys_dist<32){
 		for (var w = 1;w<5;w++){
-			if (planet_feature_bool(mine.p_feature[w], P_features.Webway)==1) then web1=1;
-			if (planet_feature_bool(sys.p_feature[w], P_features.Webway)==1) then web2=1;
+			if (planet_feature_bool(mine.p_feature[w], P_FEATURES.WEBWAY)==1) then web1=1;
+			if (planet_feature_bool(sys.p_feature[w], P_FEATURES.WEBWAY)==1) then web2=1;
 		}
         
         if (web1=1) and (web2=1) then web=1;

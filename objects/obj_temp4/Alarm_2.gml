@@ -18,7 +18,7 @@ pop.title="Artifact Recovered!";
 pop.text="The Artifact has been safely stowed away upon "+string(loc)+".  It appears to be a "+string(obj_ini.artifact[last_artifact])+" but should be brought home and identified posthaste.";
 with(obj_star_select){instance_destroy();}
 with(obj_fleet_select){instance_destroy();}
- delete_features(plan.p_feature[num], P_features.Artifact);
+ delete_features(plan.p_feature[num], P_FEATURES.ARTIFACT);
 scr_event_log("","Artifact recovered.");
 
 i=0;

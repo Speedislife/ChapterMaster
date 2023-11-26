@@ -16,7 +16,7 @@ if (instance_exists(obj_controller)){
     if ((trade_goods="BLOODBLOODBLOOD") or (trade_goods="BLOODBLOODBLOODBLOOD")) and (obj_controller.faction_defeated[10]=0){
         with(obj_temp2){instance_destroy();}
         with(obj_star){
-			if system_feature_bool(p_feature, P_features.World_Eaters == 1)then instance_create(x,y,obj_temp2);
+			if system_feature_bool(p_feature, P_FEATURES.WORLD_EATERS == 1)then instance_create(x,y,obj_temp2);
         }
         if (!instance_exists(obj_temp2)){
             obj_controller.faction_defeated[10]=1;show_message("WL10 defeated");

@@ -8,13 +8,13 @@ function new_planet_feature(feature_type, other_data={}) constructor{
 		}
 	}
 	switch(f_type){
-		case P_features.Necron_Tomb:
+		case P_FEATURES.NECRON_TOMB:
 		awake = 0;
 		sealed = 0;
 		player_hidden = 1
 		planet_display = "Dormant Necron Tomb";
 		break;
-	case P_features.Secret_Base:
+	case P_FEATURES.SECRET_BASE:
 		base_type = 0;
 		inquis_hidden =1;
 		planet_display = "Hidden Secret Base";
@@ -37,19 +37,19 @@ function new_planet_feature(feature_type, other_data={}) constructor{
 		swimming=0;
 		stock=0;
 		break;
-	case P_features.Arsenal:
+	case P_FEATURES.ARSENAL:
 		inquis_hidden = 1;
 		planet_display = "Arsenal";
 		player_hidden = 0;
 		built = obj_controller.turn+3;
 		break;
-	case P_features.Gene_Vault:
+	case P_FEATURES.GENE_VAULT:
 		inquis_hidden=1;
 		planet_display = "Arsenal";
 		player_hidden = 0;
 		built = obj_controller.turn+3;
 		break;		
-	case P_features.Ancient_Ruins:
+	case P_FEATURES.ANCIENT_RUINS:
 		var ruin_data = choose(["tiny", 5], ["small", 15], ["medium", 55], ["large",110], ["sprawling", 0])
 		ruins_size =  ruin_data[0]
 		man_size_limit = ruin_data[1]
@@ -57,13 +57,13 @@ function new_planet_feature(feature_type, other_data={}) constructor{
 		recoverables=[];
 		failed_exploration = 0;
 		unrecovered_items = false;
-		f_type =  P_features.Ancient_Ruins;
+		f_type =  P_FEATURES.ANCIENT_RUINS;
 		exploration_complete= false;
 		planet_display = $"{ruins_size} Unexplored Ancient Ruins";
 		completion_level = 0;
 		player_hidden = 1;	
 		static find_starship = function(){
-			f_type = P_features.Starship;
+			f_type = P_FEATURES.STARSHIP;
 			planet_display = "Ancient Starship";
 			funds_spent = 0;
 			player_hidden = 0;
@@ -143,39 +143,39 @@ function new_planet_feature(feature_type, other_data={}) constructor{
 			exploration_complete= true;
 		}
 		break;
-	case P_features.STC_Fragment:
+	case P_FEATURES.STC_FRAGMENT:
 		player_hidden = 1;
 		Fragment_type =0;
 		planet_display = "STC Fragment";
 		break;
-	case P_features.Cave_Network:
+	case P_FEATURES.CAVE_NETWORK:
 		player_hidden = 1;
 		cave_depth =irandom(3);//allow_multiple levels of caves, option to go deeper
 		planet_display = "Unexplored Cave Network";
 		break;
-	case P_features.Sororitas_Cathedral:
+	case P_FEATURES.SORORITAS_CATHEDRAL:
 		player_hidden = 1;
 		planet_display = "Sororitas Cathedral";
 		break;
-	case P_features.Artifact:
+	case P_FEATURES.ARTIFACT:
 		player_hidden = 1;
 		planet_display = "Artifact";
 		break;
-	case P_features.Warlord7:
+	case P_FEATURES.WARLORD7:
 		player_hidden = 1;
 		planet_display= "Ork Warboss";
 		Warboss = "alive"
 		kill_warboss = function(){
-			f_type = P_features.Victory_Shrine
+			f_type = P_FEATURES.VICTORY_SHRINE
 			planet_display= $"{obj_controller.faction_leader[7]} Death Place";
 			Warboss = "dead";
 		}
 		break;
-	case P_features.Monastery:
+	case P_FEATURES.MONASTERY:
 		planet_display="Fortress Monastary";
 		player_hidden = 0
 		break;
-	case P_features.Recruiting_World:
+	case P_FEATURES.RECRUITING_WORLD:
 		planet_display="Recruitment";
 		player_hidden = 0
 		break;
@@ -260,7 +260,7 @@ function awake_necron_Star(star){
 //returns 1 if awake tomb world on planet 0 if tombs on planet but not awake and 2 if no tombs on planet
 function awake_tomb_world(planet){
 	var awake_tomb = 0;
-	 var tombs = search_planet_features(planet, P_features.Necron_Tomb);
+	 var tombs = search_planet_features(planet, P_FEATURES.NECRON_TOMB);
 	 if (array_length(tombs)>0){
 		 for (var tomb =0;tomb<array_length(tombs);tomb++){
 			 if (planet[tombs[tomb]].awake = 1){
@@ -317,34 +317,34 @@ function scr_planetary_feature(planet_num) {
 		if (feat.player_hidden ==1){
 			feat.player_hidden =0;
 			switch (feat.f_type){
-				case P_features.Sororitas_Cathedral:
+				case P_FEATURES.SORORITAS_CATHEDRAL:
 					if (obj_controller.known[5]=0) then obj_controller.known[5]=1;
 				    var lop="Sororitas Cathedral discovered on "+string(name)+" "+scr_roman(planet_num)+".";debugl(lop);
 				    scr_alert("green","feature",lop,x,y);scr_event_log("",lop);
 				    if (p_heresy[planet_num]>10) then p_heresy[planet_num]-=10;
 				    p_sisters[planet_num]=choose(2,2,3);goo=1;
 					break;
-				case P_features.Necron_Tomb:
+				case P_FEATURES.NECRON_TOMB:
 				    var lop="Necron Tomb discovered on "+string(name)+" "+scr_roman(planet_num)+"."debugl(lop);
 				    scr_alert("red","feature",lop,x,y);scr_event_log("red",lop);
 					break;
-				case P_features.Artifact:
+				case P_FEATURES.ARTIFACT:
 					var lop="Artifact discovered on "+string(name)+" "+scr_roman(planet_num)+"."debugl(lop);
 					scr_alert("green","feature",lop,x,y);scr_event_log("",lop);
 					break;
-				case P_features.STC_Fragment:
+				case P_FEATURES.STC_FRAGMENT:
 					var lop="STC Fragment located on "+string(name)+" "+scr_roman(planet_num)+"."debugl(lop);
 					 scr_alert("green","feature",lop,x,y);scr_event_log("",lop);
 					 break;
-				case P_features.Ancient_Ruins:
+				case P_FEATURES.ANCIENT_RUINS:
 					var lop=$"A {feat.ruins_size} Ancient Ruins discovered on {string(name)} {scr_roman(planet_num)}."debugl(lop);
 					scr_alert("green","feature",lop,x,y);scr_event_log("",lop);
 					break;
-				case P_features.Cave_Network:
+				case P_FEATURES.CAVE_NETWORK:
 					var lop="Extensive Cave Network discovered on "+string(name)+" "+scr_roman(planet_num)+"."debugl(lop);
 			        scr_alert("green","feature",lop,x,y);scr_event_log("",lop);
 					break;
-				case P_features.Warlord7:
+				case P_FEATURES.WARLORD7:
 				    var lop="Ork Warboss discovered on "+string(name)+" "+scr_roman(planet_num)+"."debugl(lop);
 				    scr_alert("red","feature",lop,x,y);scr_event_log("red",lop);
 					break;

@@ -19,8 +19,8 @@ function scr_enemy_ai_a() {
 	if (obj_controller.faction_defeated[10]>0) and (obj_controller.faction_gender[10]=2){
 	    var o;o=0;repeat(4){o+=1;
 	        if (array_length(p_feature[o])!=0){
-	            if (planet_feature_bool(p_feature[o], P_features.World_Eaters)==1) and (p_chaos[o]<=0){
-	                delete_features(p_feature[o],P_features.World_Eaters);
+	            if (planet_feature_bool(p_feature[o], P_FEATURES.WORLD_EATERS)==1) and (p_chaos[o]<=0){
+	                delete_features(p_feature[o],P_FEATURES.WORLD_EATERS);
 	            }
 	        }
 	    }
@@ -45,7 +45,7 @@ function scr_enemy_ai_a() {
 	    repeat(4){o+=1;
 	        if (p_first[o]=1) and (p_owner[o]=2) then p_owner[o]=1;
 	        if (p_type[o]="Dead") and (array_length(p_upgrades[o])>0){
-	            if (planet_feature_bool(p_feature[o], P_features.Secret_Base)==0) /*and (string_count(".0|",p_upgrades[o])>0)*/{
+	            if (planet_feature_bool(p_feature[o], P_FEATURES.SECRET_BASE)==0) /*and (string_count(".0|",p_upgrades[o])>0)*/{
 	                if (chanceh<=2) then yep=o;
 	            }
 	        }
@@ -441,7 +441,7 @@ function scr_enemy_ai_a() {
 	                if (guard_score>=1) and (p_pdf[run]<200) then p_pdf[run]=0;
 	            }
 	            if (p_pdf[run]=0) and (p_owner[run]=1) and (obj_controller.faction_status[2]="War"){
-	                if (planet_feature_bool(p_feature[run],P_features.Monastery)==0) and (p_player[run]<=0){p_owner[run]=2;dispo[run]=-50;}
+	                if (planet_feature_bool(p_feature[run],P_FEATURES.MONASTERY)==0) and (p_player[run]<=0){p_owner[run]=2;dispo[run]=-50;}
 	            }
 	        }
 	        if (guard_attack!="pdf") and (rand1>tempor){
@@ -623,7 +623,7 @@ function scr_enemy_ai_a() {
             					if (p_type[run] == "Forge") {
 					                dispo[run] -= 5; // 10 Disposition decrease for the planet govrnor if it's overrun by orks
 					                obj_controller.disposition[3] -= 5; // obj_controller.disposition[3] refer to the disposition of the toaster jocks.
-					            } else if (planet_feature_bool(p_feature[run], P_features.Sororitas_Cathedral) or(p_type[run] == "Shrine")) {
+					            } else if (planet_feature_bool(p_feature[run], P_FEATURES.SORORITAS_CATHEDRAL) or(p_type[run] == "Shrine")) {
 					                dispo[run] -= 10; // diso[run] is the disposition of the planet. where run refer to the planet that is currently running the code.
 					                obj_controller.disposition[5] -= 3; // obj_controller.disposition[2] refer to the disposition of the sororitas while 3 refer to mechanicus
 					            } else dispo[run] -= 5;
@@ -856,7 +856,7 @@ function scr_enemy_ai_a() {
 					        if (p_type[run] == "Forge") { //visited variable check whether the star has been visisted or not 1 for true 0 for false
 					            dispo[run] -= 10; // 10 Disposition decrease for the planet govrnor if it's overrun by necrons
 					            obj_controller.disposition[3] -= 10; // 10 dis decrease for the faction mechanicus
-					        } else if (planet_feature_bool(p_feature[run], P_features.Sororitas_Cathedral) or(p_type[run] == "Shrine")) {
+					        } else if (planet_feature_bool(p_feature[run], P_FEATURES.SORORITAS_CATHEDRAL) or(p_type[run] == "Shrine")) {
 					            dispo[run] -= 10; // 10 Disposition decrease for the planet govrnor if it's overrun by necrons
 					            obj_controller.disposition[5] -= 5; // 5 dis decrease for the Nurses
 					        } else dispo[run] -= 10;

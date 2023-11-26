@@ -154,7 +154,7 @@ if (obj_controller.cooldown<=0) and (once_only=0){// Need to change max_ships to
         
         if (obj_ncombat.battle_object.space_hulk=1) then obj_ncombat.battle_special="space_hulk";
         
-        if ( planet_feature_bool(obj_ncombat.battle_object.p_feature[obj_ncombat.battle_id],P_features.Warlord6)==1) and (obj_ncombat.enemy=6) and (obj_controller.faction_defeated[6]=0)then obj_ncombat.leader=1;
+        if ( planet_feature_bool(obj_ncombat.battle_object.p_feature[obj_ncombat.battle_id],P_FEATURES.WARLORD6)==1) and (obj_ncombat.enemy=6) and (obj_controller.faction_defeated[6]=0)then obj_ncombat.leader=1;
         
         if (obj_ncombat.enemy=7) and (obj_controller.faction_defeated[7]=0){
             with(obj_temp1){instance_destroy();}
@@ -165,14 +165,14 @@ if (obj_controller.cooldown<=0) and (once_only=0){// Need to change max_ships to
                 if (p_owner[4]=7) then instance_create(x,y,obj_temp1);
             }
 			var _planet = battle_object.p_feature[obj_ncombat.battle_id]
-            if (instance_number(obj_temp1)=1) or ( planet_feature_bool(_planet,P_features.Warlord7)==1){
+            if (instance_number(obj_temp1)=1) or ( planet_feature_bool(_planet,P_FEATURES.WARLORD7)==1){
 				obj_ncombat.leader=1;
-				obj_ncombat.Warlord = _planet[search_planet_features(_planet,P_features.Warlord7)[0]]
+				obj_ncombat.Warlord = _planet[search_planet_features(_planet,P_FEATURES.WARLORD7)[0]]
 			}
             with(obj_temp1){instance_destroy();}
         }
         
-        if ( planet_feature_bool(obj_ncombat.battle_object.p_feature[obj_ncombat.battle_id],P_features.Warlord10)==1) and (obj_ncombat.enemy=10) and (obj_controller.faction_defeated[10]=0) then obj_ncombat.leader=1;
+        if ( planet_feature_bool(obj_ncombat.battle_object.p_feature[obj_ncombat.battle_id],P_FEATURES.WARLORD10)==1) and (obj_ncombat.enemy=10) and (obj_controller.faction_defeated[10]=0) then obj_ncombat.leader=1;
         
         
         if (obj_ncombat.enemy=9){

@@ -49,9 +49,9 @@ function scr_ui_popup() {
 	    var planet_upgrades = obj_temp_build.target.p_upgrades[obj_controller.selecting_planet];
 	    var un_upgraded = 0,arsenal = 0, gene_vault=0,s_base=0,ttitle="",i=0;
 
-	    if (planet_feature_bool(planet_upgrades, P_features.Secret_Base)==1){s_base=1}
-	    if (planet_feature_bool(planet_upgrades, P_features.Arsenal)==1){arsenal=1}
-	    if (planet_feature_bool(planet_upgrades, P_features.Gene_Vault)==1){gene_vault=1}
+	    if (planet_feature_bool(planet_upgrades, P_FEATURES.SECRET_BASE)==1){s_base=1}
+	    if (planet_feature_bool(planet_upgrades, P_FEATURES.ARSENAL)==1){arsenal=1}
+	    if (planet_feature_bool(planet_upgrades, P_FEATURES.GENE_VAULT)==1){gene_vault=1}
 	    un_upgraded = gene_vault+arsenal+s_base;
 	    if (obj_temp_build.isnew==1){
 	        title="Secret Lair ("+string(obj_temp_build.target.name)+" "+scr_roman(obj_temp_build.planet)+")";
@@ -141,7 +141,7 @@ function scr_ui_popup() {
 						}
 						var base_options = {style:tag};
 	                    obj_temp_build.isnew=0;
-						array_push(planet_upgrades, new new_planet_feature(P_features.Secret_Base, base_options));
+						array_push(planet_upgrades, new new_planet_feature(P_FEATURES.SECRET_BASE, base_options));
 	                }
 	            }
 	            draw_set_color(0);
@@ -167,7 +167,7 @@ function scr_ui_popup() {
 	    draw_set_halign(fa_left);
     
 	    if (s_base>0){
-		    var search_list =search_planet_features(planet_upgrades, P_features.Secret_Base);
+		    var search_list =search_planet_features(planet_upgrades, P_FEATURES.SECRET_BASE);
 		    if (array_length(search_list) > 0){
 			    var woob="",secret=true;
 				var s_base = planet_upgrades[search_list[0]];
@@ -343,13 +343,13 @@ function scr_ui_popup() {
 	     draw_set_font(fnt_40k_14b);
 	     woob=""
 	     var arsenal = 0,gene_vault=0;
-    		if (planet_feature_bool(planet_upgrades, P_features.Arsenal)==1){
-    		  var arsenal = planet_upgrades[search_planet_features(planet_upgrades, P_features.Arsenal)[0]];
+    		if (planet_feature_bool(planet_upgrades, P_FEATURES.ARSENAL)==1){
+    		  var arsenal = planet_upgrades[search_planet_features(planet_upgrades, P_FEATURES.ARSENAL)[0]];
  	          if (arsenal.inquis_hidden == 1) then woob="A moderate sized secret Arsenal, this structure has ample holding area to store any number of artifacts and wargear.  Chaos and Daemonic items will be sent here by your Master of Relics, and due to the secret nature of its existance, the Inquisition will not find them during routine inspections.";
 	          if (arsenal.inquis_hidden == 0) then woob="A moderate sized Arsenal, this structure has ample holding area to store any number of artifacts and wargear.  Since being discovered it may no longer hide Chaos and Daemonic wargear from routine Inquisition inspections.  You may wish to construct another Arsenal on a different planet.";   			
     		}
-    		if (planet_feature_bool(planet_upgrades, P_features.Gene_Vault)==1){
-    			var gene_vault = planet_upgrades[search_planet_features(planet_upgrades, P_features.Gene_Vault)[0]];
+    		if (planet_feature_bool(planet_upgrades, P_FEATURES.GENE_VAULT)==1){
+    			var gene_vault = planet_upgrades[search_planet_features(planet_upgrades, P_FEATURES.GENE_VAULT)[0]];
 	          if (gene_vault.inquis_hidden == 1) then woob="A large facility with Gene-Vaults and additional spare rooms, this structure safely stores the majority of your Gene-Seed and is ran by servitors.  Due to its secret nature you may amass Gene-Seed and Test-Slave Incubators without fear of Inquisition reprisal or taking offense.";
 	          if (gene_vault.inquis_hidden == 0) then woob="A large facility with Gene-Vaults and additional spare rooms, this structure safely stores the majority of your Gene-Seed and is ran by servitors.  Since being discovered all the contents are known to the Inquisition.  Your Gene-Seed remains protected but you may wish to build a new, secret one.";  
 	     }
@@ -373,7 +373,7 @@ function scr_ui_popup() {
 	            draw_set_alpha(0.2);draw_rectangle(xx+300,yy+45,xx+400,yy+65,0);draw_set_alpha(1);
             
 	            if (obj_controller.cooldown<=0) and (obj_controller.mouse_left=1) and (obj_controller.requisition>=1000){
-	                array_push(planet_upgrades, new new_planet_feature(P_features.Secret_Base));
+	                array_push(planet_upgrades, new new_planet_feature(P_FEATURES.SECRET_BASE));
 					obj_temp_build.isnew=1;
 	                obj_controller.cooldown=8000;
 	                obj_controller.requisition-=1000;
@@ -393,7 +393,7 @@ function scr_ui_popup() {
 	            draw_set_alpha(1);
             
 	            if (obj_controller.cooldown<=0) and (obj_controller.mouse_left==1) and (obj_controller.requisition>=1500){
-	                array_push(planet_upgrades, new new_planet_feature(P_features.Arsenal));
+	                array_push(planet_upgrades, new new_planet_feature(P_FEATURES.ARSENAL));
 	                obj_controller.cooldown=8000;obj_controller.requisition-=1500;
 	            }
 	        }draw_set_halign(fa_left);
@@ -411,8 +411,9 @@ function scr_ui_popup() {
 	            draw_set_alpha(0.2);draw_rectangle(xx+300,yy+175,xx+400,yy+195,0);draw_set_alpha(1);
             
 	            if (obj_controller.cooldown<=0) and (obj_controller.mouse_left=1) and (obj_controller.requisition>=4000){
-	                array_push(planet_upgrades, new new_planet_feature(P_features.Gene_Vault));
-	                obj_controller.cooldown=8000;obj_controller.requisition-=4000;
+	                array_push(planet_upgrades, new new_planet_feature(P_FEATURES.GENE_VAULT));
+	                obj_controller.cooldown=8000;
+					obj_controller.requisition-=4000;
 	            }
 	        }draw_set_halign(fa_left);
         

@@ -561,7 +561,7 @@ instance_activate_object(obj_turn_end);
 
 //If not fleet based and...
 if (obj_ini.fleet_type!=1) and (defeat==1) and (dropping==0){
-	var monastery_list = search_planet_features(battle_object.p_feature[obj_ncombat.battle_id], P_features.Monastery);
+	var monastery_list = search_planet_features(battle_object.p_feature[obj_ncombat.battle_id], P_FEATURES.MONASTERY);
 	var monastery_count = array_length(monastery_list);
 	if(monastery_count>0){
 		for (var mon = 0;mon < monastery_count;mon++){

@@ -81,7 +81,7 @@ function scr_enemy_ai_d() {
 	            if (result="imperial"){tixt+=".";
 	                scr_alert("green","succession",string(tixt),x,y);
 	            }
-	            p_problem[i,wob]="";delete_features(p_feature[i], P_features.Succession_War);
+	            p_problem[i,wob]="";delete_features(p_feature[i], P_FEATURES.SUCCESSION_WAR);
 	            if (result="chaos") then scr_event_log("purple",tixt);
 	            if (result="tau") then scr_event_log("red",tixt);
 	            if (result="imperial") then scr_event_log("",tixt);
@@ -142,7 +142,7 @@ function scr_enemy_ai_d() {
 	                                if (battli=2) then obj_turn_end.battle_special[obj_turn_end.battles]="study2b";
                                 
 	                                if (obj_turn_end.battle_opponent[obj_turn_end.battles]=11){
-	                                    if (planet_feature_bool(p_feature[i],P_features.World_Eaters)==1){
+	                                    if (planet_feature_bool(p_feature[i],P_FEATURES.WORLD_EATERS)==1){
 	                                        obj_turn_end.battle_special[obj_turn_end.battles]="world_eaters";
 	                                    }
 	                                }

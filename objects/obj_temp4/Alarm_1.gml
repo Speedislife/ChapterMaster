@@ -3,7 +3,7 @@
 if (num>0){// Hmmmmmmm
     var stah;stah=instance_nearest(x,y,obj_star);
 
-    if (planet_feature_bool(stah.p_feature[num], P_features.Artifact)==1){// Artifact is present
+    if (planet_feature_bool(stah.p_feature[num], P_FEATURES.ARTIFACT)==1){// Artifact is present
         var pop;
         pop=instance_create(0,0,obj_popup);
         pop.image="artifact2";

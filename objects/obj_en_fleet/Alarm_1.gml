@@ -10,7 +10,7 @@ if ((trade_goods="BLOODBLOODBLOOD") or (trade_goods="BLOODBLOODBLOODBLOOD")) and
             
             // No forces already landed
             repeat(orb.planets){ii+=1;
-                if (planet_feature_bool(orb.p_feature[ii], P_features.World_Eaters)==1){good-=1;
+                if (planet_feature_bool(orb.p_feature[ii], P_FEATURES.WORLD_EATERS)==1){good-=1;
 					
                     if (orb.p_guardsmen[ii]+orb.p_pdf[ii]+orb.p_sisters[ii]+orb.p_player[ii]<=0) and (orb.p_population[ii]>orb.p_max_population[ii]/20){
                         orb.p_population[ii]=round(orb.p_population[ii]/2);
@@ -22,11 +22,11 @@ if ((trade_goods="BLOODBLOODBLOOD") or (trade_goods="BLOODBLOODBLOODBLOOD")) and
             // Next planet; rembark the chaos forces
             if (contin=99){ii=0;
                 repeat(orb.planets){ii+=1;
-                    if (planet_feature_bool(orb.p_feature[ii], P_features.World_Eaters)==1){
+                    if (planet_feature_bool(orb.p_feature[ii], P_FEATURES.WORLD_EATERS)==1){
                         orb.p_chaos[ii]=0;orb.p_traitors[ii]=max(4,orb.p_traitors[ii]+1);
-						delete_features(orb.p_feature[ii], P_features.World_Eaters);contin=100;
+						delete_features(orb.p_feature[ii], P_FEATURES.WORLD_EATERS);contin=100;
                         
-                        if (ii>1){delete_features(orb.p_feature[ii-1], P_features.World_Eaters);contin=100;}
+                        if (ii>1){delete_features(orb.p_feature[ii-1], P_FEATURES.WORLD_EATERS);contin=100;}
                     }
                 }
             }
@@ -35,13 +35,13 @@ if ((trade_goods="BLOODBLOODBLOOD") or (trade_goods="BLOODBLOODBLOODBLOOD")) and
                 repeat(orb.planets){ii+=1;
                     if (good=0) and (trade_goods="BLOODBLOODBLOOD"){
                         if (orb.p_guardsmen[ii]+orb.p_pdf[ii]+orb.p_sisters[ii]+orb.p_player[ii]>0) and (orb.p_population[ii]>orb.p_max_population[ii]/20){
-							array_push(orb.p_feature[ii], new new_planet_feature(P_features.World_Eaters));
+							array_push(orb.p_feature[ii], new new_planet_feature(P_FEATURES.WORLD_EATERS));
                             good=ii;orb.p_chaos[ii]=6;
                         }// Forces landed
                     }
                     if (good=0) and (trade_goods="BLOODBLOODBLOODBLOOD"){
                         if (orb.p_player[ii]>0) and (orb.p_population[ii]>orb.p_max_population[ii]/20){
-                            good=ii;orb.p_chaos[ii]=6;array_push(orb.p_feature[ii], new new_planet_feature(P_features.World_Eaters));
+                            good=ii;orb.p_chaos[ii]=6;array_push(orb.p_feature[ii], new new_planet_feature(P_FEATURES.WORLD_EATERS));
                         }// Forces landed
                     }
                 }
@@ -51,8 +51,8 @@ if ((trade_goods="BLOODBLOODBLOOD") or (trade_goods="BLOODBLOODBLOODBLOOD")) and
                     repeat(orb.planets){ii+=1;
                         if (string_count("World Eaters",orb.p_feature[ii])>0){
                             orb.p_chaos[ii]=0;orb.p_traitors[ii]=max(4,orb.p_traitors[ii]+1);
-                            delete_features(orb.p_feature[ii], P_features.World_Eaters);contin=100;
-                            if (ii>1){delete_features(orb.p_feature[ii-1], P_features.World_Eaters);contin=100;}
+                            delete_features(orb.p_feature[ii], P_FEATURES.WORLD_EATERS);contin=100;
+                            if (ii>1){delete_features(orb.p_feature[ii-1], P_FEATURES.WORLD_EATERS);contin=100;}
                         }
                     }
                     
@@ -344,7 +344,7 @@ if (obj_controller.faction_status[2]="War") and (action="") and (trade_goods="in
             trade_goods="recr";action="";
         }
         if (tar>i){
-            if (orbiting.p_owner[tar]=1) and (orbiting.p_player[tar]=0) and (planet_feature_bool(orbiting.p_feature[tar],P_features.Monastery )==0){
+            if (orbiting.p_owner[tar]=1) and (orbiting.p_player[tar]=0) and (planet_feature_bool(orbiting.p_feature[tar],P_FEATURES.MONASTERY )==0){
                 if (orbiting.p_first[tar]!=1){orbiting.p_owner[tar]=orbiting.p_first[tar];orbiting.dispo[tar]=-50;}
                 if (orbiting.p_first[tar]=1){orbiting.p_owner[tar]=2;orbiting.dispo[tar]=-50;}
                 trade_goods="";action="";
@@ -358,7 +358,7 @@ if (obj_controller.faction_status[2]="War") and (action="") and (trade_goods="in
     if (instance_exists(orbiting)){
         var tar,i;tar=0;i=0;
         repeat(4){i+=1;
-            if (orbiting.p_owner[i]=1) and (planet_feature_bool(orbiting.p_feature[i],P_features.Monastery)==0) and (orbiting.p_guardsmen[i]=0) then tar=i;
+            if (orbiting.p_owner[i]=1) and (planet_feature_bool(orbiting.p_feature[i],P_FEATURES.MONASTERY)==0) and (orbiting.p_guardsmen[i]=0) then tar=i;
         }
         if (tar!=0){
             guardsmen_unloaded=1;
@@ -424,7 +424,7 @@ if (obj_controller.faction_status[2]="War") and (action="") and (trade_goods="")
                     if (orbiting.p_pdf[bombard]<0) then orbiting.p_pdf[bombard]=0;
                     
                     if (orbiting.p_population[bombard]+orbiting.p_pdf[bombard]<=0) and (orbiting.p_owner[bombard]=1){
-                        if (planet_feature_bool(orbiting.p_feature[bombard], P_features.Monastery)==0){
+                        if (planet_feature_bool(orbiting.p_feature[bombard], P_FEATURES.MONASTERY)==0){
                             if (orbiting.p_first[bombard]!=1){orbiting.p_owner[bombard]=orbiting.p_first[bombard];orbiting.dispo[bombard]=-50;}
                             if (orbiting.p_first[bombard]=1){orbiting.p_owner[bombard]=2;orbiting.dispo[bombard]=-50;}
                         }
@@ -774,7 +774,7 @@ if (trade_goods="") and (instance_exists(orbiting)) and (action=""){
                     if (orbiting.p_pdf[bombard]<0) then orbiting.p_pdf[bombard]=0;
                     
                     if (orbiting.p_population[bombard]+orbiting.p_pdf[bombard]<=0) and (orbiting.p_owner[bombard]=1) and (obj_controller.faction_status[2]="War"){
-                        if (planet_feature_bool(orbiting.p_feature[bombard],P_features.Monastery)==0){orbiting.p_owner[bombard]=2;orbiting.dispo[bombard]=-50;}
+                        if (planet_feature_bool(orbiting.p_feature[bombard],P_FEATURES.MONASTERY)==0){orbiting.p_owner[bombard]=2;orbiting.dispo[bombard]=-50;}
                     }
                     
                     exit;
@@ -923,7 +923,7 @@ if (action="") and (instance_exists(orbiting)) and (guardsmen_unloaded=0){// Unl
         
         if (obj_controller.faction_status[2]="War") and (orbiting.p_owner[o]=1) and (orbiting.p_player[o]=0) and (highest=0){that=o;highest=0.5;}
         if (obj_controller.faction_status[2]="War") and ((orbiting.p_player[o]/50)>=highest){that=o;highest=orbiting.p_player[o]/50;}
-        if (obj_controller.faction_status[2]="War") and (planet_feature_bool(orbiting.p_feature[o], P_features.Monastery)==1){that=o;highest=1000+o;}
+        if (obj_controller.faction_status[2]="War") and (planet_feature_bool(orbiting.p_feature[o], P_FEATURES.MONASTERY)==1){that=o;highest=1000+o;}
     }
     
     if (that>0) and (highest>0) and (orbiting.p_guardsmen[1]+orbiting.p_guardsmen[2]+orbiting.p_guardsmen[3]+orbiting.p_guardsmen[4]=0){
@@ -942,7 +942,7 @@ if (action="") and (instance_exists(orbiting)) and (guardsmen_unloaded=0){// Unl
         if (orbiting.present_fleet[1]>0) then plah=true;
         var r;r=0;repeat(4){r+=1;
             if (orbiting.p_owner[r]=1) then plah=true;
-            if (planet_feature_bool(orbiting.p_feature[r], P_features.Monastery)==1) then plah=true;
+            if (planet_feature_bool(orbiting.p_feature[r], P_FEATURES.MONASTERY)==1) then plah=true;
         }
     }
     
@@ -1160,7 +1160,7 @@ if (action=""){
                 }
                 repeat(4){t+=1;tem1=tem1_base;// Repeat to check each of the planets
                     if (thata.p_type[t]="Dead") and (array_length(thata.p_upgrades[t])>0){
-						var base_search = search_planet_features(thata.p_upgrades[t], P_features.Secret_Base); 
+						var base_search = search_planet_features(thata.p_upgrades[t], P_FEATURES.SECRET_BASE); 
                         if (array_length(base_search) >0){
 							var player_base = thata.p_upgrades[t][base_search[0]]
                             if (player_base.vox>0) then tem1+=2;
@@ -1178,7 +1178,7 @@ if (action=""){
 							 	player_base.inquis_hidden = 0;							
                        		}
 						}
-						var arsenal_search = search_planet_features(thata.p_upgrades[t], P_features.Arsenal)
+						var arsenal_search = search_planet_features(thata.p_upgrades[t], P_FEATURES.ARSENAL)
 						var arsenal;
 
                         if (array_length(arsenal_search) > 0 ){
@@ -1209,7 +1209,7 @@ if (action=""){
                                 if (obj_controller.penitent=0) and (moo=false) then scr_audience(4,"loyalty_zero",0,"",0,0);
                             }
                         }
- 						var vault = search_planet_features(thata.p_upgrades[t], P_features.Arsenal)
+ 						var vault = search_planet_features(thata.p_upgrades[t], P_FEATURES.ARSENAL)
 						var gene_vault;                       
                         if (array_length(vault) > 0 ){
                         	gene_vault = thata.p_upgrades[t][arsenal_search[0]];

@@ -27,7 +27,7 @@ plani=floor(random(_star.planets))+1;
 if (faction_gender[10]==1) and (faction_defeated[10]==0) and (turn>=chaos_turn) then repeat(times){
     if (_star.p_type[plani]!="Dead") and (_star.planets>0) and (turn>=20){
         var cathedral=0;
-        if (planet_feature_bool(_star.p_feature[plani], P_features.Sororitas_Cathedral)==1) then cathedral=choose(0,1,1);
+        if (planet_feature_bool(_star.p_feature[plani], P_FEATURES.SORORITAS_CATHEDRAL)==1) then cathedral=choose(0,1,1);
     
         if (cathedral=0){
             if (_star.p_heresy[plani]>=0) and (_star.p_heresy[plani]<10){
@@ -940,7 +940,7 @@ if (turn==5) and (faction_gender[10]==1){// show_message("Turn 100");
         
         planet.warlord[testi]=1;
 
-        array_push(planet.p_feature[testi], new new_planet_feature(P_features.Warlord10));
+        array_push(planet.p_feature[testi], new new_planet_feature(P_FEATURES.WARLORD10));
 
         if (planet.p_type[testi]=="Hive") then planet.p_heresy[testi]+=25;
         if (planet.p_type[testi]!="Hive") then planet.p_heresy[testi]+=10;
@@ -1046,10 +1046,10 @@ if ((turn>=10) or (obj_ini.fleet_type==3)) and (faction_defeated[7]==0){
                     if (!instance_exists(obj_temp2)){
                         rund=round(random(you.planets));
 						if (rund>0) and(rund<5){
-							if	(you.p_owner[rund]==7) and (you.p_pdf[rund]+you.p_guardsmen[rund]==0) and (you.p_orks[rund]>=2) then array_push( you.p_feature[rund], new new_planet_feature(P_features.Warlord7));
+							if	(you.p_owner[rund]==7) and (you.p_pdf[rund]+you.p_guardsmen[rund]==0) and (you.p_orks[rund]>=2) then array_push( you.p_feature[rund], new new_planet_feature(P_FEATURES.WARLORD7));
 						}
                         if (you.p_orks[rund]<4) then you.p_orks[rund]=4;
-                        if (planet_feature_bool(you.p_feature[rund], P_features.Warlord7)==1) then instance_create(x,y,obj_temp2);
+                        if (planet_feature_bool(you.p_feature[rund], P_FEATURES.WARLORD7)==1) then instance_create(x,y,obj_temp2);
                     }
                 }
             }

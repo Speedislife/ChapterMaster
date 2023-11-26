@@ -749,7 +749,7 @@ for(var i=0; i<100; i++){
         var craft=instance_create(xx,yy,obj_star);
         craft.craftworld=1;
         go=999;
-		array_push(craft.p_feature[1],new new_planet_feature(P_features.Warlord6));
+		array_push(craft.p_feature[1],new new_planet_feature(P_FEATURES.WARLORD6));
         
         var elforce=instance_create(xx-24,yy-24,obj_en_fleet);
         elforce.sprite_index=spr_fleet_eldar;elforce.owner=6;

@@ -358,35 +358,35 @@ if (i==1) and (planets>0){
                     if (goo==0){
                         switch (ranb){
                             case 1:
-                                array_push(p_feature[i], new new_planet_feature(P_features.Sororitas_Cathedral))
+                                array_push(p_feature[i], new new_planet_feature(P_FEATURES.SORORITAS_CATHEDRAL))
                                 if (p_heresy[i]>10) then p_heresy[i]-=10;
                                 p_sisters[i]=choose(2,2,3);
                                 goo=1;
                                 break;
                             case 2:
                                 if (p_type[i]!="Hive") and (p_type[i]!="Lava") and (goo==0){
-                                    array_push(p_feature[i], new new_planet_feature(P_features.Necron_Tomb))
+                                    array_push(p_feature[i], new new_planet_feature(P_FEATURES.NECRON_TOMB))
                                     goo=1;
                                 }
                                 break;
                             case 3:
-                                array_push(p_feature[i], new new_planet_feature( P_features.Artifact))
+                                array_push(p_feature[i], new new_planet_feature(P_FEATURES.ARTIFACT))
                                 goo=1;
                                 break;
                             case 4:
-                                array_push(p_feature[i], new new_planet_feature( P_features.STC_Fragment))
+                                array_push(p_feature[i], new new_planet_feature(P_FEATURES.STC_FRAGMENT))
                                 goo=1;
                                 break;
                             case 5:
                                 if (p_type[i]!="Ice") and (p_type[i]!="Dead") and (p_type[i]!="Feudal"){
                                     goo=1;
-                                    array_push(p_feature[i], new new_planet_feature( P_features.Ancient_Ruins))
+                                    array_push(p_feature[i], new new_planet_feature(P_FEATURES.ANCIENT_RUINS))
                                 }
                                 break;
                             //alternative spawn for necron tomb probably needs merging with other method
                             case 6:
                                 if ((p_type[i]=="Ice") or (p_type[i]=="Dead")){
-                                    array_push(p_feature[i], new new_planet_feature( P_features.Necron_Tomb))
+                                    array_push(p_feature[i], new new_planet_feature(P_FEATURES.NECRON_TOMB))
                                     goo=1;
                                 }
                                 break;
@@ -394,7 +394,7 @@ if (i==1) and (planets>0){
                             if ((p_type[i]=="Dead") or (p_type[i]=="Desert")){
                                 var randum=floor(random(100))+1;
                                 if (randum<=25){
-                                    array_push(p_feature[i], new new_planet_feature( P_features.Cave_Network))
+                                    array_push(p_feature[i], new new_planet_feature(P_FEATURES.CAVE_NETWORK))
                                     goo=1;
                                 }
                             }

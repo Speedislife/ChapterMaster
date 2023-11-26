@@ -39,9 +39,9 @@ function scr_apothecary_ground() {
         
 	        if (array_length(p_feature[run])!=0){
 	        	var engineer_count=array_length(engineers);
-				if(planet_feature_bool(p_feature[run],P_features.Starship)==1) and (engineer_count>0){
+				if(planet_feature_bool(p_feature[run],P_FEATURES.STARSHIP)==1) and (engineer_count>0){
 
-	                var starship = p_feature[run][search_planet_features(p_feature[run],P_features.Starship)[0]];
+	                var starship = p_feature[run][search_planet_features(p_feature[run],P_FEATURES.STARSHIP)[0]];
                 	if (starship.engineer_score<2000){
 	                	for (v=0;v<engineer_count;v++){
 	                		starship.engineer_score += engineers[v].technology;
@@ -61,7 +61,7 @@ function scr_apothecary_ground() {
 	                }
 	                if (starship.funds_spent>=target_spend) and(starship.engineer_score>=2000){// u2=tar;
 	                    p_feature[run]="";
-	                    delete_features(p_feature[run],P_features.Starship);
+	                    delete_features(p_feature[run],P_FEATURES.STARSHIP);
                     
 	                    var locy="";
 	                    if (run=1) then locy=string(name)+" I";if (run=2) then locy=string(name)+" II";

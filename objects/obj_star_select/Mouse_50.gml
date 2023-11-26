@@ -89,9 +89,9 @@ if (obj_controller.selecting_planet>0) and (obj_controller.cooldown<=0)
 	        var building = instance_create(x, y, obj_temp_build);
 	        building.target = self.target;
 	        building.planet = obj_controller.selecting_planet;
-	        if (planet_feature_bool(target.p_upgrades[obj_controller.selecting_planet], P_features.Secret_Base)) then building.lair=1;
-	        if (planet_feature_bool(target.p_upgrades[obj_controller.selecting_planet], P_features.Arsenal)) then building.arsenal=1;
-	        if (planet_feature_bool(target.p_upgrades[obj_controller.selecting_planet], P_features.Gene_Vault)) then building.gene_vault=1;
+	        if (planet_feature_bool(target.p_upgrades[obj_controller.selecting_planet], P_FEATURES.SECRET_BASE)) then building.lair=1;
+	        if (planet_feature_bool(target.p_upgrades[obj_controller.selecting_planet], P_FEATURES.ARSENAL)) then building.arsenal=1;
+	        if (planet_feature_bool(target.p_upgrades[obj_controller.selecting_planet], P_FEATURES.GENE_VAULT)) then building.gene_vault=1;
         
         
 	        obj_controller.temp[104]=string(scr_master_loc());
@@ -141,11 +141,11 @@ if (obj_controller.selecting_planet>0) and (obj_controller.cooldown<=0)
 		{
 	    if (obj_controller.recruiting_worlds_bought>0) and (target.p_owner[obj_controller.selecting_planet]<=5) and (obj_controller.faction_status[target.p_owner[obj_controller.selecting_planet]]!="War")
 			{
-		        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet],P_features.Recruiting_World)==0)
+		        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet],P_FEATURES.RECRUITING_WORLD)==0)
 					{
 			            obj_controller.cooldown=8000;
 			            obj_controller.recruiting_worlds_bought-=1;
-						array_push(target.p_feature[obj_controller.selecting_planet] ,new new_planet_feature(P_features.Recruiting_World))
+						array_push(target.p_feature[obj_controller.selecting_planet] ,new new_planet_feature(P_FEATURES.RECRUITING_WORLD))
             
 			            if (obj_controller.selecting_planet=1) then obj_controller.recruiting_worlds+=string(target.name)+" I|";
 			            if (obj_controller.selecting_planet=2) then obj_controller.recruiting_worlds+=string(target.name)+" II|";
@@ -316,7 +316,7 @@ if (obj_controller.cooldown<=0) and (loading=1){
 	        }
         
         // Artifact Grab
-        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_features.Artifact) == 1) and (recon=0){
+        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_FEATURES.ARTIFACT) == 1) and (recon=0){
 	
             var arti;arti=instance_create(target.x,target.y,obj_temp4);// Unloading / artifact crap
             arti.num=obj_controller.selecting_planet;arti.alarm[0]=1;
@@ -336,7 +336,7 @@ if (obj_controller.cooldown<=0) and (loading=1){
         }
         
         // STC Grab
-        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_features.STC_Fragment) == 1) and (recon=0){
+        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_FEATURES.STC_FRAGMENT) == 1) and (recon=0){
             var i,tch,mch;i=0;tch=0;mch=0;
             repeat(300){i+=1;
                 if (obj_controller.man[i]!="") and (obj_controller.man_sel[i]=1){
@@ -370,7 +370,7 @@ if (obj_controller.cooldown<=0) and (loading=1){
         
         // Ancient Ruins
 		var _planet = target.p_feature[obj_controller.selecting_planet]
-		var _ruins_list =  search_planet_features( _planet, P_features.Ancient_Ruins)
+		var _ruins_list =  search_planet_features( _planet, P_FEATURES.ANCIENT_RUINS)
 		var _explore_ruins;
         if (array_length(_ruins_list) > 0){
 			for (var _ruin= 0; _ruin < array_length(_ruins_list); _ruin++){
@@ -691,10 +691,10 @@ if (player_fleet>0) and (imperial_fleet+mechanicus_fleet+inquisitor_fleet+eldar_
         
         
         stahr=target;
-        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_features.Monastery) == 1) then obj_fleet.player_lasers=stahr.p_lasers[1];
-        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_features.Monastery) == 1) then obj_fleet.player_lasers=stahr.p_lasers[2];
-        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_features.Monastery) == 1) then obj_fleet.player_lasers=stahr.p_lasers[3];
-        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_features.Monastery) == 1) then obj_fleet.player_lasers=stahr.p_lasers[4];
+        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_FEATURES.MONASTERY) == 1) then obj_fleet.player_lasers=stahr.p_lasers[1];
+        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_FEATURES.MONASTERY) == 1) then obj_fleet.player_lasers=stahr.p_lasers[2];
+        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_FEATURES.MONASTERY) == 1) then obj_fleet.player_lasers=stahr.p_lasers[3];
+        if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_FEATURES.MONASTERY) == 1) then obj_fleet.player_lasers=stahr.p_lasers[4];
         instance_deactivate_object(obj_star);
         
         

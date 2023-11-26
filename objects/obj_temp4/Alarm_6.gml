@@ -1,7 +1,7 @@
 
 var comp,plan,i;i=0;comp=0;plan=0;
 plan=instance_nearest(x,y,obj_star);
- delete_features(plan.p_feature[num], P_features.Artifact);
+ delete_features(plan.p_feature[num], P_FEATURES.ARTIFACT);
 
 scr_return_ship(loc,self,num);
 

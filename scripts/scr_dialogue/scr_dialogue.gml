@@ -901,14 +901,14 @@ function scr_dialogue(diplo_keyphrase) {
 	        with(obj_star){
 				for(var p=1; p<=4; p++){
 	                if (planets>=p){
-	                    if (p_owner[p]<=2) and (dispo[p]<100) and (planet_feature_bool(p_feature[p], P_features.Recruiting_World)==1){
-							delete_features(p_feature[p], P_features.Recruiting_World)
+	                    if (p_owner[p]<=2) and (dispo[p]<100) and (planet_feature_bool(p_feature[p], P_FEATURES.RECRUITING_WORLD)==1){
+							delete_features(p_feature[p], P_FEATURES.RECRUITING_WORLD)
 	                        p_feature[p]=string_replace(p_feature[p],"Recruiting World|","");
 	                        scr_alert("red","blarg","Recruiting rights on "+string(name)+" "+scr_roman(p)+" revoked!",x,y);
 	                        scr_event_log("red","Recruiting rights on "+string(name)+" "+scr_roman(p)+" revoked!");
 	                        obj_controller.recruiting_worlds=string_replace(obj_controller.recruiting_worlds,string(name)+" "+scr_roman(p)+"|","");
 	                    }
-	                    if (p_owner[p]==1) and (dispo[p]<100) and (planet_feature_bool(p_feature[p], P_features.Monastery)==0){
+	                    if (p_owner[p]==1) and (dispo[p]<100) and (planet_feature_bool(p_feature[p], P_FEATURES.MONASTERY)==0){
 	                        if (p_first[p]!=1) then p_owner[p]=p_first[p];
 	                        else p_owner[p]=2;
 	                        scr_alert("red","blarg","Control of "+string(name)+" "+scr_roman(p)+" lost!",x,y);
@@ -2127,7 +2127,7 @@ function scr_dialogue(diplo_keyphrase) {
 	                    	with(obj_temp5){instance_destroy();}
 	                    	with(obj_star){
 								for(var i=1; i<=4; i++){
-									if (planet_feature_bool(p_feature[1], P_features.Warlord10)==1) then instance_create(x,y,obj_temp5);
+									if (planet_feature_bool(p_feature[1], P_FEATURES.WARLORD10)==1) then instance_create(x,y,obj_temp5);
 								}
 						}
 	                    if (instance_exists(obj_temp5)){
@@ -2135,7 +2135,7 @@ function scr_dialogue(diplo_keyphrase) {
 	                        you=instance_nearest(obj_temp5.x,obj_temp5.y,obj_star);
 	                        nuum=you.name;
 							for(var i=1; i<=4; i++){
-								if (planet_feature_bool(you.p_feature[1], P_features.Warlord10)==1) then plan=i;
+								if (planet_feature_bool(you.p_feature[1], P_FEATURES.WARLORD10)==1) then plan=i;
 							}
 							found=1;
 	                        diplo_text="The fallen warlord of your kind is located somewhere within the "+string(nuum)+" system.  More I cannot say.  It would be prudent to deal with this soon- that abomination may not remain there long.";
@@ -2155,7 +2155,7 @@ function scr_dialogue(diplo_keyphrase) {
 	                	with(obj_temp5){instance_destroy();}
 						with(obj_star){
 							for(var i=1; i<=4; i++){
-								if (planet_feature_bool(p_feature[1], P_features.Warlord7)==1) then instance_create(x,y,obj_temp5);
+								if (planet_feature_bool(p_feature[1], P_FEATURES.WARLORD7)==1) then instance_create(x,y,obj_temp5);
 							}
 						}
 						if (instance_exists(obj_temp5)){
@@ -2163,7 +2163,7 @@ function scr_dialogue(diplo_keyphrase) {
 							you=instance_nearest(obj_temp5.x,obj_temp5.y,obj_star);
 							nuum=you.name;
 							for(var i=1; i<=4; i++){
-								if (planet_feature_bool(you.p_feature[1], P_features.Warlord7)==1) then plan=i;
+								if (planet_feature_bool(you.p_feature[1], P_FEATURES.WARLORD7)==1) then plan=i;
 							}
 							if (you.p_orks[plan]<6) then you.p_orks[plan]=6;
 							diplo_text="The greenskin horde is led by a massive Ork, one who calls himself "+string(faction_leader[7])+".  If this warboss were to perish the rest might be dealt with in a more languorous fashion.  He is located on "+string(nuum);
@@ -2204,7 +2204,7 @@ function scr_dialogue(diplo_keyphrase) {
 										if (array_length(p_feature[j])==0) and (onceh==0) then onceh=j;
 									}
 									if (onceh!=0){
-										array_push(p_feature[onceh], new new_planet_feature(P_features.Webway));
+										array_push(p_feature[onceh], new new_planet_feature(P_FEATURES.WEBWAY));
 										obj_controller.temp[90]=name;
 										good=1;
 										if (onceh==1) then obj_controller.temp[90]+=" I";
@@ -2243,7 +2243,7 @@ function scr_dialogue(diplo_keyphrase) {
 										i=floor(random(planets))+1;
 										if (array_length(p_feature[i])==0) and (onceh==0) then onceh=i;}
 									if (onceh!=0){
-										array_push(p_feature[onceh], new new_planet_feature(P_features.Webway));
+										array_push(p_feature[onceh], new new_planet_feature(P_FEATURES.WEBWAY));
 										obj_controller.temp[90]=name;
 										good=1;
 										if (onceh==1) then obj_controller.temp[90]+=" I";

@@ -89,7 +89,7 @@ if (cooldown<=0) and (battle_world[current_battle]=-50) and (combating=0){
         obj_fleet.star_name=stahr.name;
 		
 		for (p_num =1; p_num<5;p_num++){
-			//if(planet_feature_bool(stahr.p_feature[p_num], P_features.Monastery)==1)thenobj_fleet.player_lasers=stahr.p_lasers[p_num]; 
+			//if(planet_feature_bool(stahr.p_feature[p_num], P_FEATURES.MONASTERY)==1)thenobj_fleet.player_lasers=stahr.p_lasers[p_num]; 
 		}
         
         var i;i=0;
@@ -170,7 +170,7 @@ if (cooldown<=0) and (battle_world[current_battle]>0) and (combating=0){
         obj_ncombat.battle_climate=battle_object[current_battle].p_type[battle_world[current_battle]];
         
         // show_message(string(battle_object[current_battle].p_feature[battle_world[current_battle]]));
-        /*if (scr_planetary_feature.plant_feature_bool(battle_object[current_battle].p_feature[battle_world[current_battle]], P_features.Monastery)==1){
+        /*if (scr_planetary_feature.plant_feature_bool(battle_object[current_battle].p_feature[battle_world[current_battle]], P_FEATURES.MONASTERY)==1){
             // show_message(string(battle_object[current_battle].p_defenses[battle_world[current_battle]]));
             // show_message(string(battle_object[current_battle].p_silo[battle_world[current_battle]]));
             obj_ncombat.player_defenses+=battle_object[current_battle].p_defenses[battle_world[current_battle]];

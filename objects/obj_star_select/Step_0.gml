@@ -48,11 +48,11 @@ if (instance_exists(target)){
                     (target.p_tau[obj_controller.selecting_planet]>0) or
                     (target.p_demons[obj_controller.selecting_planet]>0)){chock=0;}
                 if (chock==1){
-                    if (planet_feature_bool(planet_upgrades, P_features.Secret_Base)==1){
+                    if (planet_feature_bool(planet_upgrades, P_FEATURES.SECRET_BASE)==1){
                         button1="Base";
-                    }else if (planet_feature_bool(planet_upgrades, P_features.Arsenal)==1){
+                    }else if (planet_feature_bool(planet_upgrades, P_FEATURES.ARSENAL)==1){
                         button1="Arsenal"; 
-                    }else if (planet_feature_bool(planet_upgrades, P_features.Gene_Vault)==1){
+                    }else if (planet_feature_bool(planet_upgrades, P_FEATURES.GENE_VAULT)==1){
                         button1="Gene-Vault";
                     }else if (array_length(target.p_upgrades[obj_controller.selecting_planet])==0){
                         button1="Build";
@@ -79,7 +79,7 @@ if (instance_exists(target)){
         */
         
         if (obj_controller.recruiting_worlds_bought>0) and (target.p_owner[obj_controller.selecting_planet]<=5) and (obj_controller.faction_status[target.p_owner[obj_controller.selecting_planet]]!="War"){
-            if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_features.Recruiting_World)==0) and (target.p_type[obj_controller.selecting_planet]!="Dead") and (target.space_hulk=0){
+            if (planet_feature_bool(target.p_feature[obj_controller.selecting_planet], P_FEATURES.RECRUITING_WORLD)==0) and (target.p_type[obj_controller.selecting_planet]!="Dead") and (target.space_hulk=0){
                 button4="+Recruiting";
             }
         }

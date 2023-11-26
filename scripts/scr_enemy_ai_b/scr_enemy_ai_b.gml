@@ -156,7 +156,7 @@ function scr_enemy_ai_b() {
 				  		dispo[i]-=10; // 10 disposition decreases for the respective planet
 				  		obj_controller.disposition[3]-=3;// 10 disposition decrease for the toaster Fetishest since they aren't that numerous
 					} 
-				    else if(planet_feature_bool(p_feature[i], P_features.Sororitas_Cathedral) or (p_type[i]=="Shrine")) {
+				    else if(planet_feature_bool(p_feature[i], P_FEATURES.SORORITAS_CATHEDRAL) or (p_type[i]=="Shrine")) {
                         dispo[i]-=4; // similarly 10 disposition decrease, note those nurses are a bit pissy and
                                       // and you can't easily gain their favor because you cannot ask them to "step down" from office.
 			            obj_controller.disposition[5]-=5;
@@ -194,7 +194,7 @@ function scr_enemy_ai_b() {
 	                scr_event_log("purple","Massive heretic uprising on "+string(name)+" "+scr_roman(i)+".");
 	            }// Huge uprising
 	            if (rando>=100) and (p_traitors[i]<5){
-	                p_traitors[i]=6;p_owner[i]=10;array_push(p_feature[i], new new_planet_feature(P_features.Daemonic_Incursion));
+	                p_traitors[i]=6;p_owner[i]=10;array_push(p_feature[i], new new_planet_feature(P_FEATURES.DAEMONIC_INCURSION));
 	                if (p_heresy[i]>=80) then p_heresy[i]=95;
 	                if (p_heresy[i]<80) then p_heresy[i]=80;
 	                tixt="Daemonic incursion on "+string(name)+" "+string(i)+"!";
@@ -290,7 +290,7 @@ function scr_enemy_ai_b() {
 								dispo[i]-=10; // 10 disposition decreases for the respective planet
 								obj_controller.disposition[3]-=10; // 10 disposition decrease for the toaster Fetishest since they aren't that many toasters in 41 millennia
 							}  
-							else if(planet_feature_bool(p_feature[i], P_features.Sororitas_Cathedral) or (p_type[i]=="Shrine")) { 
+							else if(planet_feature_bool(p_feature[i], P_FEATURES.SORORITAS_CATHEDRAL) or (p_type[i]=="Shrine")) { 
 								dispo[i]-=10; // 10 disposition decreases for the respective planet
 								obj_controller.disposition[5]-=5;} 
 							else dispo[i]-=10; // you had only 1 job.

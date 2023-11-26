@@ -161,7 +161,7 @@ function scr_enemy_ai_c() {
 	                    if (orbiting.name=obj_controller.temp[1049]) then instance_create(x,y,obj_temp2);
 	                }
 	            }
-	            if (instance_exists(obj_temp2)){array_push(feature[i], new new_planet_feature(P_features.Warlord7));p_orks[i]=6;}
+	            if (instance_exists(obj_temp2)){array_push(feature[i], new new_planet_feature(P_FEATURES.WARLORD7));p_orks[i]=6;}
 	            with(obj_temp2){instance_destroy();}
             
 	            if (p_orks[i]>6) then p_orks[i]=6;
@@ -500,14 +500,14 @@ function scr_enemy_ai_c() {
 	    if (p_tyranids[i]>=5) and (planets>=i) and (p_player[i]+p_orks[i]+p_guardsmen[i]+p_pdf[i]+p_chaos[i]=0){
 	        var ship;ship=instance_nearest(x,y+32,obj_en_fleet);
 	        if (point_distance(x,y+32,ship.x,ship.y)<5) and (ship.owner=9) and (ship.capital_number>0) and (p_type[i]!="Dead") and (array_length(p_feature[i])!=0){
-	            if (planet_feature_bool(p_feature[i], P_features.Reclamation_pools) ==1){
+	            if (planet_feature_bool(p_feature[i], P_FEATURES.RECLAMATION_POOLS) ==1){
 	                p_tyranids[i]=0;
 	                if (p_type[i]="Death") or (p_type[i]="Hive") then ship.capital_number+=choose(0,1,1);
 	                ship.capital_number+=1;
 	                ship.escort_number+=3;
 	                ship.image_index=floor((ship.capital_number)+(ship.frigate_number/2)+(ship.escort_number/4));
 	                p_type[i]="Dead";
-					delete_features(p_feature[i], P_features.Reclamation_pools);// show_message("D");
+					delete_features(p_feature[i], P_FEATURES.RECLAMATION_POOLS);// show_message("D");
 	                if (planets=1) and (p_type[1]="Dead") then image_alpha=0.33;
 	                if (planets=2) and (p_type[1]="Dead") and (p_type[2]="Dead") then image_alpha=0.33;
 	                if (planets=3) and (p_type[1]="Dead") and (p_type[2]="Dead") and (p_type[3]="Dead") then image_alpha=0.33;
@@ -517,14 +517,14 @@ function scr_enemy_ai_c() {
 	                // if image_alpha = 0.33 then send the ship somewhere new
                 
 	            }
-	            if (planet_feature_bool(p_feature[i], P_features.Capillary_Towers)==1) and (p_type[i]!="Dead"){p_population[i]=floor(p_population[i]*0.3);}
-	            if (planet_feature_bool(p_feature[i], P_features.Capillary_Towers)==1) and (p_type[i]!="Dead"){
+	            if (planet_feature_bool(p_feature[i], P_FEATURES.CAPILLARY_TOWERS)==1) and (p_type[i]!="Dead"){p_population[i]=floor(p_population[i]*0.3);}
+	            if (planet_feature_bool(p_feature[i], P_FEATURES.CAPILLARY_TOWERS)==1) and (p_type[i]!="Dead"){
 	                p_feature[i]=[];
-					array_push(p_feature[i], new new_planet_feature(P_features.Capillary_Towers), new new_planet_feature(P_features.Reclamation_pools));
+					array_push(p_feature[i], new new_planet_feature(P_FEATURES.CAPILLARY_TOWERS), new new_planet_feature(P_FEATURES.RECLAMATION_POOLS));
 	                p_population[i]=0;// show_message("C");
 	            }
-	            if (planet_feature_bool(p_feature[i], P_features.Capillary_Towers)==0) and (planet_feature_bool(p_feature[i], P_features.Reclamation_pools)==0) and (p_type[i]!="Dead"){
-					array_push(p_feature[i], new new_planet_feature(P_features.Capillary_Towers));// show_message("B");
+	            if (planet_feature_bool(p_feature[i], P_FEATURES.CAPILLARY_TOWERS)==0) and (planet_feature_bool(p_feature[i], P_FEATURES.RECLAMATION_POOLS)==0) and (p_type[i]!="Dead"){
+					array_push(p_feature[i], new new_planet_feature(P_FEATURES.CAPILLARY_TOWERS));// show_message("B");
 	            }
 	        }
 	    }
