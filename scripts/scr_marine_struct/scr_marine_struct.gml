@@ -1271,7 +1271,7 @@ function TTRPG_stats(faction, comp, mar, class = "marine") constructor{
 				else if (old_guard>=91 and old_guard<=96){
 					update_armour("MK3 Iron Armour",false,false);
 					update_age(age - gauss(600, 100));
-					add_trait(choose("ancient","old_guard"),false,false);
+					add_trait(choose("ancient","old_guard"));
 					add_exp(choose(10, 30, 50));
 				} // 6% 
 				else if (old_guard>=80 and old_guard<=90){
