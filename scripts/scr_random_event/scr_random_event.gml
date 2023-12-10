@@ -23,8 +23,6 @@ function scr_random_event(execute_now) {
 	//    }
 	//}
 
-
-
 	var inquisition_mission_roll = irandom(100);
 	var force_inquisition_mission = false;
 	if (((last_mission+50) <= turn) && (inquisition_mission_roll <= 5) && (known[eFACTION.Inquisition] != 0) && (obj_controller.faction_status[eFACTION.Inquisition] != "War")){
@@ -51,20 +49,22 @@ function scr_random_event(execute_now) {
 			var player_luck;
 			var has_bad_luck = scr_has_disadv("Shitty Luck");
 			var luck_roll = irandom(100);
-			if (has_bad_luck){
-				if (luck_roll<=30) then player_luck=luck.good;
-			    if (luck_roll>30) and (luck_roll<45) then player_luck=luck.neutral;
-				if (luck_roll>=45) then player_luck=luck.bad;
-			}
-			else{
-			    if (luck_roll<=45) then player_luck=luck.good;
-			    if (luck_roll>45) and (luck_roll<55) then player_luck=luck.neutral;
-				if (luck_roll>=55) then player_luck=luck.bad;
-			}
-
+			
+			if (has_bad_luck)
+				{
+					if (luck_roll <= 30) then player_luck = CHAPTER_LUCK.GOOD;
+				    if (luck_roll > 30) and (luck_roll < 45) then player_luck = CHAPTER_LUCK.NEUTRAL;
+					if (luck_roll >= 45) then player_luck = CHAPTER_LUCK.BAD;
+				}
+			else
+				{
+				    if (luck_roll <= 45) then player_luck = CHAPTER_LUCK.GOOD;
+				    if (luck_roll > 45) and (luck_roll < 55) then player_luck = CHAPTER_LUCK.NEUTRAL;
+					if (luck_roll >= 55) then player_luck = CHAPTER_LUCK.BAD;
+				}
 		
 				var events;
-				if(player_luck == luck.good){
+				if(player_luck == CHAPTER_LUCK.GOOD){
 					events = 
 					[
 					EVENT.space_hulk,
@@ -77,7 +77,7 @@ function scr_random_event(execute_now) {
 					EVENT.mechanicus_mission
 					];
 				}
-				else if(player_luck == luck.neutral){
+				else if(player_luck == CHAPTER_LUCK.NEUTRAL){
 					events = 
 					[
 					EVENT.strange_behavior,
@@ -87,7 +87,7 @@ function scr_random_event(execute_now) {
 					EVENT.random_fun,
 					];
 				}
-				else if(player_luck == luck.bad){
+				else if(player_luck == CHAPTER_LUCK.BAD){
 					events = 
 					[
 					EVENT.warp_storms,
@@ -312,9 +312,9 @@ function scr_random_event(execute_now) {
 		}
 		var marine=marine_and_company[1];
 		var company=marine_and_company[0];
-		var unit = obj_ini.TTRPG[company][marine];
-		var role=unit.role();
-		var text = unit.name_role();
+		
+		var role=obj_ini.role[company][marine];
+		var text = string(role)+" "+string(obj_ini.name[company][marine]);
 		var company_text = scr_convert_company_to_string(company);
 		//var company_text = scr_company_string(company);
 		if(company_text != ""){
@@ -324,10 +324,10 @@ function scr_random_event(execute_now) {
 		text += " has distinguished himself.##He is up for review to be promoted.";
 		
 		if (company != 10){
-			unit.add_exp(10);
+			obj_ini.experience[company][marine] += 10;
 		}
 		else {
-			unit.add_exp(max(20, unit.experience()));
+			obj_ini.experience[company][marine] = max(20, obj_ini.experience[company][marine]+10);
 		}
 		
 		scr_popup("Promotions!",text,"distinguished","");
@@ -343,9 +343,8 @@ function scr_random_event(execute_now) {
 		var marine = marine_and_company[1];
 		var company = marine_and_company[0];
 		var text="";
-		var unit = obj_ini.TTRPG[company][marine];
-		var role= unit.role();
-	    text = unit.name_role();
+		var role=obj_ini.role[company][marine];
+	    text = role +" "+ string(obj_ini.name[company][marine]);
 	    text+=" is taken by a strange mood and starts building!";  
 
         
@@ -371,7 +370,7 @@ function scr_random_event(execute_now) {
         
 	    if (craft_roll<=50){
 			crafted_object=choose("Icon","Icon","Statue");
-			unit.add_exp(choose(5,10));
+			obj_ini.experience[company][marine]+=choose(1,2);
 		}
 	    else if ((craft_roll>50) && (craft_roll<=60)) {
 			crafted_object=choose("Bike","Rhino");

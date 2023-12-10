@@ -3,11 +3,12 @@ function macros() {
 #macro GM_version "1.0.0.4"
 
 
-	enum luck {
-		bad = -1,
-		neutral = 0,
-		good = 1
-	}
+	enum CHAPTER_LUCK 
+		{
+			BAD = -1,
+			NEUTRAL = 0,
+			GOOD = 1
+		}
 	
 	enum GOD_MISSION{
 		artifact
