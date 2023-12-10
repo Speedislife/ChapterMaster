@@ -1,9 +1,9 @@
-function scr_add_artifact(argument0, argument1, argument2, argument3, argument4) {
+function scr_add_artifact(type, tags, identified, location, sid) {
 
-	// argument0 : type
-	// argument1 : tags
-	// argument2 : identified
-	// argument3: location
+	// type : type
+	// tags : tags
+	// identified : identified
+	// location: location
 	// argument4: sid
 
 
@@ -24,20 +24,20 @@ function scr_add_artifact(argument0, argument1, argument2, argument3, argument4)
 	t1="";t2="";t3="";t4="";t5="";
 
 
-	if (argument0="random") or (argument0="random_nodemon"){
+	if (type="random") or (type="random_nodemon"){
 	    if (rand1<=45) and (good=0){t1="Weapon";good=1;}
 	    if (rand1<=80) and (good=0){t1="Armour";good=1;}
 	    if (rand1<=90) and (good=0){t1="Gear";good=1;}
 	    if (rand1<=100) and (good=0){t1="Device";good=1;}
 	}
 
-	if (argument0="Weapon") then t1=argument0;
-	if (argument0="Armour") then t1=argument0;
-	if (argument0="Gear") then t1=argument0;
-	if (argument0="Device") then t1=argument0;
-	    if (argument0="Robot"){t1="Device";t2="Robot";}
-	    if (argument0="Tome"){t1="Device";t2="Tome";}
-	if (argument0="chaos_gift"){t1="Device";t2=choose("Casket","Chalice","Statue");}
+	if (type="Weapon") then t1=type;
+	if (type="Armour") then t1=type;
+	if (type="Gear") then t1=type;
+	if (type="Device") then t1=type;
+	    if (type="Robot"){t1="Device";t2="Robot";}
+	    if (type="Tome"){t1="Device";t2="Tome";}
+	if (type="chaos_gift"){t1="Device";t2=choose("Casket","Chalice","Statue");}
 
 
 	if (t1="Weapon") and (t2=""){good=0;
@@ -71,7 +71,7 @@ function scr_add_artifact(argument0, argument1, argument2, argument3, argument4)
 	    if (rand2<=100) and (good=0){t2="Robot";good=1;}
 	}
 
-	if (argument0="good"){
+	if (type="good"){
 	    var haha;haha=choose(1,2,3,4);
 	    if (haha=1){t1="Weapon";t2="Relic Blade";}
 	    if (haha=2){t1="Weapon";t2="Plasma Gun";}
@@ -84,8 +84,8 @@ function scr_add_artifact(argument0, argument1, argument2, argument3, argument4)
 	rand2=floor(random(100))+1;good=0;
 	if (string_count("Shit",obj_ini.strin2)>0){rand2=min(rand2+20,100);}
 	if (rand2<=70) and (good=0){t3="";good=1;}
-	if (rand2<=90) and (good=0) and (argument0!="random_nodemon"){t3="Chaos";good=1;}
-	if (rand2<=100) and (good=0) and (argument0!="random_nodemon"){t3="Daemonic";good=1;}
+	if (rand2<=90) and (good=0) and (type!="random_nodemon"){t3="Chaos";good=1;}
+	if (rand2<=100) and (good=0) and (type!="random_nodemon"){t3="Daemonic";good=1;}
 
 	if (t1="Weapon"){
 	    // gold, glowing, underslung bolter, underslung flamer
@@ -127,12 +127,12 @@ function scr_add_artifact(argument0, argument1, argument2, argument3, argument4)
 	}
 
 	var big;big=choose(1,2);
-	// if (big=1) or (argument1="minor") then t5="";
-	if (argument1="minor"){t4="";t5="";t3+="|mnr";}
-	if (argument1="inquisition") then t3+="|inq";
-	if ((argument1="daemonic") or (argument1="Daemonic")) and (t2!="Tome") then t3="Daemonic"+choose("1a","2a","3a","4a");
-	if ((argument1="daemonic") or (argument1="Daemonic")) and (t2="Tome") then t3="Daemonic"+choose("2a","3a","4a");
-	if (argument0="chaos_gift") then t3="|cgfDaemonic3a";
+	// if (big=1) or (tags="minor") then t5="";
+	if (tags="minor"){t4="";t5="";t3+="|mnr";}
+	if (tags="inquisition") then t3+="|inq";
+	if ((tags="daemonic") or (tags="Daemonic")) and (t2!="Tome") then t3="Daemonic"+choose("1a","2a","3a","4a");
+	if ((tags="daemonic") or (tags="Daemonic")) and (t2="Tome") then t3="Daemonic"+choose("2a","3a","4a");
+	if (type="chaos_gift") then t3="|cgfDaemonic3a";
 	// show_message(string(t3));
 
 	obj_ini.artifact[last_artifact]=t2;
@@ -140,10 +140,10 @@ function scr_add_artifact(argument0, argument1, argument2, argument3, argument4)
 
 	// show_message(string(obj_ini.artifact_tags[last_artifact]));
 
-	obj_ini.artifact_identified[last_artifact]=argument2;
+	obj_ini.artifact_identified[last_artifact]=identified;
 	obj_ini.artifact_condition[last_artifact]=100;
-	obj_ini.artifact_loc[last_artifact]=argument3;
-	obj_ini.artifact_sid[last_artifact]=argument4;
+	obj_ini.artifact_loc[last_artifact]=location;
+	obj_ini.artifact_sid[last_artifact]=sid;
 
 	obj_controller.artifacts+=1;
 
