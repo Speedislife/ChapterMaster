@@ -25,8 +25,8 @@ enum P_features {
 			Gene_Vault,
 	};
 	
-enum base_type{
-	Lair,
+enum BASE_TYPE{
+	LAIR,
 }
 	// Function creates a new struct planet feature of a  specified type
 function new_planet_feature(feature_type, other_data={}) constructor{
@@ -44,7 +44,7 @@ function new_planet_feature(feature_type, other_data={}) constructor{
 		planet_display = "Dormant Necron Tomb";
 		break;
 	case P_features.Secret_Base:
-		base_type = 0;
+		base_type = BASE_TYPE.LAIR;
 		inquis_hidden =1;
 		planet_display = "Hidden Secret Base";
 		player_hidden = 0;
